@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 
+/// Holds all possibilities for AVAudioSession types. Also provides a method for easily getting it.
 public enum SoundCategory {
     
     /// Equivalent of AVAudioSessionCategoryAmbient.
@@ -67,7 +68,7 @@ class Sound{
     /// Index of the player on the audioPlayer array
     var index: Int?
     
-    
+    // MARK: - Methods
     
     /// Initializer for the Sound object
     ///
@@ -81,10 +82,32 @@ class Sound{
             
             // Sets the object player index on the array
             self.index = Sound.audioPlayers.count-1
+            
         }catch let error {
             print("Initialization error: \(error)")
         }
     }
     
     
+    /// Plays the corresponding sound
+    func play(){
+        let player = Sound.audioPlayers[self.index!]
+        player.prepareToPlay()
+        player.play()
+    }
+    
+    /// Stops playing the sound
+    func stop(){
+        let player = Sound.audioPlayers[self.index!]
+        player.stop()
+    }
 }
+
+
+
+
+
+
+
+
+
