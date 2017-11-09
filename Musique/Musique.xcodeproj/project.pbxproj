@@ -10,7 +10,7 @@
 		402D1ED51FB4AE2F00A8AD97 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 402D1ED41FB4AE2F00A8AD97 /* Tiles.sks */; };
 		402D1EE41FB4B37E00A8AD97 /* Dog_and_Pony_Show.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 402D1EE11FB4B37E00A8AD97 /* Dog_and_Pony_Show.mp3 */; };
 		402D1EE51FB4B37E00A8AD97 /* Ponies_and_Balloons.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 402D1EE21FB4B37E00A8AD97 /* Ponies_and_Balloons.mp3 */; };
-		402D1EE61FB4B37E00A8AD97 /* The_Muffin_Man_Instrumental.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man_Instrumental.mp3 */; };
+		402D1EE61FB4B37E00A8AD97 /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man.mp3 */; };
 		FE2B63361FA9EF7B002A48BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2B63351FA9EF7B002A48BA /* AppDelegate.swift */; };
 		FE2B63381FA9EF7B002A48BA /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE2B63371FA9EF7B002A48BA /* GameScene.sks */; };
 		FE2B633A1FA9EF7B002A48BA /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE2B63391FA9EF7B002A48BA /* Actions.sks */; };
@@ -36,7 +36,7 @@
 		402D1ED41FB4AE2F00A8AD97 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		402D1EE11FB4B37E00A8AD97 /* Dog_and_Pony_Show.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dog_and_Pony_Show.mp3; sourceTree = "<group>"; };
 		402D1EE21FB4B37E00A8AD97 /* Ponies_and_Balloons.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Ponies_and_Balloons.mp3; sourceTree = "<group>"; };
-		402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man_Instrumental.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man_Instrumental.mp3; sourceTree = "<group>"; };
+		402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man.mp3; sourceTree = "<group>"; };
 		FE2B63321FA9EF7B002A48BA /* Musique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE2B63351FA9EF7B002A48BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2B63371FA9EF7B002A48BA /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 			children = (
 				402D1EE11FB4B37E00A8AD97 /* Dog_and_Pony_Show.mp3 */,
 				402D1EE21FB4B37E00A8AD97 /* Ponies_and_Balloons.mp3 */,
-				402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man_Instrumental.mp3 */,
+				402D1EE31FB4B37E00A8AD97 /* The_Muffin_Man.mp3 */,
 			);
 			path = Songs;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				FE2B63431FA9EF7B002A48BA /* Assets.xcassets in Resources */,
 				402D1ED51FB4AE2F00A8AD97 /* Tiles.sks in Resources */,
 				FE2B63461FA9EF7B002A48BA /* LaunchScreen.storyboard in Resources */,
-				402D1EE61FB4B37E00A8AD97 /* The_Muffin_Man_Instrumental.mp3 in Resources */,
+				402D1EE61FB4B37E00A8AD97 /* The_Muffin_Man.mp3 in Resources */,
 				402D1EE51FB4B37E00A8AD97 /* Ponies_and_Balloons.mp3 in Resources */,
 				FE2B633A1FA9EF7B002A48BA /* Actions.sks in Resources */,
 			);
