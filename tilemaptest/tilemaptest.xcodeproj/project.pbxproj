@@ -17,6 +17,7 @@
 		403B64201FB3658300B12B63 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403B641E1FB3658300B12B63 /* LaunchScreen.storyboard */; };
 		403B64281FB3663100B12B63 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 403B64271FB3663100B12B63 /* Tiles.sks */; };
 		40B97D021FB4C8D800F1762C /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97D011FB4C8D800F1762C /* Sound.swift */; };
+		40B97D041FB4D5B400F1762C /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 40B97D031FB4D5B400F1762C /* The_Muffin_Man.mp3 */; };
 		40E35BD01FB3BD7000690B2A /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E35BCF1FB3BD7000690B2A /* ObstacleNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		403B64211FB3658300B12B63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		403B64271FB3663100B12B63 /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		40B97D011FB4C8D800F1762C /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		40B97D031FB4D5B400F1762C /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = The_Muffin_Man.mp3; path = ../../Musique/Musique/Songs/The_Muffin_Man.mp3; sourceTree = "<group>"; };
 		40E35BCF1FB3BD7000690B2A /* ObstacleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,18 +68,19 @@
 		403B640E1FB3658300B12B63 /* tilemaptest */ = {
 			isa = PBXGroup;
 			children = (
+				40B97D031FB4D5B400F1762C /* The_Muffin_Man.mp3 */,
 				403B640F1FB3658300B12B63 /* AppDelegate.swift */,
 				403B64111FB3658300B12B63 /* GameScene.sks */,
 				403B64271FB3663100B12B63 /* Tiles.sks */,
 				403B64131FB3658300B12B63 /* Actions.sks */,
 				403B64151FB3658300B12B63 /* GameScene.swift */,
+				40B97D011FB4C8D800F1762C /* Sound.swift */,
 				403B64171FB3658300B12B63 /* GameViewController.swift */,
 				403B64191FB3658300B12B63 /* Main.storyboard */,
 				403B641C1FB3658300B12B63 /* Assets.xcassets */,
 				403B641E1FB3658300B12B63 /* LaunchScreen.storyboard */,
 				403B64211FB3658300B12B63 /* Info.plist */,
 				40E35BCF1FB3BD7000690B2A /* ObstacleNode.swift */,
-				40B97D011FB4C8D800F1762C /* Sound.swift */,
 			);
 			path = tilemaptest;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				403B64121FB3658300B12B63 /* GameScene.sks in Resources */,
 				403B641D1FB3658300B12B63 /* Assets.xcassets in Resources */,
 				403B64281FB3663100B12B63 /* Tiles.sks in Resources */,
+				40B97D041FB4D5B400F1762C /* The_Muffin_Man.mp3 in Resources */,
 				403B64201FB3658300B12B63 /* LaunchScreen.storyboard in Resources */,
 				403B64141FB3658300B12B63 /* Actions.sks in Resources */,
 			);

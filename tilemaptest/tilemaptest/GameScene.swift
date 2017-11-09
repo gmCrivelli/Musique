@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var muffinMan:Sound?
+    
     // Ground node and its initial position
     private var groundNode1: SKTileMapNode?
     private var originalPosition:CGPoint?
@@ -54,6 +56,12 @@ class GameScene: SKScene {
             self.timer?.fire()
         }
         
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "The_Muffin_Man", ofType: "mp3")!)
+        muffinMan = Sound(url: url)
+        
+        muffinMan?.play{
+            self.timer?.invalidate()
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
