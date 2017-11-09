@@ -41,13 +41,10 @@ public enum SoundCategory {
     }
 }
 
-
-class Sound{
+/// This class provides simple manipulation for audio objects using AVFoundation
+class Sound: NSObject, AVAudioPlayerDelegate{
     
-    // MARK: - Static Parameters
-    
-    /// Holds every audio player instanced
-    static var audioPlayers = [AVAudioPlayer]()
+    // MARK: - Static Parameters (Audio Session)
     
     /// Holds the audio session for playing the audio
     static var session = AVAudioSession.sharedInstance()
@@ -65,46 +62,72 @@ class Sound{
     
     // MARK: - Sound Instance Parameters
     
-    /// Index of the player on the audioPlayer array
-    var index: Int?
+    /// Object audio player
+    private var player:AVAudioPlayer = AVAudioPlayer()
+    
+    /// Song beats per minute
+    var bpm:Int?
+    
+    /// Completion block to be executed after sound is finished playing
+    private var completion : () -> Void = {}
     
     // MARK: - Methods
     
     /// Initializer for the Sound object
     ///
-    /// - Parameter url: url containing the sound file path.
-    init(url: URL){
+    /// - Parameters
+    ///     - url: url containing the sound file path.
+    ///     - bpm: the amount of beats per minute of the song.
+    init(url: URL, bpm: Int = 0){
+        // NSObject init
+        super.init()
+        
+        // Sets the song BPM
+        self.bpm = bpm
+        
         do{
             // Instantiates the player with the contents of the URL
-            let player = try AVAudioPlayer(contentsOf: url)
-            // Appends it to the array
-            Sound.audioPlayers.append(player)
-            
-            // Sets the object player index on the array
-            self.index = Sound.audioPlayers.count-1
-            
+            self.player = try AVAudioPlayer(contentsOf: url)
+            // Sets the player delegate property to self
+            self.player.delegate = self
         }catch let error {
             print("Initialization error: \(error)")
         }
     }
     
-    
     /// Plays the corresponding sound
     func play(){
-        let player = Sound.audioPlayers[self.index!]
-        player.prepareToPlay()
-        player.play()
+        self.player.prepareToPlay()
+        self.player.play()
+    }
+    
+    
+    /// Plays sound corresponding to the audioplayer
+    ///
+    /// - Parameter completion: completion block to be executed when the song ends
+    func play(_ completion: @escaping () -> Void){
+        self.completion = completion
+        
+        self.player.prepareToPlay()
+        self.player.play()
     }
     
     /// Stops playing the sound
     func stop(){
-        let player = Sound.audioPlayers[self.index!]
-        player.stop()
+        self.player.stop()
+    }
+    
+    // MARK: - Audioplayer Delegate methods
+    
+    ///  This Audioplayer delegate method is called when the player finishes playing
+    ///
+    /// - Parameters:
+    ///   - player: player object that finished playing
+    ///   - flag: indicates whether it ended successfuly
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.completion()
     }
 }
-
-
-
 
 
 
