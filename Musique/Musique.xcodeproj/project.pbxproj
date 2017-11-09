@@ -24,6 +24,8 @@
 		FEB290C31FB33F2900CBB0C9 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB290C21FB33F2900CBB0C9 /* Player.swift */; };
 		FEB290C51FB3439800CBB0C9 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB290C41FB3439800CBB0C9 /* GameObject.swift */; };
 		FEB290C71FB3534500CBB0C9 /* PhysicsComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB290C61FB3534500CBB0C9 /* PhysicsComponent.swift */; };
+		FEC7FCA81FB48831006AE11C /* PatternInstantiator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7FCA71FB48831006AE11C /* PatternInstantiator.swift */; };
+		FEC7FCAA1FB48EC3006AE11C /* CGPointExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC7FCA91FB48EC3006AE11C /* CGPointExtension.swift */; };
 		FEE105551FB0D8ED0097FF5F /* TypeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE105541FB0D8ED0097FF5F /* TypeComponent.swift */; };
 		FEE105581FB0DB7C0097FF5F /* Fence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE105571FB0DB7C0097FF5F /* Fence.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		FEB290C21FB33F2900CBB0C9 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FEB290C41FB3439800CBB0C9 /* GameObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		FEB290C61FB3534500CBB0C9 /* PhysicsComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsComponent.swift; sourceTree = "<group>"; };
+		FEC7FCA71FB48831006AE11C /* PatternInstantiator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternInstantiator.swift; sourceTree = "<group>"; };
+		FEC7FCA91FB48EC3006AE11C /* CGPointExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtension.swift; sourceTree = "<group>"; };
 		FEE105541FB0D8ED0097FF5F /* TypeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeComponent.swift; sourceTree = "<group>"; };
 		FEE105571FB0DB7C0097FF5F /* Fence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +89,7 @@
 				FE2B63501FA9EFEA002A48BA /* Components */,
 				FE2B634F1FA9EFE2002A48BA /* Entities */,
 				FE2B63351FA9EF7B002A48BA /* AppDelegate.swift */,
+				FEC7FCA91FB48EC3006AE11C /* CGPointExtension.swift */,
 				FE2B63371FA9EF7B002A48BA /* GameScene.sks */,
 				FE2B63391FA9EF7B002A48BA /* Actions.sks */,
 				FE2B633B1FA9EF7B002A48BA /* GameScene.swift */,
@@ -104,6 +109,7 @@
 				FEB290C21FB33F2900CBB0C9 /* Player.swift */,
 				FE2B63511FA9F017002A48BA /* EntityManager.swift */,
 				FEE105561FB0DB690097FF5F /* Obstacles */,
+				FEC7FCA71FB48831006AE11C /* PatternInstantiator.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -209,6 +215,7 @@
 				FE2B633C1FA9EF7B002A48BA /* GameScene.swift in Sources */,
 				FE2B63541FA9F064002A48BA /* MoveComponent.swift in Sources */,
 				FEE105551FB0D8ED0097FF5F /* TypeComponent.swift in Sources */,
+				FEC7FCAA1FB48EC3006AE11C /* CGPointExtension.swift in Sources */,
 				FEB290C51FB3439800CBB0C9 /* GameObject.swift in Sources */,
 				FEB290C31FB33F2900CBB0C9 /* Player.swift in Sources */,
 				FE2B633E1FA9EF7B002A48BA /* GameViewController.swift in Sources */,
@@ -217,6 +224,7 @@
 				FEB290BF1FB1E35E00CBB0C9 /* PlayerState.swift in Sources */,
 				FE2B63361FA9EF7B002A48BA /* AppDelegate.swift in Sources */,
 				FEB290C11FB33E9E00CBB0C9 /* InputComponent.swift in Sources */,
+				FEC7FCA81FB48831006AE11C /* PatternInstantiator.swift in Sources */,
 				FEE105581FB0DB7C0097FF5F /* Fence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

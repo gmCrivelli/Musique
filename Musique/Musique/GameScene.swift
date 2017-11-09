@@ -18,26 +18,25 @@ class GameScene: SKScene {
     }
 
     func setupEntities() {
-//        entityManager = EntityManager(scene: self)
-//        entityManager.delegateGameScene = self
-//        
-//        let patternInstantiator = PatternInstantiator(entityManager: entityManager)
-//        
-//        var actionSequence = [SKAction]()
-//        
-//        for (t, pc) in patternInstantiator.patternArray {
-//            
-//            let waitAction = SKAction.wait(forDuration: t)
-//            
-//            let cannonAction = SKAction.run {
-//                self.run(SKAction.sequence(pc.sequence))
-//            }
-//            
-//            actionSequence.append(waitAction)
-//            actionSequence.append(cannonAction)
-//        }
-//        
-//        self.run(SKAction.sequence(actionSequence))
+        entityManager = EntityManager(scene: self)
+        
+        let patternInstantiator = PatternInstantiator(entityManager: entityManager)
+        
+        var actionSequence = [SKAction]()
+        
+        for (t, pc) in patternInstantiator.patternArray {
+            
+            let waitAction = SKAction.wait(forDuration: t)
+            
+            let cannonAction = SKAction.run {
+                self.run(SKAction.sequence(pc.sequence))
+            }
+            
+            actionSequence.append(waitAction)
+            actionSequence.append(cannonAction)
+        }
+        
+        self.run(SKAction.sequence(actionSequence))
     }
     
     
