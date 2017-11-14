@@ -27,40 +27,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var playerOrigin : CGPoint!
     private var player : SKSpriteNode!
     private var playerWalkingFrames : [SKTexture]!
-
+    private var playerHasBeenHit : Bool = false
+    private var playerInvincibilityTime : TimeInterval = 0.1
+    private var timeUntilInvincibilityEnds : TimeInterval = 0.0
+    
+    // Obstacle-related properties
     private var obstaclesParent : SKNode?
     private let moveSpeedPerSecond = 400.0
     private var originalPosition:CGPoint?
     
     // Configure contact masks
-    let playerCategory : UInt32 = 0b1
-    let floorCategory : UInt32 = 0b10
-    let obstacleCategory : UInt32 = 0b100
+    private let playerCategory : UInt32 = 0b1
+    private let floorCategory : UInt32 = 0b10
+    private let obstacleCategory : UInt32 = 0b100
+    
+    // Preloaded actions
+    private var jumpAction : SKAction!
+    private var spawnObstacleAction : SKAction!
+    private var crashAction : SKAction!
+    
     
     private var tileMap : SKTileMapNode!
     
     private var floorHeight: CGFloat!
 
-    private var muffinMan:Sound?
+    private var bgMusic:Sound?
     private var gruntSound:Sound?
     
     override func didMove(to view: SKView) {
         
         //Setup all music
         let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: "The_Muffin_Man", ofType: "mp3")!)
-        muffinMan = Sound(url: filePath, bpm: 90)
+        bgMusic = Sound(url: filePath, bpm: 90)
         
-        let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: "grunt", ofType: "m4a")!)
-        gruntSound = Sound(url: filePath)
+        let gruntPath = URL(fileURLWithPath: Bundle.main.path(forResource: "grunt1", ofType: "wav")!)
+        gruntSound = Sound(url: gruntPath)
     
         //Configure background
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
         self.player.physicsBody?.categoryBitMask = playerCategory
-        self.player.physicsBody?.collisionBitMask = floorCategory
+        self.player.physicsBody?.collisionBitMask = 0 //floorCategory
         self.player.physicsBody?.contactTestBitMask = floorCategory | obstacleCategory
         self.player.physicsBody?.restitution = 0
+        self.player.physicsBody?.affectedByGravity = false
         
         self.playerOrigin = self.player.position
         
@@ -78,6 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         player.texture = playerWalkingFrames[0]
         
+        // Setup ground
         self.tileMap = self.childNode(withName: "Tile Map Node") as? SKTileMapNode
         self.tileMap.physicsBody = SKPhysicsBody(
                 rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
@@ -85,33 +97,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.tileMap.physicsBody?.affectedByGravity = false
         self.tileMap.physicsBody?.isDynamic = false
         self.tileMap.physicsBody?.categoryBitMask = floorCategory
+        self.tileMap.physicsBody?.fieldBitMask = 0
         self.tileMap.physicsBody?.restitution = 0
         
-        print(self.physicsWorld.gravity)
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -22)
-        
         originalPosition = tileMap.position
         
-        self.obstaclesParent = childNode(withName: "Obstacles")
-//        run(SKAction.repeatForever(SKAction.sequence(
-//            [SKAction.run() { [weak self] in self?.spawnObstacle() },
-//             SKAction.wait(forDuration: 2.0)])))
-        
-        let createObstacleAction = SKAction.run {
-            self.addObstacle()
+        // Setup actions
+        let createObstacleAction = SKAction.run { [weak self] in
+            self?.addObstacle()
         }
+        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+        let obstacleSequence = SKAction.sequence([createObstacleAction, waitForNext])
+        self.spawnObstacleAction = SKAction.sequence([SKAction.wait(forDuration: 30.0/Double(bgMusic!.bpm!)),SKAction.repeatForever(obstacleSequence)])
         
-        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(muffinMan!.bpm!))
-        let sequence = SKAction.sequence([createObstacleAction, waitForNext])
-        self.run(SKAction.sequence([SKAction.wait(forDuration: 30.0/Double(muffinMan!.bpm!)),SKAction.repeatForever(sequence)]))
+        let upAction = SKAction.moveBy(x: 0, y: 140, duration: 0.3)
+        let upDownSequence = SKAction.sequence([upAction, upAction.reversed()])
+        let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(M_PI), duration: 0.6)
+        self.jumpAction = SKAction.group([upDownSequence, rotateAction])
         
+        let gruntAction = SKAction.playSoundFileNamed("grunt.wav", waitForCompletion: false)
+        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: 0.2)
+        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: 0.2)
+        
+        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction])
+        self.crashAction = SKAction.group([gruntAction, blinkSequence])
+        
+        // Setup obstacles
+        self.obstaclesParent = childNode(withName: "Obstacles")
+        
+        // Setup physics
         self.view?.showsPhysics = true
         self.physicsWorld.contactDelegate = self
         
+        // Start the game
+        self.run(spawnObstacleAction)
         startWalking()
         
-        muffinMan?.play{
-            // Completioni block for when music ends
+        bgMusic?.play{
+            // Completion block for when music ends
             print("musica acabou")
         }
     }
@@ -125,8 +149,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func jump() {
         if playerState == .onFloor {
             playerState = .jumping
-            player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
-            player.run(SKAction.rotate(byAngle: -2.3 * CGFloat(M_PI), duration: 0.6))
+            //player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
+            player.run(jumpAction) {
+                self.playerState = .onFloor
+                self.startWalking()
+            }
         }
     }
     
@@ -138,24 +165,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         
-        // Player collides with floor
-        if (contact.bodyA.categoryBitMask == playerCategory) &&
-            (contact.bodyB.categoryBitMask == floorCategory) &&
-            playerState == .jumping {
-            
-            playerState = .onFloor
-            player.removeAllActions()
-            player.run(SKAction.rotate(toAngle: 0, duration: 0))
-            startWalking()
-            //player.zRotation = 0
-            //player.position = playerOrigin
-        }
-        
         // Player collides with obstacle
         if (contact.bodyA.categoryBitMask == playerCategory) &&
-            (contact.bodyB.categoryBitMask == obstacleCategory) {
-            
-            self.gruntSound.play()
+            (contact.bodyB.categoryBitMask == obstacleCategory) &&
+            !playerHasBeenHit {
+            playerHasBeenHit = true
+            player.run(crashAction) { self.playerHasBeenHit = false }
         }
     }
     
@@ -168,16 +183,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         lastUpdateTime = currentTime
         
+        // Reset player horizontal position, to be safe
         player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
         
+        // Calculate actual distance elapsed since last update
         let actualOffset = CGFloat(moveSpeedPerSecond * dt)
         
+        // Move the ground
         tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
         // In case the ground has reached a limit distance, returns it to the initial position
         if tileMap.position.x <= 0 {
             tileMap.position = originalPosition!
         }
         
+        // Move obstacles
         if let obstaculos = obstaclesParent?.children{
             // For each obstacle
             for obs in obstaculos{

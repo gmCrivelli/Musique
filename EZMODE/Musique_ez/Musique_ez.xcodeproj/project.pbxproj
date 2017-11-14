@@ -11,6 +11,8 @@
 		64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */; };
 		6499568C1FB5C0BD00AD8369 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */; };
 		649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
+		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
+		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
 		FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */; };
 		FE7C99CC1FB4BBC5006E7CCD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */; };
@@ -26,9 +28,10 @@
 /* Begin PBXFileReference section */
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man.mp3; sourceTree = "<group>"; };
-		64967BA11FB5E01F004F39BC /* grunt.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = grunt.m4a; sourceTree = "<group>"; };
 		6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleNode.swift; path = ../../../tilemaptest/tilemaptest/ObstacleNode.swift; sourceTree = "<group>"; };
 		6499568F1FB5C4C600AD8369 /* Caipora.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Caipora.atlas; sourceTree = "<group>"; };
+		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
+		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -73,8 +76,9 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				FE00ED381FBB17B900C54F1D /* grunt2.wav */,
+				FE75FEB71FBAFFFE001B4116 /* grunt1.wav */,
 				64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */,
-				64967BA11FB5E01F004F39BC /* grunt.m4a */,
 				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
@@ -156,9 +160,11 @@
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
+				FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */,
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
 				FE7C99D81FB4BBC5006E7CCD /* LaunchScreen.storyboard in Resources */,
 				649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */,
+				FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */,
 				FE7C99CC1FB4BBC5006E7CCD /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

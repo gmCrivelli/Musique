@@ -8,6 +8,9 @@
 import Foundation
 import AVFoundation
 
+/// ATTENTION: THIS CLASS IS FOR MUSIC ONLY.
+/// FOR SOUND EFFECTS, USE SKACTIONS.
+
 /// Holds all possibilities for AVAudioSession types. Also provides a method for easily getting it.
 public enum SoundCategory {
     
