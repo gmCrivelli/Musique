@@ -11,7 +11,7 @@ import GameplayKit
 
 class ObstacleNode: SKSpriteNode {
     init(){
-        super.init(texture: nil, color: .gray, size: CGSize(width: 50, height: 50))
+        super.init(texture: SKTexture(imageNamed: "foliagePack_056"), color: .gray, size: CGSize(width: 75, height: 75))
         self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 4

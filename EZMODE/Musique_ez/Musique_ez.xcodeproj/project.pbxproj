@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
 		64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */; };
 		6499568C1FB5C0BD00AD8369 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man.mp3; sourceTree = "<group>"; };
 		6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleNode.swift; path = ../../../tilemaptest/tilemaptest/ObstacleNode.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				FE7C99D61FB4BBC5006E7CCD /* LaunchScreen.storyboard */,
 				FE7C99D91FB4BBC5006E7CCD /* Info.plist */,
 				FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */,
+				4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */,
 			);
 			path = Musique_ez;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				FE7C99CE1FB4BBC5006E7CCD /* GameScene.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				6499568C1FB5C0BD00AD8369 /* ObstacleNode.swift in Sources */,
+				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
@@ -319,7 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = X6FRCZP2YP;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-ez";
@@ -334,7 +338,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = X6FRCZP2YP;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-ez";

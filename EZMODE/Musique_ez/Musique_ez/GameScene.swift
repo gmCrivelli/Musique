@@ -34,7 +34,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
     private let moveSpeedPerSecond = 400.0
-    private var originalPosition:CGPoint?
+    private var originalPosition : CGPoint?
+    
+    //Paralax elements
+    private var flyingScenarioObjects : SKNode?
+    private var groundedScenarioObjects : SKNode?
     
     // Configure contact masks
     private let playerCategory : UInt32 = 0b1
@@ -46,6 +50,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
     
+    private var forestNode : SKSpriteNode!
     
     private var tileMap : SKTileMapNode!
     
@@ -64,6 +69,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gruntSound = Sound(url: gruntPath)
     
         //Configure background
+        self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
+        self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
+        
+        self.forestNode = childNode(withName: "Background") as! SKSpriteNode
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
@@ -115,6 +124,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let upDownSequence = SKAction.sequence([upAction, upAction.reversed()])
         let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(M_PI), duration: 0.6)
         self.jumpAction = SKAction.group([upDownSequence, rotateAction])
+        
+        let createFlyingObjectAction = SKAction.run {
+            self.spawnScenarioObject(isGroundObject: false)
+        }
+        
+        let createGroundedObjectAction = SKAction.run {
+            self.spawnScenarioObject(isGroundObject: true)
+        }
+        
+        let waitForNextObstacle = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+        let obstaclesSequence = SKAction.sequence([createObstacleAction, waitForNextObstacle])
+        self.run(SKAction.sequence([SKAction.wait(forDuration: 30.0/Double(bgMusic!.bpm!)),SKAction.repeatForever(obstaclesSequence)]))
+        
+        let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.8)
+        let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
+        self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
+
+        let waitForNexFlyingtScenarioObject = SKAction.wait(forDuration: 8)
+        let flyingObjectsSequence = SKAction.sequence([createFlyingObjectAction, waitForNexFlyingtScenarioObject])
+        self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(flyingObjectsSequence)]))
         
         let gruntAction = SKAction.playSoundFileNamed("grunt.wav", waitForCompletion: false)
         let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: 0.2)
@@ -174,6 +203,31 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func randomizeTexture(isGroundObject: Bool) -> SKTexture{
+        var textures = [SKTexture]()
+        
+        if(isGroundObject){
+            textures.append(SKTexture(imageNamed: "foliagePack_007"))
+            textures.append(SKTexture(imageNamed: "foliagePack_008"))
+            textures.append(SKTexture(imageNamed: "foliagePack_012"))
+        }else{
+            textures.append(SKTexture(imageNamed: "Nuvem"))
+            textures.append(SKTexture(imageNamed: "Nuvem2"))
+        }
+        
+        let randomNumber = Int(arc4random_uniform(UInt32(textures.count)))
+        
+        return textures[randomNumber]
+    }
+    
+    func spawnScenarioObject(isGroundObject : Bool){
+        if(isGroundObject){
+            groundedScenarioObjects!.addChild(ScenarioObjectNode(isGroundObject: true, layer: 0, texture: randomizeTexture(isGroundObject: true)))
+        } else {
+            flyingScenarioObjects!.addChild(ScenarioObjectNode(isGroundObject: false, layer: 0, texture: randomizeTexture(isGroundObject: false)))
+        }
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         if lastUpdateTime > 0 {
@@ -196,6 +250,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             tileMap.position = originalPosition!
         }
         
+        let originalForestPosition = forestNode.position
+        forestNode.position = CGPoint(x: forestNode.position.x - (actualOffset / 7), y: forestNode.position.y)
+        if forestNode.position.x <= 0 {
+            forestNode.position = originalForestPosition
+        }
+        
+        moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
+        moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
         // Move obstacles
         if let obstaculos = obstaclesParent?.children{
             // For each obstacle
@@ -209,6 +271,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         }
+    }
+    
+    func moveScenarioObjects(_ objects: SKNode, atLayer: Double){
+        
+        let movementSpeed = CGFloat(400 / atLayer * dt)
+        
+        let objs = objects.children
+        
+        for obj in objs{
+            obj.position = CGPoint(x:obj.position.x - movementSpeed, y: obj.position.y)
+            if(obj.position.x < 2 * (self.tileMap?.frame.minX)! - obj.frame.width){
+                // Removes the object from the parent node to avoid excessive memory use
+                obj.removeFromParent()
+            }
+        }
+        
     }
     
     @objc func addObstacle() -> Void{
