@@ -117,6 +117,12 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     /// Stops playing the sound
     func stop(){
         self.player.stop()
+        self.player.currentTime = 0.0
+    }
+    
+    /// Pauses the song
+    func pause(){
+        self.player.pause()
     }
     
     // MARK: - Audioplayer Delegate methods
