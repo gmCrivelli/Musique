@@ -51,6 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var crashAction : SKAction!
     
     private var forestNode : SKSpriteNode!
+    private var originalForestPosition : CGPoint!
     
     private var tileMap : SKTileMapNode!
     
@@ -73,6 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
         
         self.forestNode = childNode(withName: "Background") as! SKSpriteNode
+        originalForestPosition = CGPoint(x: 1000, y: forestNode.position.y)
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
@@ -250,9 +252,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             tileMap.position = originalPosition!
         }
         
-        let originalForestPosition = forestNode.position
         forestNode.position = CGPoint(x: forestNode.position.x - (actualOffset / 7), y: forestNode.position.y)
-        if forestNode.position.x <= 0 {
+        if forestNode.position.x <= 320{
             forestNode.position = originalForestPosition
         }
         
