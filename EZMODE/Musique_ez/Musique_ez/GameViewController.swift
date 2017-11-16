@@ -37,9 +37,13 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBAction func handleTap(_ sender: Any) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         gameScene.jump()
     }
+    
+//    @IBAction func handleTap(_ sender: Any) {
+//        gameScene.jump()
+//    }
     
     override var shouldAutorotate: Bool {
         return true

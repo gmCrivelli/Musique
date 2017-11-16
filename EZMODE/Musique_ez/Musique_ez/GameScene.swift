@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import SpriteKitEasingSwift
 import GameplayKit
 
 enum PlayerState : Int {
@@ -16,10 +17,12 @@ enum PlayerState : Int {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var whatever: SKNode!
+
     // Time control
     private var lastUpdateTime: TimeInterval = 0
     private var dt: TimeInterval = 0
-    
+
     // Player-related properties
     private var playerState : PlayerState = .onFloor
     private var playerAccel = CGPoint(x: 0, y: -6000)
@@ -27,13 +30,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var playerOrigin : CGPoint!
     private var player : SKSpriteNode!
     private var playerWalkingFrames : [SKTexture]!
-    private var playerHasBeenHit : Bool = false
-    private var playerInvincibilityTime : TimeInterval = 0.1
-    private var timeUntilInvincibilityEnds : TimeInterval = 0.0
+    private var playerIsInvincible : Bool = false
+    private var playerInvincibilityTime : TimeInterval = 0.9
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
-    private let moveSpeedPerSecond = 400.0
+    private var moveSpeedPerSecond = 500.0
     private var originalPosition : CGPoint?
     
     //Paralax elements
@@ -52,15 +54,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var forestNode : SKSpriteNode!
     private var originalForestPosition : CGPoint!
-    
     private var tileMap : SKTileMapNode!
+    
+    // Labels and Interface
     
     private var floorHeight: CGFloat!
 
     private var bgMusic:Sound?
     private var gruntSound:Sound?
     
+    private var score : Int!
+    private var multiplier : Int!
+    
     override func didMove(to view: SKView) {
+        
+        whatever = self.childNode(withName: "whatever")
+        
         
         //Setup all music
         let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: "The_Muffin_Man", ofType: "mp3")!)
@@ -120,12 +129,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
         let obstacleSequence = SKAction.sequence([createObstacleAction, waitForNext])
-        self.spawnObstacleAction = SKAction.sequence([SKAction.wait(forDuration: 30.0/Double(bgMusic!.bpm!)),SKAction.repeatForever(obstacleSequence)])
+        self.spawnObstacleAction = SKAction.repeatForever(obstacleSequence)
         
-        let upAction = SKAction.moveBy(x: 0, y: 140, duration: 0.3)
-        let upDownSequence = SKAction.sequence([upAction, upAction.reversed()])
-        let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(M_PI), duration: 0.6)
-        self.jumpAction = SKAction.group([upDownSequence, rotateAction])
+        let initialPosition = player.position
+        let customJumpAction = SKAction.customAction(withDuration: 0.4, actionBlock: { (node, timeElapsed) in
+            let t = CGFloat(Double.pi) * timeElapsed / 0.4
+
+            node.position = CGPoint(x: initialPosition.x, y: initialPosition.y + 120 * sin(t))
+            })
+        
+        let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: 120))
+        let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: 120), to: initialPosition)
+        let jumpSequence = SKAction.sequence([customJumpUp, customJumpDown])
+        
+        let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(Double.pi), duration: 0.45)
+        self.jumpAction = SKAction.group([jumpSequence, rotateAction])
         
         let createFlyingObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: false)
@@ -134,11 +152,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let createGroundedObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: true)
         }
-        
-        let waitForNextObstacle = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
-        let obstaclesSequence = SKAction.sequence([createObstacleAction, waitForNextObstacle])
-        self.run(SKAction.sequence([SKAction.wait(forDuration: 30.0/Double(bgMusic!.bpm!)),SKAction.repeatForever(obstaclesSequence)]))
-        
+    
         let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.8)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
@@ -147,11 +161,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let flyingObjectsSequence = SKAction.sequence([createFlyingObjectAction, waitForNexFlyingtScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(flyingObjectsSequence)]))
         
-        let gruntAction = SKAction.playSoundFileNamed("grunt.wav", waitForCompletion: false)
-        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: 0.2)
-        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: 0.2)
+        let gruntAction = SKAction.playSoundFileNamed("grunt1.wav", waitForCompletion: false)
         
-        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction])
+        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 6.0)
+        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 6.0)
+        
+        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction, blinkAction, unblinkAction])
         self.crashAction = SKAction.group([gruntAction, blinkSequence])
         
         // Setup obstacles
@@ -162,6 +177,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         // Start the game
+        self.score = 0
+        self.multiplier = 1
         self.run(spawnObstacleAction)
         startWalking()
         
@@ -199,9 +216,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Player collides with obstacle
         if (contact.bodyA.categoryBitMask == playerCategory) &&
             (contact.bodyB.categoryBitMask == obstacleCategory) &&
-            !playerHasBeenHit {
-            playerHasBeenHit = true
-            player.run(crashAction) { self.playerHasBeenHit = false }
+            !playerIsInvincible {
+            playerIsInvincible = true
+            player.run(crashAction) { self.playerIsInvincible = false }
         }
     }
     
@@ -276,7 +293,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func moveScenarioObjects(_ objects: SKNode, atLayer: Double){
         
-        let movementSpeed = CGFloat(400 / atLayer * dt)
+        let movementSpeed = CGFloat(moveSpeedPerSecond / atLayer * dt)
         
         let objs = objects.children
         
@@ -291,7 +308,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     @objc func addObstacle() -> Void{
+        
+        let goalPosition = whatever.position.x //self.playerOrigin.x + 70
+        let r1 = (120.0 / Double(bgMusic!.bpm!)) * moveSpeedPerSecond + Double(goalPosition)
+        let offset = CGFloat(r1) - self.obstaclesParent!.position.x
+        
         // Adds a new obstacle to the parent node
-        self.obstaclesParent?.addChild(ObstacleNode())
+        self.obstaclesParent?.addChild(ObstacleNode(offset: offset))
+        print(obstaclesParent?.position.x, offset)
+        print(playerOrigin.x)
+        
+        self.moveSpeedPerSecond *= 1.01
     }
 }
