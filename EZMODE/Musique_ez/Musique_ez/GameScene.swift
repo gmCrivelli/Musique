@@ -35,8 +35,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
+    private var baseMoveSpeedPerSecond = 500.0
     private var moveSpeedPerSecond = 500.0
     private var originalPosition : CGPoint?
+    private var scoreCollider : SKNode!
     
     //Paralax elements
     private var flyingScenarioObjects : SKNode?
@@ -46,6 +48,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let playerCategory : UInt32 = 0b1
     private let floorCategory : UInt32 = 0b10
     private let obstacleCategory : UInt32 = 0b100
+    private let scoreCategory : UInt32 = 0b1000
     
     // Preloaded actions
     private var jumpAction : SKAction!
@@ -57,19 +60,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var tileMap : SKTileMapNode!
     
     // Labels and Interface
+    private var scoreLabel : SKLabelNode!
+    private var multiplierLabel : SKLabelNode!
     
     private var floorHeight: CGFloat!
 
     private var bgMusic:Sound?
     private var gruntSound:Sound?
     
-    private var score : Int!
-    private var multiplier : Int!
+    private var score : Int! {
+        didSet {
+            scoreLabel.text = String(format: "%06d", score!)
+        }
+    }
+    
+    private var multiplierArray = [-1,1,2,4,8,16]
+    private var multiplier : Int! {
+        didSet {
+            multiplierLabel.text = "\(multiplierArray[multiplier!])x"
+            multiplierLabel.removeAllActions()
+            
+            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double(self.multiplier! + 1)))), to: 1.0)
+            
+            multiplierLabel.run(SKAction.repeatForever(scaleAction))
+        }
+    }
+    private var totalObstaclesJumped : Int = 0
+    private var obstaclesJumpedInaRow : Int = 0
+    private let neededForMultiplier : Int = 5
     
     override func didMove(to view: SKView) {
-        
-        whatever = self.childNode(withName: "whatever")
-        
         
         //Setup all music
         let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: "The_Muffin_Man", ofType: "mp3")!)
@@ -84,6 +104,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.forestNode = childNode(withName: "Background") as! SKSpriteNode
         originalForestPosition = CGPoint(x: 1000, y: forestNode.position.y)
+        
+        self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
+        self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
+        self.scoreCollider.physicsBody?.categoryBitMask = scoreCategory
+        self.scoreCollider.physicsBody?.collisionBitMask = 0
+        self.scoreCollider.physicsBody?.contactTestBitMask = obstacleCategory
+        self.scoreCollider.physicsBody?.affectedByGravity = false
+        
+        // Configure HUD
+        self.scoreLabel = childNode(withName: "score") as! SKLabelNode
+        self.multiplierLabel = childNode(withName: "multiplier") as! SKLabelNode
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
@@ -217,8 +248,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (contact.bodyA.categoryBitMask == playerCategory) &&
             (contact.bodyB.categoryBitMask == obstacleCategory) &&
             !playerIsInvincible {
+            
+            self.moveSpeedPerSecond = self.baseMoveSpeedPerSecond
+            self.multiplier = 1
+            self.obstaclesJumpedInaRow = 0
             playerIsInvincible = true
             player.run(crashAction) { self.playerIsInvincible = false }
+            (contact.bodyB.node as! ObstacleNode).wasHit = 1 
+        }
+        
+        // Obstacle collides with scoreCollider
+        if (contact.bodyA.categoryBitMask ==  obstacleCategory) &&
+            (contact.bodyB.categoryBitMask == scoreCategory) {
+            if (contact.bodyA.node as! ObstacleNode).wasHit == 0 {
+                (contact.bodyA.node as! ObstacleNode).wasHit = 2
+                self.obstaclesJumpedInaRow += 1
+                self.totalObstaclesJumped += 1
+                self.score = self.score + self.multiplierArray[self.multiplier] * (contact.bodyA.node as! ObstacleNode).baseScore
+                
+                self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
+            }
         }
     }
     
@@ -276,12 +325,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
         moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
+        
         // Move obstacles
         if let obstaculos = obstaclesParent?.children{
             // For each obstacle
             for obs in obstaculos{
+                let obs = obs as! ObstacleNode
                 // Updates the obstacle position at the same rate as the ground
-                obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
+                obs.update(dt)
+                //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
                 // In case the obstacle has reached the outside of the screen
                 if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
                     // Removes the object from the parent node to avoid excessive memory use
@@ -309,12 +361,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func addObstacle() -> Void{
         
-        let goalPosition = whatever.position.x //self.playerOrigin.x + 70
+        let goalPosition = self.playerOrigin.x + 150
         let r1 = (120.0 / Double(bgMusic!.bpm!)) * moveSpeedPerSecond + Double(goalPosition)
         let offset = CGFloat(r1) - self.obstaclesParent!.position.x
         
         // Adds a new obstacle to the parent node
-        self.obstaclesParent?.addChild(ObstacleNode(offset: offset))
+        self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset))
         print(obstaclesParent?.position.x, offset)
         print(playerOrigin.x)
         

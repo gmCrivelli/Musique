@@ -10,14 +10,24 @@ import SpriteKit
 import GameplayKit
 
 class ObstacleNode: SKSpriteNode {
-    init(){
+    
+    // Stores if obstacle was hit to avoid subsequent hits
+    // 0 = no hit
+    // 1 = player hit (bad)
+    // 2 = score collider hit
+    public var wasHit : Int = 0
+    public var baseScore : Int = 5
+    public var obstacleSpeedPerSec : Double!
+    
+    init(speedPerSec: Double){
         super.init(texture: SKTexture(imageNamed: "foliagePack_056"), color: .gray, size: CGSize(width: 50, height: 60))
-        
+        self.obstacleSpeedPerSec = speedPerSec
         setupPhysics()
     }
     
-    init(offset: CGFloat) {
+    init(speedPerSec: Double, offset: CGFloat) {
         super.init(texture: SKTexture(imageNamed: "foliagePack_056"), color: .gray, size: CGSize(width: 50, height: 60))
+        self.obstacleSpeedPerSec = speedPerSec
         setupPhysics()
         self.position = CGPoint(x: offset, y: 0)
     }
@@ -27,7 +37,7 @@ class ObstacleNode: SKSpriteNode {
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 4
         self.physicsBody?.collisionBitMask = 2
-        self.physicsBody?.contactTestBitMask = 0
+        self.physicsBody?.contactTestBitMask = 0b1001
         self.physicsBody?.fieldBitMask = 0
         
         //        let offsetX : CGFloat = self.frame.size.width * self.anchorPoint.x
@@ -44,6 +54,9 @@ class ObstacleNode: SKSpriteNode {
         //        path.closeSubpath()
     }
     
+    func update(_ dt : TimeInterval) {
+        self.position = CGPoint(x: self.position.x - CGFloat(obstacleSpeedPerSec * dt), y: self.position.y)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
