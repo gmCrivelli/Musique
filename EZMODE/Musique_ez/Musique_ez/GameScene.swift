@@ -55,9 +55,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
     
-    private var forestNode : SKSpriteNode!
-    private var originalForestPosition : CGPoint!
+    private var paralaxScenarioNodeA : SKSpriteNode!
+    private var paralaxScenarioNodeB : SKSpriteNode!
+    private var originalScenarioPosition : CGPoint!
     private var tileMap : SKTileMapNode!
+    
+    private var screenEnd : CGFloat!
     
     // Labels and Interface
     private var scoreLabel : SKLabelNode!
@@ -102,8 +105,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
         
-        self.forestNode = childNode(withName: "Background") as! SKSpriteNode
-        originalForestPosition = CGPoint(x: 1000, y: forestNode.position.y)
+        self.paralaxScenarioNodeA = childNode(withName: "ParalaxScenario1") as! SKSpriteNode
+        self.paralaxScenarioNodeB = childNode(withName: "ParalaxScenario2") as! SKSpriteNode
+        
+        screenEnd = CGFloat((scene?.size.width)! / 2)
         
         self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
         self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
@@ -318,11 +323,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             tileMap.position = originalPosition!
         }
         
-        forestNode.position = CGPoint(x: forestNode.position.x - (actualOffset / 7), y: forestNode.position.y)
-        if forestNode.position.x <= 320{
-            forestNode.position = originalForestPosition
+        paralaxScenarioNodeA.position = CGPoint(x: paralaxScenarioNodeA.position.x - (actualOffset / 7), y: paralaxScenarioNodeA.position.y)
+        paralaxScenarioNodeB.position = CGPoint(x: paralaxScenarioNodeB.position.x - (actualOffset / 7), y: paralaxScenarioNodeB.position.y)
+        
+        if paralaxScenarioNodeA.position.x <= -screenEnd{
+            paralaxScenarioNodeA.position.x = screenEnd + paralaxScenarioNodeA.size.width
         }
         
+        if paralaxScenarioNodeB.position.x <= -screenEnd{
+            paralaxScenarioNodeB.position.x = screenEnd + paralaxScenarioNodeB.size.width
+        }
+    
         moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
         moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
         
