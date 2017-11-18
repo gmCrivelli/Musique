@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
+		641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
 		645F35551FC09C300084203F /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
 		64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */; };
-		6499568C1FB5C0BD00AD8369 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */; };
 		649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
@@ -33,14 +33,14 @@
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
+		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man.mp3; sourceTree = "<group>"; };
-		6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleNode.swift; path = ../../../tilemaptest/tilemaptest/ObstacleNode.swift; sourceTree = "<group>"; };
 		6499568F1FB5C4C600AD8369 /* Caipora.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Caipora.atlas; sourceTree = "<group>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
-		FE7C99C41FB4BBC5006E7CCD /* Musique_hero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_hero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 		FE7C99C51FB4BBC5006E7CCD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FE7C99C41FB4BBC5006E7CCD /* Musique_hero.app */,
+				FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* GameScene.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
-				6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */,
+				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
 				FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */,
 				FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */,
 				FE7C99D61FB4BBC5006E7CCD /* LaunchScreen.storyboard */,
@@ -130,9 +130,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FE7C99C31FB4BBC5006E7CCD /* Musique_hero */ = {
+		FE7C99C31FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_hero" */;
+			buildConfigurationList = FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_ez" */;
 			buildPhases = (
 				565B486EB77459E8F2567A15 /* [CP] Check Pods Manifest.lock */,
 				FE7C99C01FB4BBC5006E7CCD /* Sources */,
@@ -145,9 +145,9 @@
 			);
 			dependencies = (
 			);
-			name = Musique_hero;
+			name = Musique_ez;
 			productName = Musique_ez;
-			productReference = FE7C99C41FB4BBC5006E7CCD /* Musique_hero.app */;
+			productReference = FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +166,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FE7C99BF1FB4BBC5006E7CCD /* Build configuration list for PBXProject "Musique_hero" */;
+			buildConfigurationList = FE7C99BF1FB4BBC5006E7CCD /* Build configuration list for PBXProject "Musique_ez" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FE7C99C31FB4BBC5006E7CCD /* Musique_hero */,
+				FE7C99C31FB4BBC5006E7CCD /* Musique_ez */,
 			);
 		};
 /* End PBXProject section */
@@ -264,9 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* GameScene.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
-				6499568C1FB5C0BD00AD8369 /* ObstacleNode.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
@@ -438,7 +438,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FE7C99BF1FB4BBC5006E7CCD /* Build configuration list for PBXProject "Musique_hero" */ = {
+		FE7C99BF1FB4BBC5006E7CCD /* Build configuration list for PBXProject "Musique_ez" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE7C99DA1FB4BBC5006E7CCD /* Debug */,
@@ -447,7 +447,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_hero" */ = {
+		FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_ez" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FE7C99DD1FB4BBC5006E7CCD /* Debug */,
