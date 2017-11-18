@@ -1,0 +1,6 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target “Musique_ez” do
+    pod 'SpriteKitEasingSwift'
+end
