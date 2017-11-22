@@ -39,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var moveSpeedPerSecond = 500.0
     private var originalPosition : CGPoint?
     private var scoreCollider : SKNode!
+    private var tutorialCollider : SKNode!
     
     //Paralax elements
     private var flyingScenarioObjects : SKNode?
@@ -49,12 +50,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let floorCategory : UInt32 = 0b10
     private let obstacleCategory : UInt32 = 0b100
     private let scoreCategory : UInt32 = 0b1000
+    private let tutorialCategory : UInt32 = 0b11
     
     // Preloaded actions
     private var jumpAction : SKAction!
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
     
+    //Paralax Components
     private var paralaxScenarioNodeA1 : SKSpriteNode!
     private var paralaxScenarioNodeA2 : SKSpriteNode!
     private var paralaxScenarioNodeB1 : SKSpriteNode!
@@ -64,11 +67,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var screenEnd : CGFloat!
     
+    //Tutorial components
+    private var tutorialAlphaBlend : SKSpriteNode!
+    private var tutorialPointingFinger : SKSpriteNode!
+    
     // Labels and Interface
     private var scoreLabel : SKLabelNode!
     private var multiplierLabel : SKLabelNode!
     
     private var floorHeight: CGFloat!
+    
+    private var isGamePaused = false
 
     private var bgMusic:Sound?
     private var gruntSound:Sound?
@@ -115,10 +124,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.paralaxScenarioNodeB1 = childNode(withName: "ParalaxScenarioB1") as! SKSpriteNode
         self.paralaxScenarioNodeB2 = childNode(withName: "ParalaxScenarioB2") as! SKSpriteNode
         
+        self.tutorialAlphaBlend = childNode(withName: "tutorialAlphaBlend") as! SKSpriteNode
+        tutorialAlphaBlend.isHidden = true
+        
+        self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
+        tutorialPointingFinger.isHidden = true
+        
         screenEnd = CGFloat((scene?.size.width)! / 2)
         
         obstacleTextures.append(SKTexture(imageNamed: "Hidrante"))
         obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
+
+        self.tutorialCollider = childNode(withName: "tutorialCollider") as! SKSpriteNode
+        self.tutorialCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
+        self.tutorialCollider.physicsBody?.categoryBitMask = tutorialCategory
+        self.tutorialCollider.physicsBody?.collisionBitMask = 0
+        self.tutorialCollider.physicsBody?.contactTestBitMask = obstacleCategory
+        self.tutorialCollider.physicsBody?.affectedByGravity = false
         
         self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
         self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
@@ -241,6 +263,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
+        if scene?.isPaused == true {
+            scene?.isPaused = false
+            tutorialPointingFinger.isHidden = true
+            tutorialAlphaBlend.isHidden = true
+            tutorialCollider.isPaused = true
+            isGamePaused = false
+        }
         if playerState == .onFloor {
             playerState = .jumping
             //player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
@@ -284,6 +313,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
             }
         }
+        
+        // Obstacle collider with tutorialCollider
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
+            (contact.bodyB.categoryBitMask == tutorialCategory) {
+            isGamePaused = true
+            scene?.isPaused = true
+            tutorialAlphaBlend.isHidden = false
+            tutorialPointingFinger.isHidden = false
+        }
     }
     
     func randomizeTexture(isGroundObject: Bool) -> SKTexture{
@@ -309,57 +347,61 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-        if lastUpdateTime > 0 {
-            dt = currentTime - lastUpdateTime
-        } else {
-            dt = 0
-        }
-        lastUpdateTime = currentTime
         
-        // Reset player horizontal position, to be safe
-        player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
+        if(!isGamePaused){
+            
+            // Called before each frame is rendered
+            if lastUpdateTime > 0 {
+                dt = currentTime - lastUpdateTime
+            } else {
+                dt = 0
+            }
+            lastUpdateTime = currentTime
+            
+            // Reset player horizontal position, to be safe
+            player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
+            
+            // Calculate actual distance elapsed since last update
+            let actualOffset = CGFloat(moveSpeedPerSecond * dt)
+            
+            // Move the ground
+            tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
+            // In case the ground has reached a limit distance, returns it to the initial position
+            if tileMap.position.x <= 0 {
+                tileMap.position = originalPosition!
+            }
+            
+            paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
+            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
+            paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
+            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
+            
+            if paralaxScenarioNodeA1.position.x <= -screenEnd{
+                paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
+                paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
+            }
+            
+            if paralaxScenarioNodeB1.position.x <= -screenEnd{
+                paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
+                paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
+            }
         
-        // Calculate actual distance elapsed since last update
-        let actualOffset = CGFloat(moveSpeedPerSecond * dt)
-        
-        // Move the ground
-        tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
-        // In case the ground has reached a limit distance, returns it to the initial position
-        if tileMap.position.x <= 0 {
-            tileMap.position = originalPosition!
-        }
-        
-        paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
-        paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
-        paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
-        paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
-        
-        if paralaxScenarioNodeA1.position.x <= -screenEnd{
-            paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
-            paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
-        }
-        
-        if paralaxScenarioNodeB1.position.x <= -screenEnd{
-            paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
-            paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
-        }
-    
-        moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
-        moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
-        
-        // Move obstacles
-        if let obstaculos = obstaclesParent?.children{
-            // For each obstacle
-            for obs in obstaculos{
-                let obs = obs as! ObstacleNode
-                // Updates the obstacle position at the same rate as the ground
-                obs.update(dt)
-                //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
-                // In case the obstacle has reached the outside of the screen
-                if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
-                    // Removes the object from the parent node to avoid excessive memory use
-                    obs.removeFromParent()
+            moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
+            moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
+            
+            // Move obstacles
+            if let obstaculos = obstaclesParent?.children{
+                // For each obstacle
+                for obs in obstaculos{
+                    let obs = obs as! ObstacleNode
+                    // Updates the obstacle position at the same rate as the ground
+                    obs.update(dt)
+                    //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
+                    // In case the obstacle has reached the outside of the screen
+                    if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
+                        // Removes the object from the parent node to avoid excessive memory use
+                        obs.removeFromParent()
+                    }
                 }
             }
         }
