@@ -83,11 +83,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var multiplier : Int! {
         didSet {
             multiplierLabel.text = "\(multiplierArray[multiplier!])x"
-            multiplierLabel.removeAllActions()
-            
-            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double(self.multiplier! + 1)))), to: 1.0)
-            
-            multiplierLabel.run(SKAction.repeatForever(scaleAction))
         }
     }
     private var totalObstaclesJumped : Int = 0
@@ -173,6 +168,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
         self.timerAction = SKAction.sequence([waitForNext, triggerAction])
         
+        let multiplierAction = SKAction.run { [weak self] in
+            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((self?.bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double((self?.multiplier!)! + 1)))), to: 1.0)
+            
+            self?.multiplierLabel.run(scaleAction)
+        }
+        self.timedActions.append(multiplierAction)
+        
         //Tutorial action
         let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 0)
         let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 60.0 / Double(bgMusic!.bpm!))
@@ -238,6 +240,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.multiplier = 1
         self.run(spawnObstacleAction)
         self.finger.run(tutorialSequence)
+        self.run(SKAction.repeatForever(timerAction))
         
         startWalking()
         bgMusic?.play{
