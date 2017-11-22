@@ -14,6 +14,7 @@
 		649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
 		6592872F1DDC0397E407902F /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
+		FE3CA20F1FC48E1D00ECDDA5 /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE3CA20E1FC48E1D00ECDDA5 /* jump.wav */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
 		FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */; };
@@ -37,6 +38,7 @@
 		6499568B1FB5C0BD00AD8369 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ObstacleNode.swift; path = ../../../tilemaptest/tilemaptest/ObstacleNode.swift; sourceTree = "<group>"; };
 		6499568F1FB5C4C600AD8369 /* Caipora.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Caipora.atlas; sourceTree = "<group>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
+		FE3CA20E1FC48E1D00ECDDA5 /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				FE00ED381FBB17B900C54F1D /* grunt2.wav */,
 				FE75FEB71FBAFFFE001B4116 /* grunt1.wav */,
+				FE3CA20E1FC48E1D00ECDDA5 /* jump.wav */,
 				64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */,
 				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
@@ -186,6 +189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3CA20F1FC48E1D00ECDDA5 /* jump.wav in Resources */,
 				64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */,
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */,
@@ -217,7 +221,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C192225DAB4B7FCD9B2FD11B /* [CP] Copy Pods Resources */ = {
@@ -405,7 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-ez";
@@ -421,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-ez";

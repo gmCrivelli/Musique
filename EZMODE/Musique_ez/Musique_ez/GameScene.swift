@@ -54,6 +54,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var jumpAction : SKAction!
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
+    private var timerAction : SKAction!
+    private var timedActions : [SKAction] = []
     
     private var paralaxScenarioNodeA : SKSpriteNode!
     private var paralaxScenarioNodeB : SKSpriteNode!
@@ -65,7 +67,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Labels and Interface
     private var scoreLabel : SKLabelNode!
     private var multiplierLabel : SKLabelNode!
-    
+    private var finger : SKSpriteNode!
     private var floorHeight: CGFloat!
 
     private var bgMusic:Sound?
@@ -120,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Configure HUD
         self.scoreLabel = childNode(withName: "score") as! SKLabelNode
         self.multiplierLabel = childNode(withName: "multiplier") as! SKLabelNode
+        self.finger = childNode(withName: "Finger") as! SKSpriteNode
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
@@ -159,11 +162,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -22)
         originalPosition = tileMap.position
         
-        // Setup actions
+        ///MARK: Setup actions
+        
+        // Synchronizer for a few actions
+        let triggerAction = SKAction.run { [weak self] in
+            for action in self!.timedActions {
+                self?.run(action)
+            }
+        }
+        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+        self.timerAction = SKAction.sequence([waitForNext, triggerAction])
+        
+        //Tutorial action
+        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 0)
+        let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 60.0 / Double(bgMusic!.bpm!))
+        let tutorialBounce = SKAction.sequence([goDownAction, goUpAction])
+        let tutorialSequence = SKAction.sequence([SKAction.repeat(tutorialBounce, count: 10),
+            SKAction.fadeOut(withDuration: 0.4)])
+        
         let createObstacleAction = SKAction.run { [weak self] in
             self?.addObstacle()
         }
-        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+        
         let obstacleSequence = SKAction.sequence([createObstacleAction, waitForNext])
         self.spawnObstacleAction = SKAction.repeatForever(obstacleSequence)
         
@@ -179,7 +199,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let jumpSequence = SKAction.sequence([customJumpUp, customJumpDown])
         
         let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(Double.pi), duration: 0.45)
-        self.jumpAction = SKAction.group([jumpSequence, rotateAction])
+        let jumpSoundAction = SKAction.playSoundFileNamed("jump.wav", waitForCompletion: false)
+        self.jumpAction = SKAction.group([jumpSoundAction, jumpSequence, rotateAction])
         
         let createFlyingObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: false)
@@ -216,8 +237,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.score = 0
         self.multiplier = 1
         self.run(spawnObstacleAction)
-        startWalking()
+        self.finger.run(tutorialSequence)
         
+        startWalking()
         bgMusic?.play{
             // Completion block for when music ends
             print("musica acabou")
@@ -378,7 +400,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Adds a new obstacle to the parent node
         self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset))
-        print(obstaclesParent?.position.x, offset)
+        print(obstaclesParent?.position.x ?? 0, offset)
         print(playerOrigin.x)
         
         self.moveSpeedPerSecond *= 1.01
