@@ -32,6 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var playerWalkingFrames : [SKTexture]!
     private var playerIsInvincible : Bool = false
     private var playerInvincibilityTime : TimeInterval = 0.5
+    private var playerSoundArray : [Int] = [0,1,0,1,0,1,0,2]
+    private var playerSound : Int = 0
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
@@ -57,6 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var crashAction : SKAction!
     private var timerAction : SKAction!
     private var timedActions : [SKAction] = []
+    private var jumpSfxArray : [SKAction] = []
     
     //Paralax Components
     private var paralaxScenarioNodeA1 : SKSpriteNode!
@@ -232,12 +235,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.6)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
-
-//        let waitForNexFlyingtScenarioObject = SKAction.wait(forDuration: 8)
-//        let flyingObjectsSequence = SKAction.sequence([createFlyingObjectAction, waitForNexFlyingtScenarioObject])
-//        self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(flyingObjectsSequence)]))
+        
+        // Sound actions
         
         let gruntAction = SKAction.playSoundFileNamed("grunt1.wav", waitForCompletion: false)
+        
+        let bumboAction = SKAction.playSoundFileNamed("bumbo.wav", waitForCompletion: false)
+        let caixaAction = SKAction.playSoundFileNamed("caixa.wav", waitForCompletion: false)
+        let pratoAction = SKAction.playSoundFileNamed("prato.wav", waitForCompletion: false)
+        self.jumpSfxArray = [bumboAction, caixaAction, pratoAction]
+        
+        // Visual effects actions
         
         let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 4.0)
         let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 4.0)
@@ -275,11 +283,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func jump() {
         if playerState == .onFloor {
             playerState = .jumping
-            //player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
             player.run(jumpAction) {
                 self.playerState = .onFloor
                 self.startWalking()
             }
+            self.run(jumpSfxArray[playerSoundArray[playerSound]])
+            print("Player Sound: \(playerSound)")
         }
     }
     
@@ -307,6 +316,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Obstacle collides with scoreCollider
         if (contact.bodyA.categoryBitMask ==  obstacleCategory) &&
             (contact.bodyB.categoryBitMask == scoreCategory) {
+            
+            // Update player sound
+            self.playerSound = (self.playerSound + 1) % 8
+            
+            // Compute score and other player-related effects
             if (contact.bodyA.node as! ObstacleNode).wasHit == 0 {
                 (contact.bodyA.node as! ObstacleNode).wasHit = 2
                 self.obstaclesJumpedInaRow += 1
