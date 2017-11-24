@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player : SKSpriteNode!
     private var playerWalkingFrames : [SKTexture]!
     private var playerIsInvincible : Bool = false
-    private var playerInvincibilityTime : TimeInterval = 0.9
+    private var playerInvincibilityTime : TimeInterval = 0.5
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
@@ -80,11 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private var multiplierArray = [-1,1,2,4,8,16]
-    private var multiplier : Int! {
-        didSet {
-            multiplierLabel.text = "\(multiplierArray[multiplier!])x"
-        }
-    }
+    private var multiplier : Int!
+
     private var totalObstaclesJumped : Int = 0
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
@@ -169,6 +166,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.timerAction = SKAction.sequence([waitForNext, triggerAction])
         
         let multiplierAction = SKAction.run { [weak self] in
+            self?.multiplierLabel.text = "\(self?.multiplierArray[(self?.multiplier!)!] ?? 1)x"
+            
             let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((self?.bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double((self?.multiplier!)! + 1)))), to: 1.0)
             
             self?.multiplierLabel.run(scaleAction)
@@ -222,10 +221,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let gruntAction = SKAction.playSoundFileNamed("grunt1.wav", waitForCompletion: false)
         
-        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 6.0)
-        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 6.0)
+        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 4.0)
+        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 4.0)
         
-        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction, blinkAction, unblinkAction])
+        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction])
         self.crashAction = SKAction.group([gruntAction, blinkSequence])
         
         // Setup obstacles

@@ -31,7 +31,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var player : SKSpriteNode!
     private var playerWalkingFrames : [SKTexture]!
     private var playerIsInvincible : Bool = false
-    private var playerInvincibilityTime : TimeInterval = 0.9
+    private var playerInvincibilityTime : TimeInterval = 0.5
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
@@ -50,12 +50,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let floorCategory : UInt32 = 0b10
     private let obstacleCategory : UInt32 = 0b100
     private let scoreCategory : UInt32 = 0b1000
-    private let tutorialCategory : UInt32 = 0b11
     
     // Preloaded actions
     private var jumpAction : SKAction!
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
+    private var timerAction : SKAction!
+    private var timedActions : [SKAction] = []
     
     //Paralax Components
     private var paralaxScenarioNodeA1 : SKSpriteNode!
@@ -91,16 +92,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private var multiplierArray = [-1,1,2,4,8,16]
-    private var multiplier : Int! {
-        didSet {
-            multiplierLabel.text = "\(multiplierArray[multiplier!])x"
-            multiplierLabel.removeAllActions()
-            
-            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double(self.multiplier! + 1)))), to: 1.0)
-            
-            multiplierLabel.run(SKAction.repeatForever(scaleAction))
-        }
-    }
+    private var multiplier : Int!
+    
     private var totalObstaclesJumped : Int = 0
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
@@ -124,23 +117,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.paralaxScenarioNodeB1 = childNode(withName: "ParalaxScenarioB1") as! SKSpriteNode
         self.paralaxScenarioNodeB2 = childNode(withName: "ParalaxScenarioB2") as! SKSpriteNode
         
-        self.tutorialAlphaBlend = childNode(withName: "tutorialAlphaBlend") as! SKSpriteNode
-        tutorialAlphaBlend.isHidden = true
-        
         self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
-        tutorialPointingFinger.isHidden = true
         
         screenEnd = CGFloat((scene?.size.width)! / 2)
         
         obstacleTextures.append(SKTexture(imageNamed: "Hidrante"))
         obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
-
-        self.tutorialCollider = childNode(withName: "tutorialCollider") as! SKSpriteNode
-        self.tutorialCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
-        self.tutorialCollider.physicsBody?.categoryBitMask = tutorialCategory
-        self.tutorialCollider.physicsBody?.collisionBitMask = 0
-        self.tutorialCollider.physicsBody?.contactTestBitMask = obstacleCategory
-        self.tutorialCollider.physicsBody?.affectedByGravity = false
         
         self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
         self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
@@ -191,11 +173,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -22)
         originalPosition = tileMap.position
         
-        // Setup actions
+        ///MARK: Setup actions
+        
+        // Synchronizer for a few actions
+        let triggerAction = SKAction.run { [weak self] in
+            for action in self!.timedActions {
+                self?.run(action)
+            }
+        }
+        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+        self.timerAction = SKAction.sequence([waitForNext, triggerAction])
+        
+        let multiplierAction = SKAction.run { [weak self] in
+            self?.multiplierLabel.text = "\(self?.multiplierArray[(self?.multiplier!)!] ?? 1)x"
+            
+            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((self?.bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double((self?.multiplier!)! + 1)))), to: 1.0)
+            
+            self?.multiplierLabel.run(scaleAction)
+        }
+        self.timedActions.append(multiplierAction)
+        
+        //Tutorial action
+        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 0)
+        let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 60.0 / Double(bgMusic!.bpm!))
+        let tutorialBounce = SKAction.sequence([goDownAction, goUpAction])
+        let tutorialSequence = SKAction.sequence([SKAction.repeat(tutorialBounce, count: 10),
+                                                  SKAction.fadeOut(withDuration: 0.4)])
+        
         let createObstacleAction = SKAction.run { [weak self] in
             self?.addObstacle()
         }
-        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
+
         let obstacleSequence = SKAction.sequence([createObstacleAction, waitForNext])
         self.spawnObstacleAction = SKAction.repeatForever(obstacleSequence)
         
@@ -231,10 +239,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let gruntAction = SKAction.playSoundFileNamed("grunt1.wav", waitForCompletion: false)
         
-        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 6.0)
-        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 6.0)
+        let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 4.0)
+        let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 4.0)
         
-        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction, blinkAction, unblinkAction])
+        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction])
         self.crashAction = SKAction.group([gruntAction, blinkSequence])
         
         // Setup obstacles
@@ -248,6 +256,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.score = 0
         self.multiplier = 1
         self.run(spawnObstacleAction)
+        self.tutorialPointingFinger.run(tutorialSequence)
+        self.run(SKAction.repeatForever(timerAction))
         startWalking()
         
         bgMusic?.play{
@@ -263,13 +273,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
-        if scene?.isPaused == true {
-            scene?.isPaused = false
-            tutorialPointingFinger.isHidden = true
-            tutorialAlphaBlend.isHidden = true
-            tutorialCollider.isPaused = true
-            isGamePaused = false
-        }
         if playerState == .onFloor {
             playerState = .jumping
             //player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 100))
@@ -313,15 +316,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
             }
         }
-        
-        // Obstacle collider with tutorialCollider
-        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
-            (contact.bodyB.categoryBitMask == tutorialCategory) {
-            isGamePaused = true
-            scene?.isPaused = true
-            tutorialAlphaBlend.isHidden = false
-            tutorialPointingFinger.isHidden = false
-        }
     }
     
     func randomizeTexture(isGroundObject: Bool) -> SKTexture{
@@ -347,61 +341,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+            
+        // Called before each frame is rendered
+        if lastUpdateTime > 0 {
+            dt = currentTime - lastUpdateTime
+        } else {
+            dt = 0
+        }
+        lastUpdateTime = currentTime
         
-        if(!isGamePaused){
-            
-            // Called before each frame is rendered
-            if lastUpdateTime > 0 {
-                dt = currentTime - lastUpdateTime
-            } else {
-                dt = 0
-            }
-            lastUpdateTime = currentTime
-            
-            // Reset player horizontal position, to be safe
-            player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
-            
-            // Calculate actual distance elapsed since last update
-            let actualOffset = CGFloat(moveSpeedPerSecond * dt)
-            
-            // Move the ground
-            tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
-            // In case the ground has reached a limit distance, returns it to the initial position
-            if tileMap.position.x <= 0 {
-                tileMap.position = originalPosition!
-            }
-            
-            paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
-            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
-            paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
-            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
-            
-            if paralaxScenarioNodeA1.position.x <= -screenEnd{
-                paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
-                paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
-            }
-            
-            if paralaxScenarioNodeB1.position.x <= -screenEnd{
-                paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
-                paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
-            }
+        // Reset player horizontal position, to be safe
+        player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
         
-            moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
-            moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
-            
-            // Move obstacles
-            if let obstaculos = obstaclesParent?.children{
-                // For each obstacle
-                for obs in obstaculos{
-                    let obs = obs as! ObstacleNode
-                    // Updates the obstacle position at the same rate as the ground
-                    obs.update(dt)
-                    //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
-                    // In case the obstacle has reached the outside of the screen
-                    if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
-                        // Removes the object from the parent node to avoid excessive memory use
-                        obs.removeFromParent()
-                    }
+        // Calculate actual distance elapsed since last update
+        let actualOffset = CGFloat(moveSpeedPerSecond * dt)
+        
+        // Move the ground
+        tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
+        // In case the ground has reached a limit distance, returns it to the initial position
+        if tileMap.position.x <= 0 {
+            tileMap.position = originalPosition!
+        }
+        
+        paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
+        paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
+        paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
+        paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
+        
+        if paralaxScenarioNodeA1.position.x <= -screenEnd{
+            paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
+            paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
+        }
+        
+        if paralaxScenarioNodeB1.position.x <= -screenEnd{
+            paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
+            paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
+        }
+    
+        moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
+        moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
+        
+        // Move obstacles
+        if let obstaculos = obstaclesParent?.children{
+            // For each obstacle
+            for obs in obstaculos{
+                let obs = obs as! ObstacleNode
+                // Updates the obstacle position at the same rate as the ground
+                obs.update(dt)
+                //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
+                // In case the obstacle has reached the outside of the screen
+                if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
+                    // Removes the object from the parent node to avoid excessive memory use
+                    obs.removeFromParent()
                 }
             }
         }
