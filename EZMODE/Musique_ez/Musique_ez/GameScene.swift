@@ -1,10 +1,3 @@
-//
-//  GameScene.swift
-//  Musique_ez
-//
-//  Created by Gustavo De Mello Crivelli on 09/11/17.
-//  Copyright © 2017 Gustavo De Mello Crivelli. All rights reserved.
-//
 
 import SpriteKit
 import SpriteKitEasingSwift
