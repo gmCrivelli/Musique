@@ -15,6 +15,7 @@
 		64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */; };
 		649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
 		64D7D65C1FCC411D00F6ABBB /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
+		64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
@@ -43,6 +44,7 @@
 		64967B9F1FB5D797004F39BC /* The_Muffin_Man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = The_Muffin_Man.mp3; sourceTree = "<group>"; };
 		6499568F1FB5C4C600AD8369 /* Caipora.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Caipora.atlas; sourceTree = "<group>"; };
 		64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
+		64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumbo.wav; sourceTree = "<group>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				FE1D05D21FC83C8E00350EF9 /* caixa.wav */,
 				FE1D05D01FC83C8E00350EF9 /* prato.wav */,
+				64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */,
 				FE00ED381FBB17B900C54F1D /* grunt2.wav */,
 				FE75FEB71FBAFFFE001B4116 /* grunt1.wav */,
 			);
@@ -227,6 +230,7 @@
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
 				FE7C99D81FB4BBC5006E7CCD /* LaunchScreen.storyboard in Resources */,
 				649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */,
+				64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */,
 				645F35551FC09C300084203F /* Heroi.atlas in Resources */,
 				FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */,
 				FE7C99CC1FB4BBC5006E7CCD /* Actions.sks in Resources */,
