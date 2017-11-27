@@ -52,6 +52,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let floorCategory : UInt32 = 0b10
     private let obstacleCategory : UInt32 = 0b100
     private let scoreCategory : UInt32 = 0b1000
+    private let particleCategory : UInt32 = 0b10000
     
     // Preloaded actions
     private var jumpAction : SKAction!
@@ -330,6 +331,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
             }
         }
+        
+        // Player collides with particleCollider
+        if (contact.bodyA.categoryBitMask == playerCategory) &&
+            (contact.bodyB.categoryBitMask == particleCategory) {
+            
+            let emitter = SKEmitterNode(fileNamed: "SparkParticle")
+            contact.bodyB.node?.addChild(emitter!)
+            emitter?.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.removeFromParent()]))
+        }
+        
     }
     
     func randomizeTexture(isGroundObject: Bool) -> SKTexture{
@@ -396,7 +407,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
         
         // Move obstacles
-        if let obstaculos = obstaclesParent?.children{
+        if let obstaculos = obstaclesParent?.children {
             // For each obstacle
             for obs in obstaculos{
                 let obs = obs as! ObstacleNode

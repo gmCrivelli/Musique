@@ -40,12 +40,28 @@ class ObstacleNode: SKSpriteNode {
     }
     
     func setupPhysics() {
+        // Obstacle physics body
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width / 2, height: self.size.height / 2))
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 4
         self.physicsBody?.collisionBitMask = 2
         self.physicsBody?.contactTestBitMask = 0b1001
         self.physicsBody?.fieldBitMask = 0
+        
+        // Particle Physics Body
+        
+        let particleCollider = SKNode()
+        particleCollider.position = CGPoint(x: 0, y: 90)
+        
+        let pb = SKPhysicsBody(circleOfRadius: 5)
+        pb.affectedByGravity = false
+        pb.categoryBitMask = 0b10000
+        pb.collisionBitMask = 0
+        pb.contactTestBitMask = 0b0001
+        pb.fieldBitMask = 0
+
+        particleCollider.physicsBody = pb
+        self.addChild(particleCollider)
         
         //        let offsetX : CGFloat = self.frame.size.width * self.anchorPoint.x
         //        let offsetY : CGFloat = self.frame.size.height * self.anchorPoint.y
