@@ -197,9 +197,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.timedActions.append(multiplierAction)
         
         //Tutorial action
-        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 0)
-        let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 60.0 / Double(bgMusic!.bpm!))
-        let tutorialBounce = SKAction.sequence([goDownAction, goUpAction])
+        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 60.0 / Double(bgMusic!.bpm!))
+        let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 0.0)
+        let tutorialBounce = SKAction.sequence([goUpAction, goDownAction])
         let tutorialSequence = SKAction.sequence([SKAction.repeat(tutorialBounce, count: 10),
                                                   SKAction.fadeOut(withDuration: 0.4)])
         
