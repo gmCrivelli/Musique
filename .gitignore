@@ -102,5 +102,4 @@ Carthage/Build.rbenv-vars
 .rbenv-vars
 
 ####
-project.pbxproj
 Podfile.lock
