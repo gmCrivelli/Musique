@@ -15,7 +15,12 @@ class MainMenuViewController: BasicViewController {
         super.viewDidLoad()
     }
     
+    
+    /// Whenever an activity button is tapped, performs the corresponding segue
+    ///
+    /// - Parameter sender: Button tapped
     @IBAction func goToActivity(_ sender: UIButton?){
+        // Compares the sender tag and performs the segue for each case
         switch sender!.tag{
         case 1:
             performSegue(withIdentifier: "pulseSegue", sender: self)
