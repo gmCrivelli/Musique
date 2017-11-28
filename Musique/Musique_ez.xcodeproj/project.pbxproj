@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
+		40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D771FCDC53900BE05E7 /* BasicViewController.swift */; };
 		641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
 		645F35551FC09C300084203F /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
@@ -37,6 +38,7 @@
 		22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_ez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
+		40E96D771FCDC53900BE05E7 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
 		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		40E96D761FCDC50600BE05E7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				40E96D771FCDC53900BE05E7 /* BasicViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		708888538848872AA8C64CF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				40E96D761FCDC50600BE05E7 /* Controller */,
 				FE1D05CF1FC83C7B00350EF9 /* BGM */,
 				FE1D05CE1FC83C7700350EF9 /* SFX */,
 				645F35541FC09C300084203F /* Heroi.atlas */,
@@ -305,6 +316,7 @@
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
+				40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
 			);
