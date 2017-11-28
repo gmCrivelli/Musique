@@ -14,5 +14,13 @@ class MainMenuViewController: BasicViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func goToActivity(_ sender: UIButton?){
+        switch sender!.tag{
+        case 1:
+            performSegue(withIdentifier: "pulseSegue", sender: self)
+        default:
+            print("ERROR: Button doesn't exist")
+        }
+    }
 }
