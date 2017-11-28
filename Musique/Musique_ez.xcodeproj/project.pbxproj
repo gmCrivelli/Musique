@@ -211,7 +211,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
-				ORGANIZATIONNAME = "Gustavo De Mello Crivelli";
+				ORGANIZATIONNAME = DoM7;
 				TargetAttributes = {
 					FE7C99C31FB4BBC5006E7CCD = {
 						CreatedOnToolsVersion = 9.0.1;
