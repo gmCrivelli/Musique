@@ -39,7 +39,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-kP-LBP">
                                 <rect key="frame" x="26" y="429" width="973" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj" customClass="Button" customModule="Musique_ez" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj" customClass="Button" customModule="Musique_ez" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.5" width="973" height="199"/>
                                         <state key="normal" image="button"/>
                                         <connections>
@@ -70,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="-673.828125" y="114.0625"/>
         </scene>
-        <!--View Controller-->
+        <!--Music Selection View Controller-->
         <scene sceneID="MJF-0y-uUh">
             <objects>
-                <viewController id="K3g-bR-XLH" sceneMemberID="viewController">
+                <viewController id="K3g-bR-XLH" customClass="MusicSelectionViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJp-Cc-b1e">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,6 +112,9 @@
                                 <state key="normal" title="Voltar">
                                     <color key="titleColor" red="0.21879962089999999" green="0.57190215590000004" blue="0.4116361737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iwC-eU-F3V"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
