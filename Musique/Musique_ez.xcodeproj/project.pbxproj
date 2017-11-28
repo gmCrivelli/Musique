@@ -89,6 +89,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		40E96D7B1FCDD02C00BE05E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		708888538848872AA8C64CF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +155,7 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				40E96D7B1FCDD02C00BE05E7 /* View */,
 				40E96D761FCDC50600BE05E7 /* Controller */,
 				FE1D05CF1FC83C7B00350EF9 /* BGM */,
 				FE1D05CE1FC83C7700350EF9 /* SFX */,

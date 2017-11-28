@@ -36,34 +36,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusiqueLogo" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-2E-JaW">
                                 <rect key="frame" x="256" y="55" width="512" height="224.5"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-kP-LBP">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-kP-LBP">
                                 <rect key="frame" x="26" y="429" width="973" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj">
-                                        <rect key="frame" x="0.0" y="0.5" width="217" height="199"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj" customClass="Button" customModule="Musique_ez" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.5" width="973" height="199"/>
                                         <state key="normal" image="button"/>
                                         <connections>
                                             <segue destination="K3g-bR-XLH" kind="show" id="GC4-dC-F2g"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disabled" translatesAutoresizingMaskIntoConstraints="NO" id="jjl-UW-ygq">
-                                        <rect key="frame" x="252" y="0.5" width="217" height="199"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disabled" translatesAutoresizingMaskIntoConstraints="NO" id="chm-q2-Msz">
-                                        <rect key="frame" x="504" y="0.5" width="217" height="199"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disabled" translatesAutoresizingMaskIntoConstraints="NO" id="yqg-gY-wop">
-                                        <rect key="frame" x="756" y="0.5" width="217" height="199"/>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jjl-UW-ygq" firstAttribute="height" secondItem="emY-EY-9Sj" secondAttribute="height" id="E6Y-53-f22"/>
-                                    <constraint firstItem="yqg-gY-wop" firstAttribute="height" secondItem="chm-q2-Msz" secondAttribute="height" id="HWq-4h-yEL"/>
-                                    <constraint firstItem="chm-q2-Msz" firstAttribute="width" secondItem="jjl-UW-ygq" secondAttribute="width" id="YJC-g1-UkZ"/>
-                                    <constraint firstItem="chm-q2-Msz" firstAttribute="height" secondItem="jjl-UW-ygq" secondAttribute="height" id="cxY-dU-60P"/>
-                                    <constraint firstItem="jjl-UW-ygq" firstAttribute="width" secondItem="emY-EY-9Sj" secondAttribute="width" id="jSD-3M-bI3"/>
                                     <constraint firstAttribute="height" constant="200" id="n7x-Sq-exC"/>
-                                    <constraint firstItem="yqg-gY-wop" firstAttribute="width" secondItem="chm-q2-Msz" secondAttribute="width" id="psD-1Y-OCH"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -172,7 +157,6 @@
         <image name="MusiqueLogo" width="495" height="164"/>
         <image name="button" width="200" height="199"/>
         <image name="detail" width="364" height="358"/>
-        <image name="disabled" width="200" height="199"/>
         <image name="estrelineas" width="253" height="91"/>
     </resources>
 </document>
