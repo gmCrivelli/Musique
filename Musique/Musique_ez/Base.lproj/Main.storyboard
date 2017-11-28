@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-1385" y="114"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Menu View Controller-->
         <scene sceneID="VGv-RD-yuo">
             <objects>
-                <viewController id="FHh-Ra-tWW" sceneMemberID="viewController">
+                <viewController id="FHh-Ra-tWW" customClass="MainMenuViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ljp-Jv-Zwa">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
