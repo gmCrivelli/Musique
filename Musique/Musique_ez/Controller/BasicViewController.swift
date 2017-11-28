@@ -30,5 +30,7 @@ class BasicViewController: UIViewController {
         self.background?.backgroundColor = UIColor.clear
         // Adds the image view to the controller main view
         self.view.addSubview(background!)
+        // Ensures the image is behind everything. This prevents the background image form overlapping other UI elements.
+        self.view.sendSubview(toBack: background!)
     }
 }
