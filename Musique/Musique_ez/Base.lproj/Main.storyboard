@@ -33,10 +33,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="iL1-Ih-4TA">
-                                <rect key="frame" x="0.0" y="10" width="1024" height="768"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.19598137842465754" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusiqueLogo" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-2E-JaW">
                                 <rect key="frame" x="256" y="55" width="512" height="224.5"/>
                             </imageView>
@@ -47,7 +43,7 @@
                                         <rect key="frame" x="0.0" y="0.5" width="217" height="199"/>
                                         <state key="normal" image="button"/>
                                         <connections>
-                                            <segue destination="K3g-bR-XLH" kind="show" id="S1x-zI-fvr"/>
+                                            <segue destination="K3g-bR-XLH" kind="show" id="GC4-dC-F2g"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disabled" translatesAutoresizingMaskIntoConstraints="NO" id="jjl-UW-ygq">
@@ -71,19 +67,15 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.2196078431372549" green="0.5725490196078431" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="top" secondItem="HBS-2E-JaW" secondAttribute="bottom" constant="150" id="17g-nm-c8D"/>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" multiplier="0.95" id="AUT-0F-wME"/>
-                            <constraint firstItem="iL1-Ih-4TA" firstAttribute="height" secondItem="Ljp-Jv-Zwa" secondAttribute="height" id="ImY-AZ-zUK"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="height" secondItem="0fv-VI-Cs2" secondAttribute="height" multiplier="0.3" id="TIn-rg-nwL"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="top" secondItem="0fv-VI-Cs2" secondAttribute="top" constant="35" id="Zoh-4U-fym"/>
-                            <constraint firstItem="iL1-Ih-4TA" firstAttribute="centerY" secondItem="0fv-VI-Cs2" secondAttribute="centerY" id="fbu-yA-wwK"/>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="i9F-eN-jSY"/>
-                            <constraint firstItem="iL1-Ih-4TA" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="ktV-zR-Fqe"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="o47-1N-CMC"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="width" secondItem="0fv-VI-Cs2" secondAttribute="width" multiplier="0.5" id="ua1-af-kzj"/>
-                            <constraint firstItem="iL1-Ih-4TA" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" id="wFb-0k-xYp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fv-VI-Cs2"/>
                     </view>
@@ -101,9 +93,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background-1" translatesAutoresizingMaskIntoConstraints="NO" id="6Gh-k1-hNk">
-                                <rect key="frame" x="0.0" y="10" width="1024" height="768"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pulso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4S-97-Q6t">
                                 <rect key="frame" x="333" y="55" width="358" height="115"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
@@ -148,15 +137,11 @@
                             <constraint firstItem="3lu-4R-vGC" firstAttribute="width" secondItem="VJp-Cc-b1e" secondAttribute="width" multiplier="0.35" id="Ko8-kL-Tv6"/>
                             <constraint firstItem="htr-TL-RdT" firstAttribute="centerX" secondItem="DH8-pa-Njb" secondAttribute="centerX" id="Q01-Am-X7H"/>
                             <constraint firstItem="3lu-4R-vGC" firstAttribute="top" secondItem="M4S-97-Q6t" secondAttribute="bottom" constant="58" id="QNh-EH-fsI"/>
-                            <constraint firstItem="6Gh-k1-hNk" firstAttribute="centerX" secondItem="RMT-B6-1fq" secondAttribute="centerX" id="QqU-Vr-Wdd"/>
                             <constraint firstItem="M4S-97-Q6t" firstAttribute="width" secondItem="VJp-Cc-b1e" secondAttribute="width" multiplier="0.35" id="UeX-bT-7XK"/>
                             <constraint firstItem="M4S-97-Q6t" firstAttribute="height" secondItem="VJp-Cc-b1e" secondAttribute="height" multiplier="0.15" id="e5K-Kc-Ziq"/>
                             <constraint firstItem="3lu-4R-vGC" firstAttribute="leading" secondItem="RMT-B6-1fq" secondAttribute="leading" constant="90" id="krg-Sa-Xpd"/>
-                            <constraint firstItem="6Gh-k1-hNk" firstAttribute="centerY" secondItem="RMT-B6-1fq" secondAttribute="centerY" id="ljn-mz-T87"/>
-                            <constraint firstItem="6Gh-k1-hNk" firstAttribute="height" secondItem="VJp-Cc-b1e" secondAttribute="height" id="n9C-R6-pNF"/>
                             <constraint firstItem="3lu-4R-vGC" firstAttribute="height" secondItem="VJp-Cc-b1e" secondAttribute="height" multiplier="0.45" id="tdP-lt-D4m"/>
                             <constraint firstItem="M4S-97-Q6t" firstAttribute="centerX" secondItem="RMT-B6-1fq" secondAttribute="centerX" id="uu4-fS-Pdk"/>
-                            <constraint firstItem="6Gh-k1-hNk" firstAttribute="width" secondItem="VJp-Cc-b1e" secondAttribute="width" id="wKU-6a-GYc"/>
                             <constraint firstItem="DH8-pa-Njb" firstAttribute="leading" secondItem="3lu-4R-vGC" secondAttribute="trailing" constant="175" id="xUN-jI-ZsB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMT-B6-1fq"/>
@@ -185,7 +170,6 @@
     </scenes>
     <resources>
         <image name="MusiqueLogo" width="495" height="164"/>
-        <image name="background-1" width="1019" height="766"/>
         <image name="button" width="200" height="199"/>
         <image name="detail" width="364" height="358"/>
         <image name="disabled" width="200" height="199"/>
