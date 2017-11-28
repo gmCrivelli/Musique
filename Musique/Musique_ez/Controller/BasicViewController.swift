@@ -1,6 +1,6 @@
 //
 //  BasicViewController.swift
-//  Musique_ez
+//  Musique
 //
 //  Created by Rafael Prado on 28/11/17.
 //  Copyright © 2017 Gustavo De Mello Crivelli. All rights reserved.
@@ -8,17 +8,27 @@
 
 import UIKit
 
+/// This class gives a basic background to every menu screen on the application.
 class BasicViewController: UIViewController {
-
+    
+    // Image view for the overlay background image.
+    fileprivate var background:UIImageView?
+    // Default background color
+    fileprivate let defaultColor = UIColor(red: 56/255, green: 146/255, blue: 105/255, alpha: 1)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Sets the background color to the default color
+        self.view.backgroundColor = defaultColor
+        
+        // Initializes the ImageView and sets it to the size of the screen.
+        self.background = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        // Sets the background image
+        self.background?.image = UIImage(named: "background-1")
+        // Ensures the image view has a clear background color
+        self.background?.backgroundColor = UIColor.clear
+        // Adds the image view to the controller main view
+        self.view.addSubview(background!)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
