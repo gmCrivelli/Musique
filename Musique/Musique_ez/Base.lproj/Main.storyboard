@@ -39,11 +39,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-kP-LBP">
                                 <rect key="frame" x="26" y="429" width="973" height="200"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj" customClass="Button" customModule="Musique_ez" customModuleProvider="target">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj">
                                         <rect key="frame" x="0.0" y="0.5" width="973" height="199"/>
                                         <state key="normal" image="button"/>
                                         <connections>
-                                            <segue destination="K3g-bR-XLH" kind="show" id="GC4-dC-F2g"/>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="5Hw-NC-U3M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -65,10 +65,13 @@
                         <viewLayoutGuide key="safeArea" id="0fv-VI-Cs2"/>
                     </view>
                     <navigationItem key="navigationItem" id="wgK-s3-trD"/>
+                    <connections>
+                        <segue destination="K3g-bR-XLH" kind="show" identifier="pulseSegue" id="NYl-J3-VME"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwJ-UC-da5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-673.828125" y="114.0625"/>
+            <point key="canvasLocation" x="-643" y="113"/>
         </scene>
         <!--Music Selection View Controller-->
         <scene sceneID="MJF-0y-uUh">
