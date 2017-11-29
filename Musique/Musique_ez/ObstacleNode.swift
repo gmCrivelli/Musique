@@ -33,7 +33,7 @@ class ObstacleNode: SKSpriteNode {
     }
     
     init(speedPerSec: Double, offset: CGFloat, texture : SKTexture) {
-        super.init(texture: texture, color: .gray, size: CGSize(width: texture.size().width / 5, height: texture.size().height / 5))
+        super.init(texture: texture, color: .gray, size: CGSize(width: texture.size().width / 2, height: texture.size().height / 2))
         self.obstacleSpeedPerSec = speedPerSec
         setupPhysics()
         self.position = CGPoint(x: offset, y: 0)
@@ -41,17 +41,17 @@ class ObstacleNode: SKSpriteNode {
     
     func setupPhysics() {
         // Obstacle physics body
-        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width / 2, height: self.size.height / 2))
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: self.size.width * self.xScale, height: self.size.height * self.yScale))
         self.physicsBody?.affectedByGravity = false
-        self.physicsBody?.categoryBitMask = 4
-        self.physicsBody?.collisionBitMask = 2
+        self.physicsBody?.categoryBitMask = 0b100
+        self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.contactTestBitMask = 0b1001
         self.physicsBody?.fieldBitMask = 0
         
         // Particle Physics Body
         
         let particleCollider = SKNode()
-        particleCollider.position = CGPoint(x: 0, y: 90)
+        particleCollider.position = CGPoint(x: 0, y: self.size.height * 2)
         
         let pb = SKPhysicsBody(circleOfRadius: 5)
         pb.affectedByGravity = false

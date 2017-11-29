@@ -37,8 +37,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
-    private var baseMoveSpeedPerSecond = 500.0
-    private var moveSpeedPerSecond = 500.0
+    private var baseMoveSpeedPerSecond = 1500.0
+    private var moveSpeedPerSecond = 1500.0
     private var originalPosition : CGPoint?
     private var scoreCollider : SKNode!
     private var tutorialCollider : SKNode!
@@ -102,6 +102,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
     
+    //Point where objects and obstacles unspawn from the scene
+    var unspawnPoint : CGFloat!
+    
     override func didMove(to view: SKView) {
         
         //Setup all music
@@ -123,7 +126,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
         
-        screenEnd = CGFloat((scene?.size.width)! / 2)
+        screenEnd = CGFloat((scene?.size.width)!)
+        unspawnPoint = -(scene?.size.width)! - ((scene?.size.width)! / 2)
         
         obstacleTextures.append(SKTexture(imageNamed: "Hidrante"))
         obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
@@ -218,8 +222,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             node.position = CGPoint(x: initialPosition.x, y: initialPosition.y + 120 * sin(t))
             })
         
-        let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: 120))
-        let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: 120), to: initialPosition)
+        let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7))
+        let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7), to: initialPosition)
         let jumpSequence = SKAction.sequence([customJumpUp, customJumpDown])
         
         let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(Double.pi), duration: 0.45)
@@ -393,14 +397,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
         paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
         
-        if paralaxScenarioNodeA1.position.x <= -screenEnd{
-            paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
-            paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
+        if paralaxScenarioNodeA1.position.x <= 0{
+            paralaxScenarioNodeA1.position.x = paralaxScenarioNodeB1.position.x + paralaxScenarioNodeA1.size.width
+            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeB2.position.x + paralaxScenarioNodeA2.size.width
         }
         
-        if paralaxScenarioNodeB1.position.x <= -screenEnd{
-            paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
-            paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
+        if paralaxScenarioNodeB1.position.x <= 0{
+            paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
+            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
         }
     
         moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
@@ -415,7 +419,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 obs.update(dt)
                 //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
                 // In case the obstacle has reached the outside of the screen
-                if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
+                if(obs.position.x < unspawnPoint){
                     // Removes the object from the parent node to avoid excessive memory use
                     obs.removeFromParent()
                 }
@@ -429,9 +433,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let objs = objects.children
         
+        
         for obj in objs{
             obj.position = CGPoint(x:obj.position.x - movementSpeed, y: obj.position.y)
-            if(obj.position.x < 2 * (self.tileMap?.frame.minX)! - obj.frame.width){
+            if(obj.position.x < unspawnPoint){
                 // Removes the object from the parent node to avoid excessive memory use
                 obj.removeFromParent()
             }
@@ -441,7 +446,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func addObstacle() -> Void{
         
-        let goalPosition = self.playerOrigin.x + 150
+        let goalPosition = self.playerOrigin.x + (scene?.size.width)!
         let r1 = (120.0 / Double(bgMusic!.bpm!)) * moveSpeedPerSecond + Double(goalPosition)
         let offset = CGFloat(r1) - self.obstaclesParent!.position.x
         
