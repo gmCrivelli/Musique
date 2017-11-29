@@ -14,9 +14,9 @@ import CoreData
 
 class SeasonDAO {
     
-    /// Method responsible for saving a season into database
+    /// Method responsible for saving a Music Score into database
     /// - parameters:
-    ///     - objectToBeSaved: season to be saved on database
+    ///     - objectToBeSaved: Pulse to be saved on database
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
     static func create(_ objectToBeSaved: Pulse) throws {
         do {
@@ -31,7 +31,7 @@ class SeasonDAO {
         }
     }
     
-    /// Method responsible for updating a season into database
+    /// Method responsible for updating a Music Score into database
     /// - parameters:
     ///     - objectToBeUpdated: season to be updated on database
     /// - throws: if an error occurs during updating an object into database (Errors.DatabaseFailure)
@@ -45,7 +45,7 @@ class SeasonDAO {
         }
     }
     
-    /// Method responsible for deleting a season from database
+    /// Method responsible for deleting a Music Score from database
     /// - parameters:
     ///     - objectToBeSaved: season to be saved on database
     /// - throws: if an error occurs during deleting an object into database (Errors.DatabaseFailure)
@@ -62,8 +62,8 @@ class SeasonDAO {
         }
     }
     
-    /// Method responsible for gettings all seasons from database
-    /// - returns: a list of seasons from database
+    /// Method responsible for gettings all Musics Score from database
+    /// - returns: a list of musics from database
     /// - throws: if an error occurs during getting an object from database (Errors.DatabaseFailure)
     static func findAll() throws -> [Pulse] {
         // list of seasons to be returned
