@@ -24,6 +24,12 @@ class MainMenuViewController: BasicViewController {
         switch sender!.tag{
         case 1:
             performSegue(withIdentifier: "pulseSegue", sender: self)
+        case 2:
+            print("Testing")
+        case 3:
+            print("Testing")
+        case 4:
+            print("Testing")
         default:
             print("ERROR: Button doesn't exist")
         }

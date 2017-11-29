@@ -44,10 +44,31 @@
                                 <rect key="frame" x="26" y="396" width="973" height="200"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj">
-                                        <rect key="frame" x="0.0" y="0.5" width="973" height="199"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="217" height="199"/>
                                         <state key="normal" image="button"/>
                                         <connections>
                                             <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="5Hw-NC-U3M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pV-KE-0hD">
+                                        <rect key="frame" x="252" y="0.5" width="217" height="199"/>
+                                        <state key="normal" image="disabled"/>
+                                        <connections>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="gBy-0z-6bL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IVq-Mc-PTk">
+                                        <rect key="frame" x="504" y="0.5" width="217" height="199"/>
+                                        <state key="normal" image="disabled"/>
+                                        <connections>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="0iN-nv-66J"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yIK-3d-dWq">
+                                        <rect key="frame" x="756" y="0.5" width="217" height="199"/>
+                                        <state key="normal" image="disabled"/>
+                                        <connections>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="es0-oO-RE8"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -166,6 +187,7 @@
         <image name="MusiqueLogo" width="1050" height="327"/>
         <image name="button" width="200" height="199"/>
         <image name="detail" width="364" height="358"/>
+        <image name="disabled" width="200" height="199"/>
         <image name="estrelineas" width="253" height="91"/>
     </resources>
 </document>
