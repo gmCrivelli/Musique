@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,10 +35,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MusiqueLogo" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-2E-JaW">
-                                <rect key="frame" x="256" y="55" width="512" height="224.5"/>
+                                <rect key="frame" x="205" y="55" width="614" height="191.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="HBS-2E-JaW" secondAttribute="height" multiplier="350:109" id="cbt-zj-aUS"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="FcQ-kP-LBP">
-                                <rect key="frame" x="26" y="429" width="973" height="200"/>
+                                <rect key="frame" x="26" y="396" width="973" height="200"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emY-EY-9Sj">
                                         <rect key="frame" x="0.0" y="0.5" width="973" height="199"/>
@@ -56,11 +60,10 @@
                         <constraints>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="top" secondItem="HBS-2E-JaW" secondAttribute="bottom" constant="150" id="17g-nm-c8D"/>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" multiplier="0.95" id="AUT-0F-wME"/>
-                            <constraint firstItem="HBS-2E-JaW" firstAttribute="height" secondItem="0fv-VI-Cs2" secondAttribute="height" multiplier="0.3" id="TIn-rg-nwL"/>
+                            <constraint firstItem="HBS-2E-JaW" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" multiplier="0.6" id="ZPa-49-c8K"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="top" secondItem="0fv-VI-Cs2" secondAttribute="top" constant="35" id="Zoh-4U-fym"/>
                             <constraint firstItem="FcQ-kP-LBP" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="i9F-eN-jSY"/>
                             <constraint firstItem="HBS-2E-JaW" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="o47-1N-CMC"/>
-                            <constraint firstItem="HBS-2E-JaW" firstAttribute="width" secondItem="0fv-VI-Cs2" secondAttribute="width" multiplier="0.5" id="ua1-af-kzj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fv-VI-Cs2"/>
                     </view>
@@ -160,7 +163,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MusiqueLogo" width="495" height="164"/>
+        <image name="MusiqueLogo" width="1050" height="327"/>
         <image name="button" width="200" height="199"/>
         <image name="detail" width="364" height="358"/>
         <image name="estrelineas" width="253" height="91"/>
