@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
+		5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
+		5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
+		5A2E62A11FCF6EB0000EFDD3 /* PulseGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */; };
+		5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A31FCF6F91000EFDD3 /* Errors.swift */; };
 		641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
 		645F35551FC09C300084203F /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
@@ -46,6 +50,10 @@
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
+		5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
+		5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseGame.swift; sourceTree = "<group>"; };
+		5A2E62A31FCF6F91000EFDD3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -92,6 +100,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A2E62971FCF6A89000EFDD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E62A21FCF6F49000EFDD3 /* Enumerations */,
+				5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5A2E62981FCF6AAD000EFDD3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */,
+				5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		5A2E62A21FCF6F49000EFDD3 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E62A31FCF6F91000EFDD3 /* Errors.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
 		708888538848872AA8C64CF0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +192,8 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
+				5A2E62971FCF6A89000EFDD3 /* Model */,
 				FE1D05CF1FC83C7B00350EF9 /* BGM */,
 				FE1D05CE1FC83C7700350EF9 /* SFX */,
 				FEDB56341FCF272300821A43 /* HeroiFerido.atlas */,
@@ -289,7 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C192225DAB4B7FCD9B2FD11B /* [CP] Copy Pods Resources */ = {
@@ -332,12 +368,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */,
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
+				5A2E62A11FCF6EB0000EFDD3 /* PulseGame.swift in Sources */,
+				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
+				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +517,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = R3N39QE4MQ;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";
@@ -493,7 +533,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = R3N39QE4MQ;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";
@@ -525,6 +565,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */,
+			);
+			currentVersion = 5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */;
+			path = Musique.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE7C99BC1FB4BBC5006E7CCD /* Project object */;
 }
