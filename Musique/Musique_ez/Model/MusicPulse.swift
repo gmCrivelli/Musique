@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class Music_: NSManagedObject {
+class MusicPulse: NSManagedObject {
     
     @NSManaged public var idmusique: Int16
     @NSManaged public var name: String
