@@ -53,17 +53,17 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
-                                        <rect key="frame" x="922" y="35.5" width="52" height="52"/>
+                                        <rect key="frame" x="922" y="45.5" width="52" height="52"/>
                                         <state key="normal" image="Settings"/>
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="KmL-QW-D8m" firstAttribute="centerY" secondItem="BBx-gI-QQH" secondAttribute="centerY" id="6u6-PF-J0a"/>
                                     <constraint firstItem="hUy-K0-RY8" firstAttribute="height" secondItem="P2d-CK-OoN" secondAttribute="height" id="Eze-fP-LHl"/>
                                     <constraint firstItem="hUy-K0-RY8" firstAttribute="centerY" secondItem="P2d-CK-OoN" secondAttribute="centerY" id="NQ1-dO-3mx"/>
                                     <constraint firstItem="BBx-gI-QQH" firstAttribute="leading" secondItem="P2d-CK-OoN" secondAttribute="leading" constant="30" id="XFY-qd-Bjm"/>
                                     <constraint firstAttribute="trailing" secondItem="KmL-QW-D8m" secondAttribute="trailing" constant="50" id="Yp1-4s-w9l"/>
                                     <constraint firstItem="BBx-gI-QQH" firstAttribute="centerY" secondItem="P2d-CK-OoN" secondAttribute="centerY" constant="10" id="bqd-CE-klz"/>
-                                    <constraint firstItem="KmL-QW-D8m" firstAttribute="centerY" secondItem="P2d-CK-OoN" secondAttribute="centerY" id="gve-FI-SaN"/>
                                     <constraint firstItem="hUy-K0-RY8" firstAttribute="centerX" secondItem="P2d-CK-OoN" secondAttribute="centerX" id="soO-0G-tW9"/>
                                 </constraints>
                             </view>
@@ -152,7 +152,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-a6-Yg2">
-                                        <rect key="frame" x="922" y="35.5" width="52" height="52"/>
+                                        <rect key="frame" x="922" y="45.5" width="52" height="52"/>
                                         <state key="normal" image="Settings"/>
                                     </button>
                                 </subviews>
@@ -162,8 +162,8 @@
                                     <constraint firstItem="4L9-o8-OyU" firstAttribute="centerX" secondItem="QhW-GL-lAP" secondAttribute="centerX" id="Dcc-hq-rhl"/>
                                     <constraint firstAttribute="trailing" secondItem="yDV-a6-Yg2" secondAttribute="trailing" constant="50" id="Jpo-lC-zTP"/>
                                     <constraint firstItem="C7b-ep-Clr" firstAttribute="leading" secondItem="QhW-GL-lAP" secondAttribute="leading" constant="30" id="Qot-xz-GZh"/>
-                                    <constraint firstItem="yDV-a6-Yg2" firstAttribute="centerY" secondItem="QhW-GL-lAP" secondAttribute="centerY" id="aAF-de-P90"/>
                                     <constraint firstItem="4L9-o8-OyU" firstAttribute="height" secondItem="QhW-GL-lAP" secondAttribute="height" id="nzI-Bi-F7X"/>
+                                    <constraint firstItem="yDV-a6-Yg2" firstAttribute="centerY" secondItem="C7b-ep-Clr" secondAttribute="centerY" id="po5-gb-9Rh"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pulso_detail" translatesAutoresizingMaskIntoConstraints="NO" id="iG8-Tj-bDr">
