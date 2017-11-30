@@ -1,17 +1,18 @@
 //
-//  PulseGame.swift
+//  Progress.swift
 //  Musique_ez
 //
-//  Created by Ederaldo Ratz on 29/11/2017.
+//  Created by Ederaldo Ratz on 30/11/2017.
 //  Copyright © 2017 Gustavo De Mello Crivelli. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-class PulseGame: NSManagedObject {
+class ProgressPulse: NSManagedObject {
     
-    @NSManaged public var musique: String?
+    @NSManaged public var idmusique: Int16
+    @NSManaged public var sequence: String
     @NSManaged public var score: Int16
     
     
@@ -20,7 +21,7 @@ class PulseGame: NSManagedObject {
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Pulse", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Progress", in: managedObjectContext)
         
         // call super
         self.init(entity: entityDescription!, insertInto: nil)

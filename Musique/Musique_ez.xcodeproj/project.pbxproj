@@ -12,8 +12,10 @@
 		5A141CDC1FCF741B00864C70 /* PulseGameDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* PulseGameDAO.swift */; };
 		5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
 		5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
-		5A2E62A11FCF6EB0000EFDD3 /* PulseGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */; };
 		5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A31FCF6F91000EFDD3 /* Errors.swift */; };
+		5A6B46701FD029CF00E8C7D9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6B466F1FD029B100E8C7D9 /* CoreData.framework */; };
+		5A6B46721FD02A8100E8C7D9 /* MusicPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */; };
+		5A6B46741FD0379E00E8C7D9 /* ProgressPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B46731FD0379E00E8C7D9 /* ProgressPulse.swift */; };
 		641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
 		645F35551FC09C300084203F /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
@@ -54,8 +56,10 @@
 		5A141CDB1FCF741B00864C70 /* PulseGameDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseGameDAO.swift; sourceTree = "<group>"; };
 		5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
-		5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseGame.swift; sourceTree = "<group>"; };
 		5A2E62A31FCF6F91000EFDD3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5A6B466F1FD029B100E8C7D9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPulse.swift; sourceTree = "<group>"; };
+		5A6B46731FD0379E00E8C7D9 /* ProgressPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressPulse.swift; sourceTree = "<group>"; };
 		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6B46701FD029CF00E8C7D9 /* CoreData.framework in Frameworks */,
 				0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,7 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				5A2E62A21FCF6F49000EFDD3 /* Enumerations */,
-				5A2E62A01FCF6EB0000EFDD3 /* PulseGame.swift */,
+				5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */,
+				5A6B46731FD0379E00E8C7D9 /* ProgressPulse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +155,7 @@
 		8496201C9BE7F8369A496543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A6B466F1FD029B100E8C7D9 /* CoreData.framework */,
 				22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */,
 			);
 			name = Frameworks;
@@ -380,13 +387,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */,
+				5A6B46721FD02A8100E8C7D9 /* MusicPulse.swift in Sources */,
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
-				5A2E62A11FCF6EB0000EFDD3 /* PulseGame.swift in Sources */,
 				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
+				5A6B46741FD0379E00E8C7D9 /* ProgressPulse.swift in Sources */,
 				5A141CDC1FCF741B00864C70 /* PulseGameDAO.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
