@@ -53,8 +53,8 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
-                                        <rect key="frame" x="922" y="45.5" width="52" height="52"/>
-                                        <state key="normal" image="Settings"/>
+                                        <rect key="frame" x="920" y="44.5" width="54" height="54"/>
+                                        <state key="normal" image="info"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -152,8 +152,8 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-a6-Yg2">
-                                        <rect key="frame" x="922" y="45.5" width="52" height="52"/>
-                                        <state key="normal" image="Settings"/>
+                                        <rect key="frame" x="920" y="44.5" width="54" height="54"/>
+                                        <state key="normal" image="info"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -257,7 +257,7 @@
         <image name="Pulso" width="206" height="276"/>
         <image name="Pulso_detail" width="339" height="339"/>
         <image name="Ritmo" width="206" height="278"/>
-        <image name="Settings" width="52" height="52"/>
         <image name="TopBarPattern" width="1024" height="118"/>
+        <image name="info" width="54" height="54"/>
     </resources>
 </document>
