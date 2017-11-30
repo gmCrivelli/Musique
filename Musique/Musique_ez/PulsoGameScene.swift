@@ -507,7 +507,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         if bgMusic.obstacleSpawns[obstacleTiming] {
             let goalPosition = self.playerOrigin.x// + (scene?.size.width)!
-            let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm!))) * moveSpeedPerSecond + Double(goalPosition)
+            let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm))) * moveSpeedPerSecond + Double(goalPosition)
             let offset = CGFloat(r1) - self.obstaclesParent!.position.x
             
             // Adds a new obstacle to the parent node
