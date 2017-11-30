@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
-		5A141CDC1FCF741B00864C70 /* PulseGameDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* PulseGameDAO.swift */; };
+		5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* MusicDAO.swift */; };
 		5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
 		5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
 		5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A31FCF6F91000EFDD3 /* Errors.swift */; };
@@ -53,7 +53,7 @@
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
-		5A141CDB1FCF741B00864C70 /* PulseGameDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseGameDAO.swift; sourceTree = "<group>"; };
+		5A141CDB1FCF741B00864C70 /* MusicDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDAO.swift; sourceTree = "<group>"; };
 		5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
 		5A2E62A31FCF6F91000EFDD3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		5A141CDA1FCF73E900864C70 /* DAO */ = {
 			isa = PBXGroup;
 			children = (
-				5A141CDB1FCF741B00864C70 /* PulseGameDAO.swift */,
+				5A141CDB1FCF741B00864C70 /* MusicDAO.swift */,
 			);
 			path = DAO;
 			sourceTree = "<group>";
@@ -395,7 +395,7 @@
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				5A6B46741FD0379E00E8C7D9 /* ProgressPulse.swift in Sources */,
-				5A141CDC1FCF741B00864C70 /* PulseGameDAO.swift in Sources */,
+				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
