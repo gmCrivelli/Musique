@@ -22,9 +22,9 @@
 		FE1D05DA1FC8410100350EF9 /* guitar.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D91FC8410100350EF9 /* guitar.wav */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
-		FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */; };
+		FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */; };
 		FE7C99CC1FB4BBC5006E7CCD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */; };
-		FE7C99CE1FB4BBC5006E7CCD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99CD1FB4BBC5006E7CCD /* GameScene.swift */; };
+		FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */; };
 		FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */; };
 		FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */; };
 		FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */; };
@@ -52,9 +52,9 @@
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PulsoGameScene.sks; sourceTree = "<group>"; };
 		FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		FE7C99CD1FB4BBC5006E7CCD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulsoGameScene.swift; sourceTree = "<group>"; };
 		FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FE7C99D21FB4BBC5006E7CCD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,10 +141,10 @@
 				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
-				FE7C99C91FB4BBC5006E7CCD /* GameScene.sks */,
+				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
-				FE7C99CD1FB4BBC5006E7CCD /* GameScene.swift */,
+				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
 				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
 				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
@@ -224,7 +224,7 @@
 				64967BA01FB5D797004F39BC /* The_Muffin_Man.mp3 in Resources */,
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */,
-				FE7C99CA1FB4BBC5006E7CCD /* GameScene.sks in Resources */,
+				FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
 				FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */,
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
@@ -301,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
-				FE7C99CE1FB4BBC5006E7CCD /* GameScene.swift in Sources */,
+				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,

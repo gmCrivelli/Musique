@@ -12,16 +12,16 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
-    var gameScene : GameScene!
+    var gameScene : PulsoGameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "PulsoGameScene") {
                 
-                self.gameScene = scene as! GameScene
+                self.gameScene = scene as! PulsoGameScene
                 
                 // Set the scale mode to scale to fit the window
                 gameScene.scaleMode = .aspectFill

@@ -15,7 +15,7 @@ enum PlayerState : Int {
     case jumping = 2
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     var whatever: SKNode!
 
