@@ -145,11 +145,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
-        self.player.physicsBody?.categoryBitMask = playerCategory
-        self.player.physicsBody?.collisionBitMask = 0 //floorCategory
-        self.player.physicsBody?.contactTestBitMask = floorCategory | obstacleCategory
-        self.player.physicsBody?.restitution = 0
-        self.player.physicsBody?.affectedByGravity = false
+        let ppb = SKPhysicsBody(circleOfRadius: player.size.height * 0.35)
+        ppb.categoryBitMask = playerCategory
+        ppb.collisionBitMask = 0 //floorCategory
+        ppb.contactTestBitMask = floorCategory | obstacleCategory
+        ppb.restitution = 0
+        ppb.affectedByGravity = false
+        self.player.physicsBody = ppb
         
         self.playerOrigin = self.player.position
         
@@ -306,8 +308,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         // Player collides with obstacle
-        if (contact.bodyA.categoryBitMask == playerCategory) &&
-            (contact.bodyB.categoryBitMask == obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
+            (contact.bodyB.categoryBitMask == playerCategory) &&
             !playerIsInvincible {
             
             self.moveSpeedPerSecond = self.baseMoveSpeedPerSecond
@@ -315,11 +317,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.obstaclesJumpedInaRow = 0
             playerIsInvincible = true
             player.run(crashAction) { self.playerIsInvincible = false }
-            (contact.bodyB.node as! ObstacleNode).wasHit = 1 
+            (contact.bodyA.node as! ObstacleNode).wasHit = 1
         }
         
         // Obstacle collides with scoreCollider
-        if (contact.bodyA.categoryBitMask ==  obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
             (contact.bodyB.categoryBitMask == scoreCategory) {
             
             // Update player sound
@@ -446,10 +448,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     @objc func addObstacle() -> Void{
         
-        let goalPosition = self.playerOrigin.x + (scene?.size.width)!
-        let r1 = (120.0 / Double(bgMusic!.bpm!)) * moveSpeedPerSecond + Double(goalPosition)
-        let offset = CGFloat(r1) - self.obstaclesParent!.position.x
+        // MARK: Of the ninja
         
+        let goalPosition = self.playerOrigin.x// + (scene?.size.width)!
+        let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm!))) * moveSpeedPerSecond + Double(goalPosition)
+        let offset = CGFloat(r1) - self.obstaclesParent!.position.x
+
         // Adds a new obstacle to the parent node
         let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
         self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
