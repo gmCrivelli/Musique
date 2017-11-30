@@ -15,44 +15,14 @@ enum PlayerState : Int {
     case jumping = 2
 }
 
-enum SFX : Int {
-    case bumbo = 0
-    case caixa = 1
-    case prato = 2
-}
-
-struct Music {
-    
-    static let configArray = [("funny_song",90,[false,true]),
-                              ("dancing_on_green_grass",96,[false,true]),
-                              ("space_adventure",140,[false,true]),
-                              ("splashing_around",102.5,[false,true])]
-    
-    var obstacleSpawns : [Bool] = []
-    var bpm : Double
-    var music : Sound
-    
-    init(url: URL, bpm: Double) {
-        self.bpm = bpm
-        self.music = Sound(url: url)
-    }
-    
-    func play(completion: @escaping () -> Void) {
-        self.music.play(completion)
-    }
-}
-
 class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
+    var whatever: SKNode!
+
     // Time control
     private var lastUpdateTime: TimeInterval = 0
     private var dt: TimeInterval = 0
-    
-    // Timing control (one step = half beat)
-    private var multiplierBlinks : [Bool] = [false, true]
-    private var multiplierTiming : Int = 0
-    private var obstacleTiming : Int = 0
-    
+
     // Player-related properties
     private var playerState : PlayerState = .onFloor
     private var playerAccel = CGPoint(x: 0, y: -6000)
@@ -60,11 +30,10 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var playerOrigin : CGPoint!
     private var player : SKSpriteNode!
     private var playerWalkingFrames : [SKTexture]!
-    private var playerHurtFrames : [SKTexture]!
     private var playerIsInvincible : Bool = false
     private var playerInvincibilityTime : TimeInterval = 0.5
-    private var playerSoundArray : [SFX] = [.bumbo,.caixa,.bumbo,.caixa,.bumbo,.caixa,.bumbo,.prato]
-    private var playerSound : Int = 2
+    private var playerSoundArray : [Int] = [0,1,0,1,0,1,0,2]
+    private var playerSound : Int = 0
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
@@ -114,8 +83,9 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var floorHeight: CGFloat!
     
     private var isGamePaused = false
-    
-    private var bgMusic: Music!
+
+    private var bgMusic:Sound?
+    private var gruntSound:Sound?
     
     var obstacleTextures = [SKTexture]()
     
@@ -138,15 +108,12 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         //Setup all music
+        let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: "The_Muffin_Man", ofType: "mp3")!)
+        bgMusic = Sound(url: filePath, bpm: 90)
         
-        // CHOOSE MUSIC:
-        let chosenMusic = 3
-        let chosenMusicConfig = Music.configArray[chosenMusic]
-        
-        let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: chosenMusicConfig.0 , ofType: "mp3")!)
-        bgMusic = Music(url: filePath, bpm: chosenMusicConfig.1)
-        bgMusic.obstacleSpawns = chosenMusicConfig.2
-        
+        let gruntPath = URL(fileURLWithPath: Bundle.main.path(forResource: "grunt1", ofType: "wav")!)
+        gruntSound = Sound(url: gruntPath)
+    
         //Configure background
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
@@ -186,34 +153,27 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         ppb.affectedByGravity = false
         self.player.physicsBody = ppb
         
-        
         self.playerOrigin = self.player.position
-        
-        
-        // Setup animation atlases
         
         let playerAnimatedAtlas = SKTextureAtlas(named: "Heroi")
         var walkFrames = [SKTexture]()
-        for i in 1 ..< playerAnimatedAtlas.textureNames.count {
-            walkFrames.append(playerAnimatedAtlas.textureNamed("Heroi\(i)"))
+        
+        let numImages = playerAnimatedAtlas.textureNames.count
+        
+        for i in 1 ..< numImages {
+            let playerTextureName = "Heroi\(i)"
+            walkFrames.append(playerAnimatedAtlas.textureNamed(playerTextureName))
         }
+        
         playerWalkingFrames = walkFrames
-        
-        
-        let playerHurtAtlas = SKTextureAtlas(named: "HeroiFerido")
-        var hurtFrames = [SKTexture]()
-        for i in 1 ..< playerHurtAtlas.textureNames.count {
-            hurtFrames.append(playerHurtAtlas.textureNamed("aff\(i)"))
-        }
-        playerHurtFrames = hurtFrames
         
         player.texture = playerWalkingFrames[0]
         
         // Setup ground
         self.tileMap = self.childNode(withName: "Tile Map Node") as? SKTileMapNode
         self.tileMap.physicsBody = SKPhysicsBody(
-            rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
-                                height: tileMap.mapSize.height * tileMap.yScale))
+                rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
+                                    height: tileMap.mapSize.height * tileMap.yScale))
         self.tileMap.physicsBody?.affectedByGravity = false
         self.tileMap.physicsBody?.isDynamic = false
         self.tileMap.physicsBody?.categoryBitMask = floorCategory
@@ -231,28 +191,39 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 self?.run(action)
             }
         }
-        let waitForNext = SKAction.wait(forDuration: 30.0 / bgMusic!.bpm)
+        let waitForNext = SKAction.wait(forDuration: 60.0 / Double(bgMusic!.bpm!))
         self.timerAction = SKAction.sequence([waitForNext, triggerAction])
         
         let multiplierAction = SKAction.run { [weak self] in
-            self?.blinkMultiplier()
+            self?.multiplierLabel.text = "\(self?.multiplierArray[(self?.multiplier!)!] ?? 1)x"
+            
+            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / Double((self?.bgMusic?.bpm)!), from: CGFloat(sqrt(sqrt(Double((self?.multiplier!)! + 1)))), to: 1.0)
+            
+            self?.multiplierLabel.run(scaleAction)
         }
         self.timedActions.append(multiplierAction)
         
-        let createObstacleAction = SKAction.run { [weak self] in
-            self?.addObstacle()
-        }
-        self.timedActions.append(createObstacleAction)
-        
         //Tutorial action
-        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 60.0 / bgMusic!.bpm)
+        let goDownAction = SKAction.move(by: CGVector(dx: 0, dy: -40), duration: 60.0 / Double(bgMusic!.bpm!))
         let goUpAction = SKAction.move(by: CGVector(dx: 0, dy: 40), duration: 0.0)
         let tutorialBounce = SKAction.sequence([goUpAction, goDownAction])
         let tutorialSequence = SKAction.sequence([SKAction.repeat(tutorialBounce, count: 10),
                                                   SKAction.fadeOut(withDuration: 0.4)])
         
-        // Player Movement actions
+        let createObstacleAction = SKAction.run { [weak self] in
+            self?.addObstacle()
+        }
+
+        let obstacleSequence = SKAction.sequence([createObstacleAction, waitForNext])
+        self.spawnObstacleAction = SKAction.repeatForever(obstacleSequence)
+        
         let initialPosition = player.position
+        let customJumpAction = SKAction.customAction(withDuration: 0.4, actionBlock: { (node, timeElapsed) in
+            let t = CGFloat(Double.pi) * timeElapsed / 0.4
+
+            node.position = CGPoint(x: initialPosition.x, y: initialPosition.y + 120 * sin(t))
+            })
+        
         let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7))
         let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7), to: initialPosition)
         let jumpSequence = SKAction.sequence([customJumpUp, customJumpDown])
@@ -267,7 +238,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         let createGroundedObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: true)
         }
-        
+    
         let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.6)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
@@ -285,15 +256,9 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 4.0)
         let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 4.0)
-        let hurtAnimationAction = SKAction.run({
-            [weak self] in self?.animateHurt()
-        })
-        let unhurtAnimationAction = SKAction.run({
-            [weak self] in self?.startWalking()
-        })
         
-        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction, unhurtAnimationAction])
-        self.crashAction = SKAction.group([hurtAnimationAction, gruntAction, blinkSequence])
+        let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction])
+        self.crashAction = SKAction.group([gruntAction, blinkSequence])
         
         // Setup obstacles
         self.obstaclesParent = childNode(withName: "Obstacles")
@@ -305,6 +270,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         // Start the game
         self.score = 0
         self.multiplier = 1
+        self.run(spawnObstacleAction)
         self.tutorialPointingFinger.run(tutorialSequence)
         self.run(SKAction.repeatForever(timerAction))
         startWalking()
@@ -317,16 +283,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     func startWalking() {
         
-        self.player.removeAction(forKey: "hurtAnimation")
         player.run(SKAction.repeatForever(
-            SKAction.animate(with: playerWalkingFrames, timePerFrame: 0.1)), withKey: "walkAnimation")
-    }
-    
-    func animateHurt() {
-        
-        self.player.removeAction(forKey: "walkAnimation")
-        self.player.run(SKAction.repeatForever(
-            SKAction.animate(with: playerHurtFrames, timePerFrame: 0.1)), withKey: "hurtAnimation")
+            SKAction.animate(with: playerWalkingFrames, timePerFrame: 0.1)))
     }
     
     func jump() {
@@ -336,7 +294,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 self.playerState = .onFloor
                 self.startWalking()
             }
-            self.run(jumpSfxArray[playerSoundArray[playerSound].rawValue])
+            self.run(jumpSfxArray[playerSoundArray[playerSound]])
             print("Player Sound: \(playerSound)")
         }
     }
@@ -350,8 +308,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         // Player collides with obstacle
-        if (contact.bodyB.categoryBitMask == playerCategory) &&
-            (contact.bodyA.categoryBitMask == obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
+            (contact.bodyB.categoryBitMask == playerCategory) &&
             !playerIsInvincible {
             
             self.moveSpeedPerSecond = self.baseMoveSpeedPerSecond
@@ -363,7 +321,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Obstacle collides with scoreCollider
-        if (contact.bodyA.categoryBitMask ==  obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
             (contact.bodyB.categoryBitMask == scoreCategory) {
             
             // Update player sound
@@ -396,9 +354,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         if(isGroundObject){
             textures.append(SKTexture(imageNamed: "Bricks"))
-            
+
         }else{
-            //TODO
         }
         
         let randomNumber = Int(arc4random_uniform(UInt32(textures.count)))
@@ -415,7 +372,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
+            
         // Called before each frame is rendered
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
@@ -451,8 +408,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
             paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
         }
-        
-        
+    
         moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
         moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
         
@@ -479,6 +435,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         let objs = objects.children
         
+        
         for obj in objs{
             obj.position = CGPoint(x:obj.position.x - movementSpeed, y: obj.position.y)
             if(obj.position.x < unspawnPoint){
@@ -489,35 +446,20 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    @objc func blinkMultiplier(){
-        
-        if multiplierBlinks[multiplierTiming] {
-            self.multiplierLabel.text = "\(self.multiplierArray[self.multiplier])x"
-            
-            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / (self.bgMusic?.bpm)!, from: CGFloat(sqrt(sqrt(Double(self.multiplier) + 1))), to: 1.0)
-            
-            self.multiplierLabel.run(scaleAction)
-        }
-        multiplierTiming = (multiplierTiming + 1) % multiplierBlinks.count
-    }
-    
     @objc func addObstacle() -> Void{
         
-        if bgMusic.obstacleSpawns[obstacleTiming] {
-            let goalPosition = self.playerOrigin.x// + (scene?.size.width)!
-            let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm))) * moveSpeedPerSecond + Double(goalPosition)
-            let offset = CGFloat(r1) - self.obstaclesParent!.position.x
-            
-            // Adds a new obstacle to the parent node
-            let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
-            self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
-            print(obstaclesParent?.position.x, offset)
-            print(playerOrigin.x)
-            
-            self.moveSpeedPerSecond *= 1.01
-        }
-        obstacleTiming = (obstacleTiming + 1) % bgMusic.obstacleSpawns.count
+        // MARK: Of the ninja
+        
+        let goalPosition = self.playerOrigin.x// + (scene?.size.width)!
+        let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm!))) * moveSpeedPerSecond + Double(goalPosition)
+        let offset = CGFloat(r1) - self.obstaclesParent!.position.x
+
+        // Adds a new obstacle to the parent node
+        let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
+        self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
+        print(obstaclesParent?.position.x, offset)
+        print(playerOrigin.x)
+        
+        self.moveSpeedPerSecond *= 1.01
     }
 }
-
-
