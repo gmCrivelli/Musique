@@ -15,7 +15,7 @@ class ScenarioObjectNode: SKSpriteNode {
     private var layer : Int!
     
     init(isGroundObject: Bool, layer: Int, texture: SKTexture){
-        super.init(texture: nil, color: .red, size: CGSize(width: texture.size().width / 7, height: texture.size().height / 7))
+        super.init(texture: nil, color: .red, size: CGSize(width: texture.size().width / 2, height: texture.size().height / 2))
         self.isGroundObject = isGroundObject
         self.layer = layer
         self.physicsBody?.affectedByGravity = false

@@ -67,9 +67,6 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     /// Object audio player
     private var player:AVAudioPlayer = AVAudioPlayer()
     
-    /// Song beats per minute
-    var bpm:Int?
-    
     /// Completion block to be executed after sound is finished playing
     private var completion : () -> Void = {}
     
@@ -79,20 +76,16 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     ///
     /// - Parameters
     ///     - url: url containing the sound file path.
-    ///     - bpm: the amount of beats per minute of the song.
-    init(url: URL, bpm: Int = 0){
+    init(url: URL){
         // NSObject init
         super.init()
         
-        // Sets the song BPM
-        self.bpm = bpm
-        
-        do{
+        do {
             // Instantiates the player with the contents of the URL
             self.player = try AVAudioPlayer(contentsOf: url)
             // Sets the player delegate property to self
             self.player.delegate = self
-        }catch let error {
+        } catch let error {
             print("Initialization error: \(error)")
         }
     }
