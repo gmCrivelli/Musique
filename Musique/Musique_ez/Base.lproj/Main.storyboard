@@ -53,7 +53,7 @@
                                             <constraint firstAttribute="width" secondItem="BBx-gI-QQH" secondAttribute="height" multiplier="227:72" id="USc-cK-iYK"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
                                         <rect key="frame" x="934" y="51.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KmL-QW-D8m" secondAttribute="height" multiplier="1:1" id="Bgr-1Y-ABU"/>
@@ -156,7 +156,7 @@
                                             <constraint firstAttribute="width" secondItem="C7b-ep-Clr" secondAttribute="height" multiplier="227:72" id="Z1F-eH-29m"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-a6-Yg2">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-a6-Yg2">
                                         <rect key="frame" x="934" y="51.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="yDV-a6-Yg2" secondAttribute="height" multiplier="1:1" id="j22-bG-ZWr"/>
@@ -181,13 +181,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-xI-w09" userLabel="backButton">
-                                <rect key="frame" x="20" y="143" width="110" height="64"/>
-                                <state key="normal" image="BackButton"/>
-                                <connections>
-                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iPZ-WV-TEU"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eKZ-gR-GR1" userLabel="MusicView">
                                 <rect key="frame" x="0.0" y="123" width="1024" height="645"/>
                                 <subviews>
@@ -309,6 +302,13 @@
                                     <constraint firstItem="MBU-Ui-pQE" firstAttribute="top" secondItem="kNX-3R-W0J" secondAttribute="bottom" constant="68" id="zoH-YX-Yw4"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-xI-w09" userLabel="backButton">
+                                <rect key="frame" x="20" y="143" width="110" height="64"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iPZ-WV-TEU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53134143352508545" green="0.40065449476242065" blue="0.6656835675239563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
