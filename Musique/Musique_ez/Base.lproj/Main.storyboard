@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Chalkduster.ttf">
+            <string>Chalkduster</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="xUA-3B-Non">
@@ -62,13 +67,10 @@
                                     <constraint firstItem="hUy-K0-RY8" firstAttribute="centerX" secondItem="P2d-CK-OoN" secondAttribute="centerX" id="soO-0G-tW9"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Afj-Lj-4rO">
-                                <rect key="frame" x="0.0" y="10" width="1024" height="768"/>
-                            </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Aw9-Fg-QTr">
                                 <rect key="frame" x="77" y="234" width="870" height="320"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTB-oP-ZCq">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTB-oP-ZCq">
                                         <rect key="frame" x="0.0" y="0.0" width="256.5" height="320"/>
                                         <color key="backgroundColor" red="0.53333333333333333" green="0.40000000000000002" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="Pulso"/>
@@ -77,6 +79,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="jal-rb-QUz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLa-cB-bvU">
                                         <rect key="frame" x="306.5" y="0.0" width="257" height="320"/>
@@ -107,13 +112,9 @@
                         <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="P2d-CK-OoN" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="04S-Cu-0u2"/>
-                            <constraint firstItem="Afj-Lj-4rO" firstAttribute="centerY" secondItem="0fv-VI-Cs2" secondAttribute="centerY" id="5ev-vT-ipH"/>
-                            <constraint firstItem="Afj-Lj-4rO" firstAttribute="height" secondItem="Ljp-Jv-Zwa" secondAttribute="height" id="6be-np-uUk"/>
                             <constraint firstItem="Aw9-Fg-QTr" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="HTo-Ua-dcx"/>
                             <constraint firstItem="P2d-CK-OoN" firstAttribute="top" secondItem="Ljp-Jv-Zwa" secondAttribute="top" id="Ib4-kT-Mfd"/>
-                            <constraint firstItem="Afj-Lj-4rO" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" id="Muw-yN-H7C"/>
                             <constraint firstItem="P2d-CK-OoN" firstAttribute="height" secondItem="Ljp-Jv-Zwa" secondAttribute="height" multiplier="0.16" id="NTz-ab-1ob"/>
-                            <constraint firstItem="Afj-Lj-4rO" firstAttribute="centerX" secondItem="0fv-VI-Cs2" secondAttribute="centerX" id="Qsg-67-9QM"/>
                             <constraint firstItem="Aw9-Fg-QTr" firstAttribute="centerY" secondItem="0fv-VI-Cs2" secondAttribute="centerY" id="gOO-03-jmu"/>
                             <constraint firstItem="Aw9-Fg-QTr" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" multiplier="0.85" id="oLn-QN-h6A"/>
                             <constraint firstItem="P2d-CK-OoN" firstAttribute="width" secondItem="Ljp-Jv-Zwa" secondAttribute="width" id="tvl-Uq-mva"/>
@@ -165,13 +166,48 @@
                                     <constraint firstItem="4L9-o8-OyU" firstAttribute="height" secondItem="QhW-GL-lAP" secondAttribute="height" id="nzI-Bi-F7X"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pulso_detail" translatesAutoresizingMaskIntoConstraints="NO" id="iG8-Tj-bDr">
+                                <rect key="frame" x="80" y="280" width="339" height="339"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iG8-Tj-bDr" secondAttribute="height" multiplier="1:1" id="pjX-RO-151"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PULSO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5J-JT-lIb">
+                                <rect key="frame" x="438.5" y="173" width="148" height="57"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="45"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-xI-w09" userLabel="backButton">
+                                <rect key="frame" x="20" y="143" width="118" height="67"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iPZ-WV-TEU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBU-Ui-pQE">
+                                <rect key="frame" x="680" y="450" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Iniciar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="yBB-us-cnp"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.53134143352508545" green="0.40065449476242065" blue="0.6656835675239563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iG8-Tj-bDr" firstAttribute="leading" secondItem="RMT-B6-1fq" secondAttribute="leading" constant="80" id="4oY-k2-d7n"/>
+                            <constraint firstItem="x5J-JT-lIb" firstAttribute="centerX" secondItem="RMT-B6-1fq" secondAttribute="centerX" id="JKY-IY-mAz"/>
                             <constraint firstItem="QhW-GL-lAP" firstAttribute="centerX" secondItem="RMT-B6-1fq" secondAttribute="centerX" id="KjB-4d-tnJ"/>
                             <constraint firstItem="QhW-GL-lAP" firstAttribute="width" secondItem="VJp-Cc-b1e" secondAttribute="width" id="MSI-Av-4FS"/>
+                            <constraint firstItem="x5J-JT-lIb" firstAttribute="top" secondItem="4L9-o8-OyU" secondAttribute="bottom" constant="50" id="V3C-pA-ov7"/>
                             <constraint firstAttribute="top" secondItem="QhW-GL-lAP" secondAttribute="top" id="Ynq-Gl-0Fu"/>
+                            <constraint firstItem="iG8-Tj-bDr" firstAttribute="top" secondItem="x5J-JT-lIb" secondAttribute="bottom" constant="50" id="d7O-N1-P6K"/>
+                            <constraint firstItem="8EK-xI-w09" firstAttribute="top" secondItem="4L9-o8-OyU" secondAttribute="bottom" constant="20" id="nbU-K7-PYq"/>
                             <constraint firstItem="QhW-GL-lAP" firstAttribute="height" secondItem="VJp-Cc-b1e" secondAttribute="height" multiplier="0.16" id="qLZ-dj-ydS"/>
+                            <constraint firstItem="8EK-xI-w09" firstAttribute="leading" secondItem="RMT-B6-1fq" secondAttribute="leading" constant="20" id="wo7-Vy-CSb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMT-B6-1fq"/>
                     </view>
@@ -198,9 +234,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BackButton" width="118" height="67"/>
         <image name="Breve_noBG" width="206" height="278"/>
         <image name="MusiqueLogoBlack" width="227" height="72"/>
         <image name="Pulso" width="206" height="276"/>
+        <image name="Pulso_detail" width="339" height="339"/>
         <image name="Settings" width="52" height="52"/>
         <image name="TopBarPattern" width="1024" height="118"/>
     </resources>

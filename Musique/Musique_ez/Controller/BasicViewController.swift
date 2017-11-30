@@ -20,7 +20,7 @@ class BasicViewController: UIViewController {
         super.viewDidLoad()
         
         // Sets the background color to the default color
-        self.view.backgroundColor = defaultColor
+//        self.view.backgroundColor = defaultColor
         
         // Initializes the ImageView and sets it to the size of the screen.
         self.background = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
