@@ -25,7 +25,7 @@ class BasicViewController: UIViewController {
         // Initializes the ImageView and sets it to the size of the screen.
         self.background = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         // Sets the background image
-        self.background?.image = UIImage(named: "background-1")
+        self.background?.image = UIImage(named: "Pattern")
         // Ensures the image view has a clear background color
         self.background?.backgroundColor = UIColor.clear
         // Adds the image view to the controller main view
