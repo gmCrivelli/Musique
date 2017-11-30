@@ -18,7 +18,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
+            // Load the SKScene from 'PulsoGameScene.sks'
             if let scene = SKScene(fileNamed: "PulsoGameScene") {
                 
                 self.gameScene = scene as! PulsoGameScene

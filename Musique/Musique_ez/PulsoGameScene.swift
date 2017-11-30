@@ -24,9 +24,9 @@ enum SFX : Int {
 struct Music {
     
     static let configArray = [("funny_song",90,[false,true]),
-                              ("dancing_on_green_grass",96,[false,true]),
-                              ("space_adventure",140,[false,true]),
-                              ("splashing_around",102.5,[false,true])]
+                       ("dancing_on_green_grass",96,[false,true]),
+                       ("space_adventure",140,[false,true]),
+                       ("splashing_around",102.5,[false,true])]
     
     var obstacleSpawns : [Bool] = []
     var bpm : Double
@@ -44,6 +44,8 @@ struct Music {
 
 class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
+    var whatever: SKNode!
+
     // Time control
     private var lastUpdateTime: TimeInterval = 0
     private var dt: TimeInterval = 0
@@ -68,8 +70,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     // Obstacle-related properties
     private var obstaclesParent : SKNode?
-    private var baseMoveSpeedPerSecond = 1500.0
-    private var moveSpeedPerSecond = 1500.0
+    private var baseMoveSpeedPerSecond = 500.0
+    private var moveSpeedPerSecond = 500.0
     private var originalPosition : CGPoint?
     private var scoreCollider : SKNode!
     private var tutorialCollider : SKNode!
@@ -114,7 +116,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var floorHeight: CGFloat!
     
     private var isGamePaused = false
-    
+
     private var bgMusic: Music!
     
     var obstacleTextures = [SKTexture]()
@@ -132,9 +134,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
     
-    //Point where objects and obstacles unspawn from the scene
-    var unspawnPoint : CGFloat!
-    
     override func didMove(to view: SKView) {
         
         //Setup all music
@@ -146,7 +145,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: chosenMusicConfig.0 , ofType: "mp3")!)
         bgMusic = Music(url: filePath, bpm: chosenMusicConfig.1)
         bgMusic.obstacleSpawns = chosenMusicConfig.2
-        
+    
         //Configure background
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
@@ -159,8 +158,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
         
-        screenEnd = CGFloat((scene?.size.width)!)
-        unspawnPoint = -(scene?.size.width)! - ((scene?.size.width)! / 2)
+        screenEnd = CGFloat((scene?.size.width)! / 2)
         
         obstacleTextures.append(SKTexture(imageNamed: "Hidrante"))
         obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
@@ -178,14 +176,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         // Get player node from scene and store it for use later
         self.player = self.childNode(withName: "Player") as? SKSpriteNode
-        let ppb = SKPhysicsBody(circleOfRadius: player.size.height * 0.35)
-        ppb.categoryBitMask = playerCategory
-        ppb.collisionBitMask = 0 //floorCategory
-        ppb.contactTestBitMask = floorCategory | obstacleCategory
-        ppb.restitution = 0
-        ppb.affectedByGravity = false
-        self.player.physicsBody = ppb
-        
+        self.player.physicsBody?.categoryBitMask = playerCategory
+        self.player.physicsBody?.collisionBitMask = 0 //floorCategory
+        self.player.physicsBody?.contactTestBitMask = floorCategory | obstacleCategory
+        self.player.physicsBody?.restitution = 0
+        self.player.physicsBody?.affectedByGravity = false
         
         self.playerOrigin = self.player.position
         
@@ -212,8 +207,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         // Setup ground
         self.tileMap = self.childNode(withName: "Tile Map Node") as? SKTileMapNode
         self.tileMap.physicsBody = SKPhysicsBody(
-            rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
-                                height: tileMap.mapSize.height * tileMap.yScale))
+                rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
+                                    height: tileMap.mapSize.height * tileMap.yScale))
         self.tileMap.physicsBody?.affectedByGravity = false
         self.tileMap.physicsBody?.isDynamic = false
         self.tileMap.physicsBody?.categoryBitMask = floorCategory
@@ -253,8 +248,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         // Player Movement actions
         let initialPosition = player.position
-        let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7))
-        let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: (self.scene?.size.height)! / 7), to: initialPosition)
+        let customJumpUp = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeOut, time: 0.225, from: initialPosition, to: initialPosition + CGPoint(x: 0, y: 120))
+        let customJumpDown = SKEase.move(easeFunction: CurveType.curveTypeCubic, easeType: EaseType.easeTypeIn, time: 0.225, from: initialPosition + CGPoint(x: 0, y: 120), to: initialPosition)
         let jumpSequence = SKAction.sequence([customJumpUp, customJumpDown])
         
         let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(Double.pi), duration: 0.45)
@@ -267,7 +262,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         let createGroundedObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: true)
         }
-        
+    
         let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.6)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
@@ -323,7 +318,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func animateHurt() {
-        
+
         self.player.removeAction(forKey: "walkAnimation")
         self.player.run(SKAction.repeatForever(
             SKAction.animate(with: playerHurtFrames, timePerFrame: 0.1)), withKey: "hurtAnimation")
@@ -350,8 +345,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         
         // Player collides with obstacle
-        if (contact.bodyB.categoryBitMask == playerCategory) &&
-            (contact.bodyA.categoryBitMask == obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == playerCategory) &&
+            (contact.bodyB.categoryBitMask == obstacleCategory) &&
             !playerIsInvincible {
             
             self.moveSpeedPerSecond = self.baseMoveSpeedPerSecond
@@ -359,7 +354,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             self.obstaclesJumpedInaRow = 0
             playerIsInvincible = true
             player.run(crashAction) { self.playerIsInvincible = false }
-            (contact.bodyA.node as! ObstacleNode).wasHit = 1
+            (contact.bodyB.node as! ObstacleNode).wasHit = 1 
         }
         
         // Obstacle collides with scoreCollider
@@ -396,7 +391,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         if(isGroundObject){
             textures.append(SKTexture(imageNamed: "Bricks"))
-            
+
         }else{
             //TODO
         }
@@ -415,7 +410,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        
+            
         // Called before each frame is rendered
         if lastUpdateTime > 0 {
             dt = currentTime - lastUpdateTime
@@ -442,17 +437,16 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
         paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
         
-        if paralaxScenarioNodeA1.position.x <= 0{
-            paralaxScenarioNodeA1.position.x = paralaxScenarioNodeB1.position.x + paralaxScenarioNodeA1.size.width
-            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeB2.position.x + paralaxScenarioNodeA2.size.width
+        if paralaxScenarioNodeA1.position.x <= -screenEnd{
+            paralaxScenarioNodeA1.position.x = screenEnd + paralaxScenarioNodeA1.size.width
+            paralaxScenarioNodeA2.position.x = screenEnd + paralaxScenarioNodeA2.size.width
         }
         
-        if paralaxScenarioNodeB1.position.x <= 0{
-            paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
-            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
+        if paralaxScenarioNodeB1.position.x <= -screenEnd{
+            paralaxScenarioNodeB1.position.x = screenEnd + paralaxScenarioNodeB1.size.width
+            paralaxScenarioNodeB2.position.x = screenEnd + paralaxScenarioNodeB2.size.width
         }
-        
-        
+    
         moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
         moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
         
@@ -465,7 +459,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 obs.update(dt)
                 //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
                 // In case the obstacle has reached the outside of the screen
-                if(obs.position.x < unspawnPoint){
+                if(obs.position.x < 2 * (self.tileMap?.frame.minX)! - obs.frame.width){
                     // Removes the object from the parent node to avoid excessive memory use
                     obs.removeFromParent()
                 }
@@ -481,7 +475,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         for obj in objs{
             obj.position = CGPoint(x:obj.position.x - movementSpeed, y: obj.position.y)
-            if(obj.position.x < unspawnPoint){
+            if(obj.position.x < 2 * (self.tileMap?.frame.minX)! - obj.frame.width){
                 // Removes the object from the parent node to avoid excessive memory use
                 obj.removeFromParent()
             }
@@ -504,8 +498,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     @objc func addObstacle() -> Void{
         
         if bgMusic.obstacleSpawns[obstacleTiming] {
-            let goalPosition = self.playerOrigin.x// + (scene?.size.width)!
-            let r1 = (220.0 / (1.5 * Double(bgMusic!.bpm))) * moveSpeedPerSecond + Double(goalPosition)
+            let goalPosition = self.playerOrigin.x + 150
+            let r1 = (120.0 / bgMusic!.bpm) * moveSpeedPerSecond + Double(goalPosition)
             let offset = CGFloat(r1) - self.obstaclesParent!.position.x
             
             // Adds a new obstacle to the parent node
@@ -515,9 +509,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             print(playerOrigin.x)
             
             self.moveSpeedPerSecond *= 1.01
-        }
+            }
         obstacleTiming = (obstacleTiming + 1) % bgMusic.obstacleSpawns.count
     }
 }
-
-
