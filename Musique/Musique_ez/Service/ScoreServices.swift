@@ -1,5 +1,5 @@
 //
-//  Progress.swift
+//  ScoreServices.swift
 //  Musique_ez
 //
 //  Created by Rafael Prado on 01/12/17.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ProgressServices {
-    /// Function responsible for creating a progress object
+class ScoreServices {
+    /// Function responsible for creating a Score object
     /// - parameters:
-    ///     - progress: progress to be saved
+    ///     - score: score to be saved
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
-    static func createProgress(progress: ProgressPulse, _ completion: ((_ error: Error?) -> Void)?) {
+    static func createScore(score: Score, _ completion: ((_ error: Error?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
@@ -22,7 +22,7 @@ class ProgressServices {
             
             do {
                 // save information
-                try ProgressDAO.create(progress)
+                try ScoreDAO.create(score)
             }
             catch let error {
                 raisedError = error
@@ -41,12 +41,12 @@ class ProgressServices {
         QueueManager.sharedInstance.executeBlock(blockForExecutionInBackground, queueType: QueueManager.QueueType.serial)
     }
     
-    /// Function responsible for updating a  progress object
+    /// Function responsible for updating a  score object
     /// - parameters:
-    ///     - progress: progress to be updated
+    ///     - score: score to be updated
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
-    static func updateProgress(progress: ProgressPulse, _ completion: ((_ error: Error?) -> Void)?) {
+    static func updateScore(score: Score, _ completion: ((_ error: Error?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
@@ -54,7 +54,7 @@ class ProgressServices {
             
             do {
                 // save information
-                try ProgressDAO.update(progress)
+                try ScoreDAO.update(score)
             }
             catch let error {
                 raisedError = error
@@ -73,12 +73,12 @@ class ProgressServices {
         QueueManager.sharedInstance.executeBlock(blockForExecutionInBackground, queueType: QueueManager.QueueType.serial)
     }
     
-    /// Function responsible for deleting a progress object
+    /// Function responsible for deleting a score object
     /// - parameters:
-    ///     - progress:  to progress to be deleted
+    ///     - score:  to score to be deleted
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
-    static func deleteProgress(progress: ProgressPulse, _ completion: ((_ error: Error?) -> Void)?) {
+    static func deleteScore(score: Score, _ completion: ((_ error: Error?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
@@ -86,7 +86,7 @@ class ProgressServices {
             
             do {
                 // save information
-                try ProgressDAO.delete(progress)
+                try ScoreDAO.delete(score)
             }
             catch let error {
                 raisedError = error
@@ -105,20 +105,20 @@ class ProgressServices {
         QueueManager.sharedInstance.executeBlock(blockForExecutionInBackground, queueType: QueueManager.QueueType.serial)
     }
     
-    /// Function responsible for getting all progress objects
+    /// Function responsible for getting all score objects
     /// - parameters:
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during getting an object from database (Errors.DatabaseFailure)
-    static func getAllProgress(_ completion: ((_ error: Error?, _ progress: [ProgressPulse]?) -> Void)?) {
+    static func getAllScore(_ completion: ((_ error: Error?, _ score: [Score]?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
             var raisedError: Error? = nil
-            var progress: [ProgressPulse]?
+            var score: [Score]?
             
             do {
                 // save information
-                progress = try ProgressDAO.findAll()
+                score = try ScoreDAO.findAll()
             }
             catch let error {
                 raisedError = error
@@ -126,7 +126,7 @@ class ProgressServices {
             
             // completion block execution
             if (completion != nil) {
-                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, progress)})
+                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, score)})
                 
                 // execute block in main
                 QueueManager.sharedInstance.executeBlock(blockForExecutionInMain, queueType: QueueManager.QueueType.main)
