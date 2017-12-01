@@ -26,4 +26,12 @@ class MusicSelectionViewController: BasicViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscapeLeft, .landscapeRight]
+    }
+    
 }

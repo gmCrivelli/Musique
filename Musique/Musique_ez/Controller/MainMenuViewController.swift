@@ -31,7 +31,15 @@ class MainMenuViewController: BasicViewController {
         case 4:
             print("Testing")
         default:
-            print("ERROR: Button doesn't exist")
+            performSegue(withIdentifier: "aboutSegue", sender: self)
         }
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscapeLeft, .landscapeRight]
     }
 }

@@ -20,7 +20,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xUA-3B-Non">
             <objects>
-                <navigationController navigationBarHidden="YES" id="QNN-1E-92T" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="QNN-1E-92T" customClass="NavigationController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="b82-BR-1ks">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -53,13 +53,16 @@
                                             <constraint firstAttribute="width" secondItem="BBx-gI-QQH" secondAttribute="height" multiplier="227:72" id="USc-cK-iYK"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KmL-QW-D8m">
                                         <rect key="frame" x="934" y="51.5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="KmL-QW-D8m" secondAttribute="height" multiplier="1:1" id="Bgr-1Y-ABU"/>
                                             <constraint firstAttribute="width" constant="40" id="ExU-KG-G7D"/>
                                         </constraints>
                                         <state key="normal" image="info"/>
+                                        <connections>
+                                            <action selector="goToActivity:" destination="FHh-Ra-tWW" eventType="touchUpInside" id="Lvk-eE-57O"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -129,11 +132,27 @@
                     <navigationItem key="navigationItem" id="wgK-s3-trD"/>
                     <connections>
                         <segue destination="K3g-bR-XLH" kind="show" identifier="pulseSegue" id="NYl-J3-VME"/>
+                        <segue destination="rmJ-43-t4K" kind="presentation" identifier="aboutSegue" id="jtI-Hl-Jwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwJ-UC-da5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-643" y="113"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bmp-UG-ZkG">
+            <objects>
+                <viewController id="rmJ-43-t4K" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cKa-ig-M2H">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rlf-3j-I8l"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F0O-rq-DBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-643" y="939"/>
         </scene>
         <!--Music Selection View Controller-->
         <scene sceneID="MJF-0y-uUh">
@@ -343,10 +362,62 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <segue destination="lQ9-Wi-6eV" kind="presentation" identifier="endGameSegue" modalPresentationStyle="fullScreen" id="hnc-qh-vHi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="795" y="114"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ilz-QN-oak">
+            <objects>
+                <viewController id="lQ9-Wi-6eV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LC5-4V-gpI">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScoreViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fty-fe-bnW">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R51-qs-xgt">
+                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tCA-iQ-4Rq">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pontos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-8C-TqA">
+                                            <rect key="frame" x="247" y="16" width="269" height="147"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="90"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <accessibility key="accessibilityConfiguration">
+                                        <accessibilityTraits key="traits" playsSound="YES"/>
+                                    </accessibility>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="R51-qs-xgt" firstAttribute="top" secondItem="buA-rO-VwU" secondAttribute="top" id="0R8-W4-YVo"/>
+                            <constraint firstItem="fty-fe-bnW" firstAttribute="top" secondItem="buA-rO-VwU" secondAttribute="top" id="4qd-Hi-lWt"/>
+                            <constraint firstItem="buA-rO-VwU" firstAttribute="trailing" secondItem="R51-qs-xgt" secondAttribute="trailing" id="7Cd-pe-Xwj"/>
+                            <constraint firstItem="R51-qs-xgt" firstAttribute="leading" secondItem="buA-rO-VwU" secondAttribute="leading" id="C2Q-rd-kEr"/>
+                            <constraint firstItem="fty-fe-bnW" firstAttribute="leading" secondItem="buA-rO-VwU" secondAttribute="leading" id="KA3-FB-uIY"/>
+                            <constraint firstItem="buA-rO-VwU" firstAttribute="trailing" secondItem="fty-fe-bnW" secondAttribute="trailing" id="MDH-GY-rAu"/>
+                            <constraint firstItem="buA-rO-VwU" firstAttribute="bottom" secondItem="R51-qs-xgt" secondAttribute="bottom" id="aNB-0Q-rxA"/>
+                            <constraint firstItem="buA-rO-VwU" firstAttribute="bottom" secondItem="fty-fe-bnW" secondAttribute="bottom" id="tQ2-RA-s6R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="buA-rO-VwU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZg-lu-d8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1510.546875" y="112.5"/>
         </scene>
     </scenes>
     <resources>
@@ -358,6 +429,7 @@
         <image name="Pulso" width="206" height="276"/>
         <image name="Pulso_detail" width="339" height="339"/>
         <image name="Ritmo" width="206" height="278"/>
+        <image name="ScoreViewBackground" width="2048" height="1536"/>
         <image name="TopBarPattern" width="1024" height="118"/>
         <image name="buttonIniciar" width="188" height="57"/>
         <image name="info" width="54" height="54"/>

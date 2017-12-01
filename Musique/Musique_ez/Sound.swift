@@ -88,6 +88,8 @@ class Sound: NSObject, AVAudioPlayerDelegate{
         } catch let error {
             print("Initialization error: \(error)")
         }
+        
+        self.player.volume = 1
     }
     
     /// Plays the corresponding sound

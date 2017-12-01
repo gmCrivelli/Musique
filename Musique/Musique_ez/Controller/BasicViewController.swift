@@ -33,4 +33,13 @@ class BasicViewController: UIViewController {
         // Ensures the image is behind everything. This prevents the background image form overlapping other UI elements.
         self.view.sendSubview(toBack: background!)
     }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscapeLeft, .landscapeRight]
+    }
+    
 }

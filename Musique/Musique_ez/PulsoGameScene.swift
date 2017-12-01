@@ -46,6 +46,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     var whatever: SKNode!
     
+    public var viewControllerDelegate : GameFinishedDelegate!
+    
     // Time control
     private var lastUpdateTime: TimeInterval = 0
     private var dt: TimeInterval = 0
@@ -134,6 +136,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
     
+    private var obstaclesTotal = 0
+    
     //Point where objects and obstacles unspawn from the scene
     var unspawnPoint : CGFloat!
     
@@ -142,12 +146,14 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         //Setup all music
         
         // CHOOSE MUSIC:
-        let chosenMusic = 3
+        let chosenMusic = 1
         let chosenMusicConfig = Music.configArray[chosenMusic]
         
         let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: chosenMusicConfig.0 , ofType: "mp3")!)
         bgMusic = Music(url: filePath, bpm: chosenMusicConfig.1)
         bgMusic.obstacleSpawns = chosenMusicConfig.2
+        
+        
         
         //Configure background
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
@@ -308,13 +314,23 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.score = 0
         self.multiplier = 1
         self.tutorialPointingFinger.run(tutorialSequence)
-        self.run(SKAction.repeatForever(timerAction))
+        self.run(SKAction.repeatForever(timerAction), withKey: "synchronizerAction")
         startWalking()
         
+        
         bgMusic?.play{
-            // Completion block for when music ends
+            self.endGame()
+            
             print("musica acabou")
         }
+    }
+    
+    func endGame() {
+        let obstaclesPercent = Float(self.totalObstaclesJumped / self.obstaclesTotal * 100)
+        
+        self.removeAction(forKey: "synchronizerAction")
+        self.obstaclesParent?.removeAllChildren()
+        self.viewControllerDelegate.performEndGameFunctions(score: obstaclesPercent)
     }
     
     func startWalking() {
@@ -380,6 +396,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 
                 self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
             }
+            
+            obstaclesTotal += 1
         }
         
         // Player collides with particleCollider
