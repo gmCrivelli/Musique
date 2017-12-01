@@ -11,7 +11,6 @@ import CoreData
 
 class MusicPulse: NSManagedObject {
     
-    @NSManaged public var idmusique: Int16
     @NSManaged public var name: String
     @NSManaged public var highestscore: Int16
     

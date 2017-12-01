@@ -11,7 +11,6 @@ import CoreData
 
 class ProgressPulse: NSManagedObject {
     
-    @NSManaged public var idmusique: Int16
     @NSManaged public var sequence: String
     @NSManaged public var score: Int16
     
