@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class ProgressPulse: NSManagedObject {
+class Score: NSManagedObject {
     
     @NSManaged public var sequence: String
     @NSManaged public var score: Int16
@@ -20,7 +20,7 @@ class ProgressPulse: NSManagedObject {
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Progress", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Score", in: managedObjectContext)
         
         // call super
         self.init(entity: entityDescription!, insertInto: nil)
@@ -30,7 +30,7 @@ class ProgressPulse: NSManagedObject {
     convenience init(context: NSManagedObjectContext){
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Progress", in: context)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Score", in: context)
         
         // call super
         self.init(entity: entityDescription!, insertInto: context)
