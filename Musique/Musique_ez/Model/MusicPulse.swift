@@ -14,13 +14,15 @@ class MusicPulse: NSManagedObject {
     @NSManaged public var name: String
     @NSManaged public var highestscore: Int16
     
+    @NSManaged public var score: NSSet
+    
     
     convenience init() {
         // get context
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: managedObjectContext)
         
         // call super
         self.init(entity: entityDescription!, insertInto: nil)
@@ -30,7 +32,7 @@ class MusicPulse: NSManagedObject {
     convenience init(context: NSManagedObjectContext){
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: context)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: context)
         
         // call super
         self.init(entity: entityDescription!, insertInto: context)
