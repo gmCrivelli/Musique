@@ -3,12 +3,12 @@
     <entity name="Music" representedClassName=".Music" syncable="YES">
         <attribute name="highestscore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="progress" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Score" inverseName="musica" inverseEntity="Score" syncable="YES"/>
+        <relationship name="score" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Score" inverseName="musica" inverseEntity="Score" syncable="YES"/>
     </entity>
     <entity name="Score" representedClassName=".Score" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sequence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="musica" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Music" inverseName="progress" inverseEntity="Music" syncable="YES"/>
+        <relationship name="musica" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Music" inverseName="score" inverseEntity="Music" syncable="YES"/>
     </entity>
     <elements>
         <element name="Music" positionX="-63" positionY="-18" width="128" height="90"/>

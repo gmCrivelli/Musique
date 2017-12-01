@@ -1,5 +1,5 @@
 //
-//  Progress.swift
+//  Score.swift
 //  Musique_ez
 //
 //  Created by Ederaldo Ratz on 30/11/2017.
