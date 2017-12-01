@@ -11,9 +11,9 @@ import CoreData
 
 class ProgressDAO {
     
-    /// Method responsible for saving a Music Score into database
+    /// Method responsible for saving a Progress Score into database
     /// - parameters:
-    ///     - objectToBeSaved: Pulse to be saved on database
+    ///     - objectToBeSaved: Progress to be saved on database
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
     static func create(_ objectToBeSaved: ProgressPulse) throws {
         do {
@@ -28,9 +28,9 @@ class ProgressDAO {
         }
     }
     
-    /// Method responsible for updating a Music Score into database
+    /// Method responsible for updating a Progress Score into database
     /// - parameters:
-    ///     - objectToBeUpdated: season to be updated on database
+    ///     - objectToBeUpdated: progress to be updated on database
     /// - throws: if an error occurs during updating an object into database (Errors.DatabaseFailure)
     static func update(_ objectToBeUpdated: ProgressPulse) throws {
         do {
@@ -42,9 +42,9 @@ class ProgressDAO {
         }
     }
     
-    /// Method responsible for deleting a Music Score from database
+    /// Method responsible for deleting a Progress Score from database
     /// - parameters:
-    ///     - objectToBeSaved: season to be saved on database
+    ///     - objectToBeSaved: progress to be saved on database
     /// - throws: if an error occurs during deleting an object into database (Errors.DatabaseFailure)
     static func delete(_ objectToBeDeleted: ProgressPulse) throws {
         do {
@@ -59,8 +59,8 @@ class ProgressDAO {
         }
     }
     
-    /// Method responsible for gettings all Musics Score from database
-    /// - returns: a list of musics from database
+    /// Method responsible for gettings all Progress Score from database
+    /// - returns: a list of progress score from database
     /// - throws: if an error occurs during getting an object from database (Errors.DatabaseFailure)
     static func findAll() throws -> [ProgressPulse] {
         // list of seasons to be returned

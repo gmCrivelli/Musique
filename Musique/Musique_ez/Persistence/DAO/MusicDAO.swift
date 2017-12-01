@@ -13,7 +13,7 @@ class MusicDAO {
     
     /// Method responsible for saving a Music Score into database
     /// - parameters:
-    ///     - objectToBeSaved: Pulse to be saved on database
+    ///     - objectToBeSaved: MusicPulse to be saved on database
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
     static func create(_ objectToBeSaved: MusicPulse) throws {
         do {
@@ -30,7 +30,7 @@ class MusicDAO {
     
     /// Method responsible for updating a Music Score into database
     /// - parameters:
-    ///     - objectToBeUpdated: season to be updated on database
+    ///     - objectToBeUpdated: Music Score to be updated on database
     /// - throws: if an error occurs during updating an object into database (Errors.DatabaseFailure)
     static func update(_ objectToBeUpdated: MusicPulse) throws {
         do {
@@ -44,7 +44,7 @@ class MusicDAO {
     
     /// Method responsible for deleting a Music Score from database
     /// - parameters:
-    ///     - objectToBeSaved: season to be saved on database
+    ///     - objectToBeSaved: MusicPulse to be saved on database
     /// - throws: if an error occurs during deleting an object into database (Errors.DatabaseFailure)
     static func delete(_ objectToBeDeleted: MusicPulse) throws {
         do {
