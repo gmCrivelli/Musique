@@ -26,4 +26,14 @@ class MusicPulse: NSManagedObject {
         // call super
         self.init(entity: entityDescription!, insertInto: nil)
     }
+    
+    // This initializer was created to solve a problem upon creating an object that initialized without a managedContext independently.
+    convenience init(context: NSManagedObjectContext){
+        
+        // create entity description
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: context)
+        
+        // call super
+        self.init(entity: entityDescription!, insertInto: context)
+    }
 }
