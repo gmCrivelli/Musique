@@ -109,16 +109,16 @@ class ProgressServices {
     /// - parameters:
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during getting an object from database (Errors.DatabaseFailure)
-    static func getAllProgress(_ completion: ((_ error: Error?, _ seasons: [ProgressPulse]?) -> Void)?) {
+    static func getAllProgress(_ completion: ((_ error: Error?, _ progress: [ProgressPulse]?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
             var raisedError: Error? = nil
-            var seasons: [ProgressPulse]?
+            var progress: [ProgressPulse]?
             
             do {
                 // save information
-                seasons = try ProgressDAO.findAll()
+                progress = try ProgressDAO.findAll()
             }
             catch let error {
                 raisedError = error
@@ -126,7 +126,7 @@ class ProgressServices {
             
             // completion block execution
             if (completion != nil) {
-                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, seasons)})
+                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, progress)})
                 
                 // execute block in main
                 QueueManager.sharedInstance.executeBlock(blockForExecutionInMain, queueType: QueueManager.QueueType.main)

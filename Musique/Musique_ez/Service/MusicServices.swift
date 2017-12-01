@@ -110,16 +110,16 @@ class MusicServices {
     /// - parameters:
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during getting an object from database (Errors.DatabaseFailure)
-    static func getAllMusic(_ completion: ((_ error: Error?, _ seasons: [MusicPulse]?) -> Void)?) {
+    static func getAllMusic(_ completion: ((_ error: Error?, _ music: [MusicPulse]?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
             var raisedError: Error? = nil
-            var seasons: [MusicPulse]?
+            var music: [MusicPulse]?
             
             do {
                 // save information
-                seasons = try MusicDAO.findAll()
+                music = try MusicDAO.findAll()
             }
             catch let error {
                 raisedError = error
@@ -127,7 +127,7 @@ class MusicServices {
             
             // completion block execution
             if (completion != nil) {
-                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, seasons)})
+                let blockForExecutionInMain: BlockOperation = BlockOperation(block: {completion!(raisedError, music)})
                 
                 // execute block in main
                 QueueManager.sharedInstance.executeBlock(blockForExecutionInMain, queueType: QueueManager.QueueType.main)
