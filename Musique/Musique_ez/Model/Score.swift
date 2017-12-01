@@ -14,7 +14,6 @@ class Score: NSManagedObject {
     @NSManaged public var sequence: String
     @NSManaged public var score: Int16
     
-    
     convenience init() {
         // get context
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
