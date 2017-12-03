@@ -15,10 +15,11 @@ class ScoreDAO {
     /// - parameters:
     ///     - objectToBeSaved: Score to be saved on database
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
-    static func create(_ objectToBeSaved: Score) throws {
+    static func create(_ objectToBeSaved: Score,_ music: MusicPulse) throws {
         do {
             // add object to be saved to the context
             CoreDataManager.sharedInstance.persistentContainer.viewContext.insert(objectToBeSaved)
+            objectToBeSaved.music = music
             
             // persist changes at the context
             try CoreDataManager.sharedInstance.persistentContainer.viewContext.save()

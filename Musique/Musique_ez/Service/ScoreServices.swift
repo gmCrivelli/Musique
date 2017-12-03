@@ -14,7 +14,7 @@ class ScoreServices {
     ///     - score: score to be saved
     ///     - completion: closure to be executed at the end of this method
     /// - throws: if an error occurs during saving an object into database (Errors.DatabaseFailure)
-    static func createScore(score: Score, _ completion: ((_ error: Error?) -> Void)?) {
+    static func createScore(score: Score,in music: MusicPulse, _ completion: ((_ error: Error?) -> Void)?) {
         // block to be executed in background
         let blockForExecutionInBackground: BlockOperation = BlockOperation(block: {
             // error to be returned in case of failure
@@ -22,7 +22,7 @@ class ScoreServices {
             
             do {
                 // save information
-                try ScoreDAO.create(score)
+                try ScoreDAO.create(score, music)
             }
             catch let error {
                 raisedError = error
