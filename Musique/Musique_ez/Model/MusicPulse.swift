@@ -15,8 +15,7 @@ class MusicPulse: NSManagedObject {
     @NSManaged public var highestscore: Int16
     
     @NSManaged public var score: NSSet
-    
-    
+
     convenience init() {
         // get context
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
