@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17B1003" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="MusicPulse" representedClassName=".Music" syncable="YES">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G1036" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Music" representedClassName=".MusicPulse" syncable="YES">
         <attribute name="highestscore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="score" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Score" inverseName="music" inverseEntity="Score" syncable="YES"/>
+        <relationship name="score" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Score" inverseName="music" inverseEntity="Score" syncable="YES"/>
     </entity>
     <entity name="Score" representedClassName=".Score" syncable="YES">
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sequence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="music" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MusicPulse" inverseName="score" inverseEntity="MusicPulse" syncable="YES"/>
+        <relationship name="music" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Music" inverseName="score" inverseEntity="Music" syncable="YES"/>
     </entity>
     <elements>
-        <element name="MusicPulse" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Music" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Score" positionX="153" positionY="-18" width="128" height="90"/>
     </elements>
 </model>
