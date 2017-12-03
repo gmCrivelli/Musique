@@ -93,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="-673.828125" y="114.0625"/>
         </scene>
-        <!--View Controller-->
+        <!--Activity View Controller-->
         <scene sceneID="MJF-0y-uUh">
             <objects>
-                <viewController id="K3g-bR-XLH" sceneMemberID="viewController">
+                <viewController id="K3g-bR-XLH" customClass="ActivityViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VJp-Cc-b1e">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +124,7 @@
                                     <color key="titleColor" red="0.21879962086677551" green="0.57190215587615967" blue="0.41163617372512817" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="DKT-Ry-smk"/>
+                                    <segue destination="PN8-qL-atf" kind="presentation" identifier="teste" id="AJ4-ra-9AN"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="estrelineas" translatesAutoresizingMaskIntoConstraints="NO" id="DH8-pa-Njb">
@@ -165,6 +165,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwr-h8-ZvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73.2421875" y="112.5"/>
+        </scene>
+        <!--Teste View Controller-->
+        <scene sceneID="TTu-5K-ngK">
+            <objects>
+                <viewController id="PN8-qL-atf" customClass="TesteViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GbA-XS-Q9L">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x1I-ga-183">
+                                <rect key="frame" x="464" y="153" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYH-Yv-UqR">
+                                <rect key="frame" x="376" y="158" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgU-ZU-Su6">
+                                <rect key="frame" x="497" y="238" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="OK"/>
+                                <connections>
+                                    <action selector="okayTap:" destination="PN8-qL-atf" eventType="touchUpInside" id="7GO-Md-iPT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="TJB-Vr-Cl1"/>
+                    </view>
+                    <connections>
+                        <outlet property="scoreField" destination="x1I-ga-183" id="g1j-dj-IYd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LBg-NX-ZZA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73.2421875" y="939.84375"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">

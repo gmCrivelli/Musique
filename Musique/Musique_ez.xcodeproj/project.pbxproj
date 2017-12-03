@@ -11,6 +11,8 @@
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
 		4043BEE81FD171C00075F8F0 /* ScoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE71FD171C00075F8F0 /* ScoreServices.swift */; };
+		40BE61071FD18E0500055251 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE61061FD18E0500055251 /* ActivityViewController.swift */; };
+		40BE61091FD18EE800055251 /* TesteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BE61081FD18EE800055251 /* TesteViewController.swift */; };
 		5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* MusicDAO.swift */; };
 		5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
 		5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
@@ -58,6 +60,8 @@
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4043BEE51FD171AE0075F8F0 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
 		4043BEE71FD171C00075F8F0 /* ScoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreServices.swift; sourceTree = "<group>"; };
+		40BE61061FD18E0500055251 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		40BE61081FD18EE800055251 /* TesteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesteViewController.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
 		5A141CDB1FCF741B00864C70 /* MusicDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDAO.swift; sourceTree = "<group>"; };
 		5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -260,6 +264,8 @@
 				FE7C99D91FB4BBC5006E7CCD /* Info.plist */,
 				FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */,
 				4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */,
+				40BE61061FD18E0500055251 /* ActivityViewController.swift */,
+				40BE61081FD18EE800055251 /* TesteViewController.swift */,
 			);
 			path = Musique_ez;
 			sourceTree = "<group>";
@@ -425,8 +431,10 @@
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				5A6B46741FD0379E00E8C7D9 /* Score.swift in Sources */,
+				40BE61091FD18EE800055251 /* TesteViewController.swift in Sources */,
 				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
+				40BE61071FD18E0500055251 /* ActivityViewController.swift in Sources */,
 				5A55BB221FD16F7900C8593E /* ScoreDAO.swift in Sources */,
 				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
 				4043BEE81FD171C00075F8F0 /* ScoreServices.swift in Sources */,

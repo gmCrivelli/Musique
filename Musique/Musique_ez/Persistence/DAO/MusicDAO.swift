@@ -68,7 +68,7 @@ class MusicDAO {
         
         do {
             // creating fetch request
-            let request:NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Music")
+            let request:NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MusicPulse")
             
             // perform search
             musicList = try CoreDataManager.sharedInstance.persistentContainer.viewContext.fetch(request) as! [MusicPulse]

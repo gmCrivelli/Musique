@@ -11,8 +11,10 @@ import CoreData
 
 class Score: NSManagedObject {
     
-    @NSManaged public var sequence: String
+    @NSManaged public var sequence: Int16
     @NSManaged public var score: Int16
+    
+    @NSManaged public var music:MusicPulse?
     
     convenience init() {
         // get context
