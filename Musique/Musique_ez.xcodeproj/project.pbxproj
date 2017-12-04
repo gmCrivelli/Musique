@@ -10,6 +10,7 @@
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
+		40844F8E1FD5732400500C98 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40844F8D1FD5732400500C98 /* MusicCollectionViewCell.swift */; };
 		40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBD3101FD59C3A007260F3 /* JSONManager.swift */; };
 		40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BBD3121FD5AE7D007260F3 /* pulse.json */; };
 		40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
@@ -59,6 +60,7 @@
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4043BEE51FD171AE0075F8F0 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
+		40844F8D1FD5732400500C98 /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		40BBD3101FD59C3A007260F3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		40BBD3121FD5AE7D007260F3 /* pulse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pulse.json; sourceTree = "<group>"; };
 		40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		40E96D7B1FCDD02C00BE05E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				40844F8D1FD5732400500C98 /* MusicCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
+				40844F8E1FD5732400500C98 /* MusicCollectionViewCell.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
 				40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */,
@@ -593,7 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R3N39QE4MQ;
+				DEVELOPMENT_TEAM = P4UELCPGZV;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";
@@ -609,7 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R3N39QE4MQ;
+				DEVELOPMENT_TEAM = P4UELCPGZV;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";
