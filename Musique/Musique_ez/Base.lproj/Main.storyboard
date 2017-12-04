@@ -410,7 +410,6 @@
                                     </accessibility>
                                     <constraints>
                                         <constraint firstItem="D2I-8C-TqA" firstAttribute="top" secondItem="tCA-iQ-4Rq" secondAttribute="top" constant="24" id="Csz-as-h9t"/>
-                                        <constraint firstAttribute="bottom" secondItem="D2I-8C-TqA" secondAttribute="bottom" constant="616.5" id="LDW-7o-hoe"/>
                                         <constraint firstItem="9QQ-V9-GB0" firstAttribute="leading" secondItem="tCA-iQ-4Rq" secondAttribute="leading" constant="20" id="Vap-F2-DLL"/>
                                         <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Wmh-8K-dVw"/>
                                         <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Xzs-EV-epf"/>
@@ -431,6 +430,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="buA-rO-VwU"/>
                     </view>
+                    <connections>
+                        <outlet property="scoreLabel" destination="D2I-8C-TqA" id="Hqj-5L-IyG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZg-lu-d8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

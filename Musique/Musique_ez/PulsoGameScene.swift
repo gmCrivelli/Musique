@@ -132,11 +132,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var multiplierArray = [-1,1,2,4,8,16]
     private var multiplier : Int!
     
-    private var totalObstaclesJumped : Int = 0
+    private var totalObstaclesJumped : Float = 0
     private var obstaclesJumpedInaRow : Int = 0
     private let neededForMultiplier : Int = 5
     
-    private var obstaclesTotal = 0
+    private var obstaclesTotal : Float = 0
     
     //Point where objects and obstacles unspawn from the scene
     var unspawnPoint : CGFloat!
@@ -174,7 +174,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
         
         self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
-        self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 10)
+        self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 70)
         self.scoreCollider.physicsBody?.categoryBitMask = scoreCategory
         self.scoreCollider.physicsBody?.collisionBitMask = 0
         self.scoreCollider.physicsBody?.contactTestBitMask = obstacleCategory
@@ -325,11 +325,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func endGame() {
-        let obstaclesPercent = Float(self.totalObstaclesJumped / self.obstaclesTotal * 100)
+        let obstaclesPercent = (self.totalObstaclesJumped / self.obstaclesTotal) * 100
         
         self.removeAction(forKey: "synchronizerAction")
         self.obstaclesParent?.removeAllChildren()
-        self.viewControllerDelegate.performEndGameFunctions(score: obstaclesPercent)
+        self.viewControllerDelegate.performEndGameFunctions(score: Int(obstaclesPercent))
     }
     
     func startWalking() {
@@ -380,7 +380,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Obstacle collides with scoreCollider
-        if (contact.bodyA.categoryBitMask ==  obstacleCategory) &&
+        if (contact.bodyA.categoryBitMask == obstacleCategory) &&
             (contact.bodyB.categoryBitMask == scoreCategory) {
             
             // Update player sound
@@ -396,7 +396,9 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 self.multiplier = min(5, (obstaclesJumpedInaRow / 5) + 1)
             }
             
-            obstaclesTotal += 1
+            self.obstaclesTotal += 1
+            
+            print("ObstaclesTotal: \(self.obstaclesTotal) \n ObstaclesJumped: \(self.totalObstaclesJumped)")
         }
         
         // Player collides with particleCollider

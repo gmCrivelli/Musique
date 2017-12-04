@@ -8,9 +8,16 @@
 import UIKit
 
 class EndScreenViewController: BasicViewController {
-
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    var score : String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        scoreLabel.text = score + "%"
+        
 
         // Do any additional setup after loading the view.
     }

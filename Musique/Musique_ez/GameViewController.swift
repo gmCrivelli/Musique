@@ -11,11 +11,16 @@ import SpriteKit
 import GameplayKit
 
 protocol GameFinishedDelegate {
-    func performEndGameFunctions(score: Float)
+    func performEndGameFunctions(score: Int)
 }
 
 class GameViewController: UIViewController, GameFinishedDelegate {
-    func performEndGameFunctions(score: Float) {
+    
+    var finalScore : String?
+    
+    func performEndGameFunctions(score: Int) {
+        finalScore = String(score)
+        
         performSegue(withIdentifier: "endGameSegue", sender: self)
     }
     
@@ -45,6 +50,12 @@ class GameViewController: UIViewController, GameFinishedDelegate {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let endScreenViewController = segue.destination as! EndScreenViewController
+        
+        endScreenViewController.score = finalScore
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
