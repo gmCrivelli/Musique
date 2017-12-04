@@ -12,10 +12,13 @@ import CoreData
 class MusicPulse: NSManagedObject {
     
     @NSManaged public var name: String
-    @NSManaged public var highestscore: Int16
+    @NSManaged public var highScore: Int16
+    @NSManaged public var bpm: Int16
+    @NSManaged public var fileExtension: String
+    @NSManaged public var fileName: String
+    @NSManaged public var id: Int16
+    @NSManaged public var lastScore: Int16
     
-    @NSManaged public var score: NSSet
-
     convenience init() {
         // get context
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
