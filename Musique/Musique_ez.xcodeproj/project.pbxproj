@@ -20,6 +20,7 @@
 		64D7D65C1FCC411D00F6ABBB /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
 		64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
 		64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA23501FD192F700A7FAD1 /* NavigationController.swift */; };
+		64FDD1121FD47EE500F88205 /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
@@ -61,6 +62,7 @@
 		64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
 		64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumbo.wav; sourceTree = "<group>"; };
 		64DA23501FD192F700A7FAD1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EndScreenViewController.swift; path = /Users/Tonisso/Works/BEPiD/DoM7/Musique/Musique/Musique_ez/Controller/EndScreenViewController.swift; sourceTree = "<absolute>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				40E96D771FCDC53900BE05E7 /* BasicViewController.swift */,
+				64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */,
 				40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */,
 				40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */,
 				64DA23501FD192F700A7FAD1 /* NavigationController.swift */,
@@ -362,6 +365,7 @@
 			files = (
 				64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */,
 				40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */,
+				64FDD1121FD47EE500F88205 /* EndScreenViewController.swift in Sources */,
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,

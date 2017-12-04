@@ -370,10 +370,10 @@
             </objects>
             <point key="canvasLocation" x="795" y="114"/>
         </scene>
-        <!--View Controller-->
+        <!--End Screen View Controller-->
         <scene sceneID="Ilz-QN-oak">
             <objects>
-                <viewController id="lQ9-Wi-6eV" sceneMemberID="viewController">
+                <viewController id="lQ9-Wi-6eV" customClass="EndScreenViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LC5-4V-gpI">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -387,9 +387,19 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pontos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-8C-TqA">
-                                            <rect key="frame" x="247" y="16" width="269" height="147"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QQ-V9-GB0" userLabel="backButton">
+                                            <rect key="frame" x="20" y="24" width="110" height="64"/>
+                                            <state key="normal" image="BackButton"/>
+                                            <connections>
+                                                <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="T7G-c5-Upp"/>
+                                                <segue destination="K3g-bR-XLH" kind="show" id="KHC-io-bte"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-8C-TqA">
+                                            <rect key="frame" x="403" y="24" width="219.5" height="107.5"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES"/>
+                                            </accessibility>
                                             <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -398,6 +408,13 @@
                                     <accessibility key="accessibilityConfiguration">
                                         <accessibilityTraits key="traits" playsSound="YES"/>
                                     </accessibility>
+                                    <constraints>
+                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="top" secondItem="tCA-iQ-4Rq" secondAttribute="top" constant="24" id="Csz-as-h9t"/>
+                                        <constraint firstAttribute="bottom" secondItem="D2I-8C-TqA" secondAttribute="bottom" constant="616.5" id="LDW-7o-hoe"/>
+                                        <constraint firstItem="9QQ-V9-GB0" firstAttribute="leading" secondItem="tCA-iQ-4Rq" secondAttribute="leading" constant="20" id="Vap-F2-DLL"/>
+                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Wmh-8K-dVw"/>
+                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Xzs-EV-epf"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -417,7 +434,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZg-lu-d8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1510.546875" y="112.5"/>
+            <point key="canvasLocation" x="425" y="973"/>
         </scene>
     </scenes>
     <resources>
@@ -434,4 +451,7 @@
         <image name="buttonIniciar" width="188" height="57"/>
         <image name="info" width="54" height="54"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="KHC-io-bte"/>
+    </inferredMetricsTieBreakers>
 </document>

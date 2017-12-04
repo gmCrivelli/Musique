@@ -19,7 +19,6 @@ class GameViewController: UIViewController, GameFinishedDelegate {
         performSegue(withIdentifier: "endGameSegue", sender: self)
     }
     
-
     var gameScene : PulsoGameScene!
     
     override func viewDidLoad() {

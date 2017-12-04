@@ -207,7 +207,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         }
         playerWalkingFrames = walkFrames
         
-        
         let playerHurtAtlas = SKTextureAtlas(named: "HeroiFerido")
         var hurtFrames = [SKTexture]()
         for i in 1 ..< playerHurtAtlas.textureNames.count {
