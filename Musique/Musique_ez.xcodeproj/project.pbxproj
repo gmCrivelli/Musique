@@ -11,6 +11,7 @@
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
 		40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBD3101FD59C3A007260F3 /* JSONManager.swift */; };
+		40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BBD3121FD5AE7D007260F3 /* pulse.json */; };
 		40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
 		40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D771FCDC53900BE05E7 /* BasicViewController.swift */; };
 		40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */; };
@@ -59,6 +60,7 @@
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4043BEE51FD171AE0075F8F0 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
 		40BBD3101FD59C3A007260F3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		40BBD3121FD5AE7D007260F3 /* pulse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pulse.json; sourceTree = "<group>"; };
 		40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionViewController.swift; sourceTree = "<group>"; };
 		40E96D771FCDC53900BE05E7 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				40BBD3121FD5AE7D007260F3 /* pulse.json */,
 				4043BEE41FD171900075F8F0 /* Service */,
 				5A55BB231FD172D900C8593E /* Mechanism */,
 				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
@@ -348,6 +351,7 @@
 				FEF5F9501FCF3E5A0071FDC1 /* good_end.wav in Resources */,
 				FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */,
 				64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */,
+				40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */,
 				FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */,
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */,
