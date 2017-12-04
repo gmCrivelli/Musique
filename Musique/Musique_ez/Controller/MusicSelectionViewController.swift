@@ -34,6 +34,12 @@ class MusicSelectionViewController: BasicViewController {
     @IBAction func goBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let gameViewController = segue.destination as! GameViewController
+        
+        
+    }
 }
 
 extension MusicSelectionViewController: HorizontalScrollDelegate{

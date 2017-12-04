@@ -25,7 +25,6 @@ struct Music {
     
     static let configArray = [("funny_song",90,[false,true]),
                               ("dancing_on_green_grass",96,[false,true]),
-                              ("space_adventure",140,[false,true]),
                               ("splashing_around",102.5,[false,true])]
     
     var obstacleSpawns : [Bool] = []
@@ -137,17 +136,17 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     //Point where objects and obstacles unspawn from the scene
     var unspawnPoint : CGFloat!
     
+    var musicPulse : MusicPulse!
+    
     override func didMove(to view: SKView) {
         
         //Setup all music
         
         // CHOOSE MUSIC:
-        let chosenMusic = 3
-        let chosenMusicConfig = Music.configArray[chosenMusic]
         
-        let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: chosenMusicConfig.0 , ofType: "mp3")!)
-        bgMusic = Music(url: filePath, bpm: chosenMusicConfig.1)
-        bgMusic.obstacleSpawns = chosenMusicConfig.2
+        let filePath = URL(fileURLWithPath: Bundle.main.path(forResource: musicPulse.fileName , ofType: musicPulse.fileExtension)!)
+        bgMusic = Music(url: filePath, bpm: musicPulse.bpm)
+        bgMusic.obstacleSpawns = [false,true]
         
         //Configure background
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
