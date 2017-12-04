@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if(!UserDefaults().bool(forKey: "databaseLoaded")){
+            let songs = JSONManager.loadJson()
+            
+            for i in songs{
+                MusicServices.createMusic(music: i, { (error) in
+                    UserDefaults().set(true, forKey: "databaseLoaded")
+                })
+            }
+        }
+        
         return true
     }
 }

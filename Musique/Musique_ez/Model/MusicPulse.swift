@@ -12,16 +12,19 @@ import CoreData
 class MusicPulse: NSManagedObject {
     
     @NSManaged public var name: String
-    @NSManaged public var highestscore: Int16
+    @NSManaged public var highScore: Int16
+    @NSManaged public var bpm: Double
+    @NSManaged public var fileExtension: String
+    @NSManaged public var fileName: String
+    @NSManaged public var id: Int16
+    @NSManaged public var lastScore: Int16
     
-    @NSManaged public var score: NSSet
-
     convenience init() {
         // get context
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: managedObjectContext)
         
         // call super
         self.init(entity: entityDescription!, insertInto: nil)
@@ -31,7 +34,7 @@ class MusicPulse: NSManagedObject {
     convenience init(context: NSManagedObjectContext){
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: context)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: context)
         
         // call super
         self.init(entity: entityDescription!, insertInto: context)
