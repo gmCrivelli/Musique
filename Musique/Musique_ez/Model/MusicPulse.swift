@@ -24,7 +24,7 @@ class MusicPulse: NSManagedObject {
         let managedObjectContext: NSManagedObjectContext = CoreDataManager.sharedInstance.persistentContainer.viewContext
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: managedObjectContext)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: managedObjectContext)
         
         // call super
         self.init(entity: entityDescription!, insertInto: nil)
@@ -34,7 +34,7 @@ class MusicPulse: NSManagedObject {
     convenience init(context: NSManagedObjectContext){
         
         // create entity description
-        let entityDescription = NSEntityDescription.entity(forEntityName: "MusicPulse", in: context)
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Music", in: context)
         
         // call super
         self.init(entity: entityDescription!, insertInto: context)
