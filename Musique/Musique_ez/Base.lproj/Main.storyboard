@@ -306,7 +306,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="playGame:" destination="yMm-6M-jaF" eventType="touchUpInside" id="708-4I-QoH"/>
-                                                        <segue destination="BV1-FR-VrT" kind="show" id="yBB-us-cnp"/>
+                                                        <segue destination="BV1-FR-VrT" kind="show" identifier="gameSceneSegue" id="yBB-us-cnp"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHG-Zh-wjq">
