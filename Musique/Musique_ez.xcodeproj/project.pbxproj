@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
+		4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
+		4043BEE81FD171C00075F8F0 /* ScoreServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE71FD171C00075F8F0 /* ScoreServices.swift */; };
+		5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* MusicDAO.swift */; };
+		5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
+		5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
+		5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A31FCF6F91000EFDD3 /* Errors.swift */; };
+		5A55BB221FD16F7900C8593E /* ScoreDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55BB211FD16F7900C8593E /* ScoreDAO.swift */; };
+		5A55BB251FD1732000C8593E /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55BB241FD1732000C8593E /* QueueManager.swift */; };
+		5A6B46701FD029CF00E8C7D9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6B466F1FD029B100E8C7D9 /* CoreData.framework */; };
+		5A6B46721FD02A8100E8C7D9 /* MusicPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */; };
+		5A6B46741FD0379E00E8C7D9 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B46731FD0379E00E8C7D9 /* Score.swift */; };
 		40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
 		40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D771FCDC53900BE05E7 /* BasicViewController.swift */; };
 		40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */; };
@@ -48,10 +59,21 @@
 		22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Musique_ez.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
+		4043BEE51FD171AE0075F8F0 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
+		4043BEE71FD171C00075F8F0 /* ScoreServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreServices.swift; sourceTree = "<group>"; };
 		40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionViewController.swift; sourceTree = "<group>"; };
 		40E96D771FCDC53900BE05E7 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
+		5A141CDB1FCF741B00864C70 /* MusicDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDAO.swift; sourceTree = "<group>"; };
+		5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
+		5A2E62A31FCF6F91000EFDD3 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		5A55BB211FD16F7900C8593E /* ScoreDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreDAO.swift; sourceTree = "<group>"; };
+		5A55BB241FD1732000C8593E /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		5A6B466F1FD029B100E8C7D9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPulse.swift; sourceTree = "<group>"; };
+		5A6B46731FD0379E00E8C7D9 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -91,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6B46701FD029CF00E8C7D9 /* CoreData.framework in Frameworks */,
 				0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -98,6 +121,60 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4043BEE41FD171900075F8F0 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4043BEE51FD171AE0075F8F0 /* MusicServices.swift */,
+				4043BEE71FD171C00075F8F0 /* ScoreServices.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5A141CDA1FCF73E900864C70 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				5A141CDB1FCF741B00864C70 /* MusicDAO.swift */,
+				5A55BB211FD16F7900C8593E /* ScoreDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		5A2E62971FCF6A89000EFDD3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E62A21FCF6F49000EFDD3 /* Enumerations */,
+				5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */,
+				5A6B46731FD0379E00E8C7D9 /* Score.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5A2E62981FCF6AAD000EFDD3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				5A141CDA1FCF73E900864C70 /* DAO */,
+				5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */,
+				5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		5A2E62A21FCF6F49000EFDD3 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E62A31FCF6F91000EFDD3 /* Errors.swift */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		5A55BB231FD172D900C8593E /* Mechanism */ = {
+			isa = PBXGroup;
+			children = (
+				5A55BB241FD1732000C8593E /* QueueManager.swift */,
+			);
+			path = Mechanism;
+			sourceTree = "<group>";
+		};
 		40E96D761FCDC50600BE05E7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +204,7 @@
 		8496201C9BE7F8369A496543 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A6B466F1FD029B100E8C7D9 /* CoreData.framework */,
 				22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */,
 			);
 			name = Frameworks;
@@ -181,6 +259,10 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
+				4043BEE41FD171900075F8F0 /* Service */,
+				5A55BB231FD172D900C8593E /* Mechanism */,
+				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
+				5A2E62971FCF6A89000EFDD3 /* Model */,
 				40E96D7B1FCDD02C00BE05E7 /* View */,
 				40E96D761FCDC50600BE05E7 /* Controller */,
 				FE1D05CF1FC83C7B00350EF9 /* BGM */,
@@ -357,15 +439,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A55BB251FD1732000C8593E /* QueueManager.swift in Sources */,
+				5A2E629D1FCF6BF4000EFDD3 /* Musique.xcdatamodeld in Sources */,
+				4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */,
+				5A6B46721FD02A8100E8C7D9 /* MusicPulse.swift in Sources */,
 				40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */,
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
+				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
+				5A6B46741FD0379E00E8C7D9 /* Score.swift in Sources */,
+				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
 				40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */,
 				40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
+				5A55BB221FD16F7900C8593E /* ScoreDAO.swift in Sources */,
+				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
+				4043BEE81FD171C00075F8F0 /* ScoreServices.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +645,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */,
+			);
+			currentVersion = 5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */;
+			path = Musique.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE7C99BC1FB4BBC5006E7CCD /* Project object */;
 }
