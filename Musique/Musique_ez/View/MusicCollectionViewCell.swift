@@ -21,6 +21,8 @@ class MusicCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
     
+    @IBOutlet weak var playButton: UIButton!
+    
     var scrollDelegate:HorizontalScrollDelegate?
     
     @IBAction func playGame(_ sender: UIButton) {
