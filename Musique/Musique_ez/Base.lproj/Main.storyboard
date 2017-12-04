@@ -190,6 +190,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vQL-QW-CZF">
                                 <rect key="frame" x="0.0" y="223" width="1024" height="545"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3IO-gN-AwZ">
                                     <size key="itemSize" width="1027" height="542"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -336,6 +337,7 @@
                                                 </button>
                                             </subviews>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="kNX-3R-W0J" firstAttribute="centerY" secondItem="iG8-Tj-bDr" secondAttribute="centerY" id="2kd-GY-NKH"/>
                                             <constraint firstAttribute="trailing" secondItem="pHG-Zh-wjq" secondAttribute="trailing" constant="20" id="88P-qI-VyF"/>
