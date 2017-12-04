@@ -53,7 +53,7 @@ extension MusicSelectionViewController: HorizontalScrollDelegate{
 
 extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.musicArray!.count
+        return self.musicArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
