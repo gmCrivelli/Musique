@@ -11,15 +11,21 @@ import UIKit
 /// Manages the Music Selection screen before the Pulse activity
 class MusicSelectionViewController: BasicViewController {
     
-    let songs = ["Funny Song", "Dancing on Green Grass", "Splashing Around"]
-    
+    var musicArray: [MusicPulse]?
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Add 
+        
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
+        MusicServices.getAllMusic { (error, response) in
+            if (error == nil){
+                self.musicArray = response
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +44,7 @@ class MusicSelectionViewController: BasicViewController {
 
 extension MusicSelectionViewController: HorizontalScrollDelegate{
     func scroll(to position: Int){
-        if(position>=0 && position<self.songs.count){
+        if(position>=0 && position<self.musicArray!.count){
             let index = IndexPath(row: position, section: 0)
             self.collectionView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
         }
@@ -47,13 +53,18 @@ extension MusicSelectionViewController: HorizontalScrollDelegate{
 
 extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.songs.count
+        return self.musicArray!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicCell", for: indexPath) as! MusicCollectionViewCell
         
-        cell.nameLabel.text = self.songs[indexPath.row]
+        let music = self.musicArray![indexPath.row]
+        
+        cell.nameLabel.text = music.name
+        
+        cell.bestScore.text = String(music.highScore)
+        cell.lastScore.text = String(music.lastScore)
         
         cell.playButton.tag = indexPath.row
         cell.nextButton.tag = indexPath.row+1
