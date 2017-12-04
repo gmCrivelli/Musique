@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class EndScreenViewController: BasicViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
+    var player : AVAudioPlayer?
     
     var score : String!
     
@@ -18,6 +20,7 @@ class EndScreenViewController: BasicViewController {
         
         scoreLabel.text = score + "%"
         
+        rollTheDrums()
 
         // Do any additional setup after loading the view.
     }
@@ -27,6 +30,35 @@ class EndScreenViewController: BasicViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func rollTheDrums(){
+        
+        guard let url = Bundle.main.url(forResource: "drum_roll", withExtension: "wav") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+            print("\(player.duration)")
+            
+            animateResult(duration: player.duration)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func animateResult(duration:Double) {
+        
+    }
 
     /*
     // MARK: - Navigation

@@ -153,8 +153,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         bgMusic = Music(url: filePath, bpm: chosenMusicConfig.1)
         bgMusic.obstacleSpawns = chosenMusicConfig.2
         
-        
-        
         //Configure background
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
@@ -324,6 +322,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    //End the game and perform the segue to the end screen
     func endGame() {
         let obstaclesPercent = (self.totalObstaclesJumped / self.obstaclesTotal) * 100
         
