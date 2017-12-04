@@ -41,10 +41,15 @@ class MusicSelectionViewController: BasicViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    // Pass the music for the gameviewcontroller according to the button tag
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let gameViewController = segue.destination as! GameViewController
-        
-        
+        if(segue.identifier == "gameSceneSegue"){
+            let gameViewController = segue.destination as! GameViewController
+            
+            let buttonSender = sender as! UIButton
+            
+            gameViewController.chosenMusic = musicArray![buttonSender.tag]
+        }
     }
 }
 
