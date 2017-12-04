@@ -13,7 +13,7 @@ class MusicPulse: NSManagedObject {
     
     @NSManaged public var name: String
     @NSManaged public var highScore: Int16
-    @NSManaged public var bpm: Int16
+    @NSManaged public var bpm: Double
     @NSManaged public var fileExtension: String
     @NSManaged public var fileName: String
     @NSManaged public var id: Int16
