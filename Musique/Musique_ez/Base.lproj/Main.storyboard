@@ -357,6 +357,7 @@
                                             <outlet property="lastScore" destination="h1m-w6-G4i" id="CHV-su-AJa"/>
                                             <outlet property="nameLabel" destination="YdQ-i8-E11" id="GXF-1E-33U"/>
                                             <outlet property="nextButton" destination="pHG-Zh-wjq" id="1JA-ga-ccx"/>
+                                            <outlet property="playButton" destination="MBU-Ui-pQE" id="0p8-06-ahy"/>
                                             <outlet property="previousButton" destination="9DS-Fp-ED7" id="1nF-g3-9lt"/>
                                         </connections>
                                     </collectionViewCell>
@@ -380,6 +381,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RMT-B6-1fq"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="vQL-QW-CZF" id="3bj-qM-Juk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwr-h8-ZvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
