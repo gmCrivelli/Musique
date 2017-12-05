@@ -362,81 +362,10 @@
                         <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
-                    <connections>
-                        <segue destination="lQ9-Wi-6eV" kind="presentation" identifier="endGameSegue" modalPresentationStyle="fullScreen" id="hnc-qh-vHi"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="795" y="114"/>
-        </scene>
-        <!--End Screen View Controller-->
-        <scene sceneID="Ilz-QN-oak">
-            <objects>
-                <viewController id="lQ9-Wi-6eV" customClass="EndScreenViewController" customModule="Musique_ez" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LC5-4V-gpI">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScoreViewBackground" translatesAutoresizingMaskIntoConstraints="NO" id="fty-fe-bnW">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
-                            </imageView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R51-qs-xgt">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tCA-iQ-4Rq">
-                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9QQ-V9-GB0" userLabel="backButton">
-                                            <rect key="frame" x="20" y="24" width="110" height="64"/>
-                                            <state key="normal" image="BackButton"/>
-                                            <connections>
-                                                <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="T7G-c5-Upp"/>
-                                                <segue destination="K3g-bR-XLH" kind="show" id="KHC-io-bte"/>
-                                            </connections>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2I-8C-TqA">
-                                            <rect key="frame" x="403" y="24" width="219.5" height="107.5"/>
-                                            <accessibility key="accessibilityConfiguration">
-                                                <accessibilityTraits key="traits" none="YES"/>
-                                            </accessibility>
-                                            <fontDescription key="fontDescription" type="system" pointSize="90"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <accessibility key="accessibilityConfiguration">
-                                        <accessibilityTraits key="traits" playsSound="YES"/>
-                                    </accessibility>
-                                    <constraints>
-                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="top" secondItem="tCA-iQ-4Rq" secondAttribute="top" constant="24" id="Csz-as-h9t"/>
-                                        <constraint firstItem="9QQ-V9-GB0" firstAttribute="leading" secondItem="tCA-iQ-4Rq" secondAttribute="leading" constant="20" id="Vap-F2-DLL"/>
-                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Wmh-8K-dVw"/>
-                                        <constraint firstItem="D2I-8C-TqA" firstAttribute="centerX" secondItem="tCA-iQ-4Rq" secondAttribute="centerX" id="Xzs-EV-epf"/>
-                                    </constraints>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="R51-qs-xgt" firstAttribute="top" secondItem="buA-rO-VwU" secondAttribute="top" id="0R8-W4-YVo"/>
-                            <constraint firstItem="fty-fe-bnW" firstAttribute="top" secondItem="buA-rO-VwU" secondAttribute="top" id="4qd-Hi-lWt"/>
-                            <constraint firstItem="buA-rO-VwU" firstAttribute="trailing" secondItem="R51-qs-xgt" secondAttribute="trailing" id="7Cd-pe-Xwj"/>
-                            <constraint firstItem="R51-qs-xgt" firstAttribute="leading" secondItem="buA-rO-VwU" secondAttribute="leading" id="C2Q-rd-kEr"/>
-                            <constraint firstItem="fty-fe-bnW" firstAttribute="leading" secondItem="buA-rO-VwU" secondAttribute="leading" id="KA3-FB-uIY"/>
-                            <constraint firstItem="buA-rO-VwU" firstAttribute="trailing" secondItem="fty-fe-bnW" secondAttribute="trailing" id="MDH-GY-rAu"/>
-                            <constraint firstItem="buA-rO-VwU" firstAttribute="bottom" secondItem="R51-qs-xgt" secondAttribute="bottom" id="aNB-0Q-rxA"/>
-                            <constraint firstItem="buA-rO-VwU" firstAttribute="bottom" secondItem="fty-fe-bnW" secondAttribute="bottom" id="tQ2-RA-s6R"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="buA-rO-VwU"/>
-                    </view>
-                    <connections>
-                        <outlet property="scoreLabel" destination="D2I-8C-TqA" id="Hqj-5L-IyG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZg-lu-d8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="425" y="973"/>
         </scene>
     </scenes>
     <resources>
@@ -448,12 +377,8 @@
         <image name="Pulso" width="206" height="276"/>
         <image name="Pulso_detail" width="339" height="339"/>
         <image name="Ritmo" width="206" height="278"/>
-        <image name="ScoreViewBackground" width="2048" height="1536"/>
         <image name="TopBarPattern" width="1024" height="118"/>
         <image name="buttonIniciar" width="188" height="57"/>
         <image name="info" width="54" height="54"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="KHC-io-bte"/>
-    </inferredMetricsTieBreakers>
 </document>

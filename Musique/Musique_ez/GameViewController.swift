@@ -52,12 +52,6 @@ class GameViewController: UIViewController, GameFinishedDelegate {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let endScreenViewController = segue.destination as! EndScreenViewController
-        
-        endScreenViewController.score = finalScore
-    }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         gameScene.jump()
     }

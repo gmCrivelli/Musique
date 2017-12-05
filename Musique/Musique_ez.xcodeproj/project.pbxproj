@@ -20,10 +20,11 @@
 		64D7D65C1FCC411D00F6ABBB /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
 		64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
 		64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA23501FD192F700A7FAD1 /* NavigationController.swift */; };
-		64FDD1121FD47EE500F88205 /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
+		FE5B220F1FD560AE0099D498 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */; };
+		FE5B22111FD5659A0099D498 /* EndGameScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScreen.sks */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
 		FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */; };
@@ -62,10 +63,11 @@
 		64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
 		64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumbo.wav; sourceTree = "<group>"; };
 		64DA23501FD192F700A7FAD1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
-		64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EndScreenViewController.swift; path = /Users/Tonisso/Works/BEPiD/DoM7/Musique/Musique/Musique_ez/Controller/EndScreenViewController.swift; sourceTree = "<absolute>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
+		FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
+		FE5B22101FD5659A0099D498 /* EndGameScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScreen.sks; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				40E96D771FCDC53900BE05E7 /* BasicViewController.swift */,
-				64FDD1111FD47EE500F88205 /* EndScreenViewController.swift */,
 				40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */,
 				40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */,
 				64DA23501FD192F700A7FAD1 /* NavigationController.swift */,
@@ -197,9 +198,11 @@
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
 				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
+				FE5B22101FD5659A0099D498 /* EndGameScreen.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
+				FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
 				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
 				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
@@ -287,6 +290,7 @@
 				FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
+				FE5B22111FD5659A0099D498 /* EndGameScreen.sks in Resources */,
 				FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */,
 				FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */,
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
@@ -365,7 +369,6 @@
 			files = (
 				64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */,
 				40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */,
-				64FDD1121FD47EE500F88205 /* EndScreenViewController.swift in Sources */,
 				641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */,
 				FE7C99CE1FB4BBC5006E7CCD /* PulsoGameScene.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
@@ -375,6 +378,7 @@
 				40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
+				FE5B220F1FD560AE0099D498 /* EndGameScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
