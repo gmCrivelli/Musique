@@ -19,6 +19,10 @@ class EndGameScreen : SKNode {
     private var darkenerRectangle : SKShapeNode!
     private var EndGameBox : SKSpriteNode!
     
+    private var scoreLabel : SKLabelNode!
+    private var obstacleLabel : SKLabelNode!
+    private var rankLabel : SKLabelNode!
+    
     init(scene: SKScene) {
         
         super.init()
@@ -26,6 +30,21 @@ class EndGameScreen : SKNode {
         self.darkenerRectangle = SKShapeNode(rectOf: scene.size)
         self.darkenerRectangle.fillColor = .black
         self.darkenerRectangle.alpha = 0
+        
+        let box = self.childNode(withName: "box")
+        
+        self.scoreLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
+        self.obstacleLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
+        self.rankLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
+    }
+    
+    func animateScore(score: Int, duration : TimeInterval) {
+        
+        let scoreTweenAction = SKAction.customAction(withDuration: duration){ (node, t) in
+            let tweenedScore = Int(CGFloat(score) * t * t)
+            self.scoreLabel.text = String(format: "%06d",tweenedScore)
+        }
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
