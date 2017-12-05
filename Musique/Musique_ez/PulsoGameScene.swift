@@ -46,7 +46,15 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     var whatever: SKNode!
     
+    var houseTiles:SKTileMapNode!
+    
     public var viewControllerDelegate : GameFinishedDelegate!
+    
+    let blueHouseDefinition = SKTileDefinition(texture: SKTexture(imageNamed: "house1"))
+    let yelHouseDefinition = SKTileDefinition(texture: SKTexture(imageNamed: "house2"))
+    let greyHouseDefinition = SKTileDefinition(texture: SKTexture(imageNamed: "house3"))
+    let redHouseDefinition = SKTileDefinition(texture: SKTexture(imageNamed: "house4"))
+    var tileGroup : SKTileGroup?
     
     // Time control
     private var lastUpdateTime: TimeInterval = 0
@@ -143,8 +151,16 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         
-        //Setup all music
+        blueHouseDefinition.placementWeight = 1
+        yelHouseDefinition.placementWeight = 1
+        greyHouseDefinition.placementWeight = 1
+        redHouseDefinition.placementWeight = 1
         
+        let rule = SKTileGroupRule(adjacency: .adjacencyAll, tileDefinitions: [blueHouseDefinition, redHouseDefinition, yelHouseDefinition, greyHouseDefinition])
+        tileGroup = SKTileGroup(rules: [rule])
+        houseTiles = childNode(withName: "housesBackground1") as! SKTileMapNode
+        
+        //Setup all music
         // CHOOSE MUSIC:
         let chosenMusic = 1
         let chosenMusicConfig = Music.configArray[chosenMusic]
@@ -157,11 +173,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
         self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
         
-        self.paralaxScenarioNodeA1 = childNode(withName: "ParalaxScenarioA1") as! SKSpriteNode
-        self.paralaxScenarioNodeA2 = childNode(withName: "ParalaxScenarioA2") as! SKSpriteNode
+        self.paralaxScenarioNodeA1 = childNode(withName: "paralaxScenarioA1") as! SKSpriteNode
+        self.paralaxScenarioNodeA2 = childNode(withName: "paralaxScenarioA2") as! SKSpriteNode
         
-        self.paralaxScenarioNodeB1 = childNode(withName: "ParalaxScenarioB1") as! SKSpriteNode
-        self.paralaxScenarioNodeB2 = childNode(withName: "ParalaxScenarioB2") as! SKSpriteNode
+        self.paralaxScenarioNodeB1 = childNode(withName: "paralaxScenarioB1") as! SKSpriteNode
+        self.paralaxScenarioNodeB2 = childNode(withName: "paralaxScenarioB2") as! SKSpriteNode
         
         self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
         
@@ -346,6 +362,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
+        self.houseTiles.fill(with: self.tileGroup)
         if playerState == .onFloor {
             playerState = .jumping
             player.run(jumpAction) {
