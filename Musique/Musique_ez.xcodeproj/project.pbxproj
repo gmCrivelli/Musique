@@ -23,8 +23,8 @@
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
-		FE5B220F1FD560AE0099D498 /* EndGameScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */; };
-		FE5B22111FD5659A0099D498 /* EndGameScreen.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScreen.sks */; };
+		FE5B220F1FD560AE0099D498 /* EndGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameNode.swift */; };
+		FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScene.sks */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
 		FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */; };
@@ -66,8 +66,8 @@
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
-		FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameScreen.swift; sourceTree = "<group>"; };
-		FE5B22101FD5659A0099D498 /* EndGameScreen.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScreen.sks; sourceTree = "<group>"; };
+		FE5B220E1FD560AE0099D498 /* EndGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameNode.swift; sourceTree = "<group>"; };
+		FE5B22101FD5659A0099D498 /* EndGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScene.sks; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,13 +113,6 @@
 				64DA23501FD192F700A7FAD1 /* NavigationController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		40E96D7B1FCDD02C00BE05E7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		708888538848872AA8C64CF0 /* Pods */ = {
@@ -192,18 +185,17 @@
 				FEDB56341FCF272300821A43 /* HeroiFerido.atlas */,
 				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
 				645F35541FC09C300084203F /* Heroi.atlas */,
-				40E96D7B1FCDD02C00BE05E7 /* View */,
-				40E96D761FCDC50600BE05E7 /* Controller */,
 				FE1D05CF1FC83C7B00350EF9 /* BGM */,
 				FE1D05CE1FC83C7700350EF9 /* SFX */,
+				40E96D761FCDC50600BE05E7 /* Controller */,
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
 				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
-				FE5B22101FD5659A0099D498 /* EndGameScreen.sks */,
+				FE5B22101FD5659A0099D498 /* EndGameScene.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
-				FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */,
+				FE5B220E1FD560AE0099D498 /* EndGameNode.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
 				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
 				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
@@ -290,7 +282,7 @@
 				FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
-				FE5B22111FD5659A0099D498 /* EndGameScreen.sks in Resources */,
+				FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */,
 				FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */,
 				FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */,
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
@@ -378,7 +370,7 @@
 				40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
-				FE5B220F1FD560AE0099D498 /* EndGameScreen.swift in Sources */,
+				FE5B220F1FD560AE0099D498 /* EndGameNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";
@@ -533,7 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P4UELCPGZV;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.org.eldorado.bepid.Musique-hero";

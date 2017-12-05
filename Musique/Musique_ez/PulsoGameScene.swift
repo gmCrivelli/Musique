@@ -112,6 +112,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var tutorialPointingFinger : SKSpriteNode!
     
     // Labels and Interface
+    private var endGameNode : EndGameNode!
     private var scoreLabel : SKLabelNode!
     private var multiplierLabel : SKLabelNode!
     
@@ -307,6 +308,15 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.showsPhysics = true
         self.physicsWorld.contactDelegate = self
         
+        // Setup end game
+        let endGameScene = SKScene(fileNamed: "EndGameScene")
+        
+        self.endGameNode = endGameScene?.childNode(withName: "root") as! EndGameNode
+        
+        self.endGameNode.removeFromParent()
+        self.addChild(self.endGameNode)
+        self.endGameNode.setup(rectOf: self.size)
+        
         // Start the game
         self.score = 0
         self.multiplier = 1
@@ -346,7 +356,12 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
-        if playerState == .onFloor {
+        print("Puuuuulo! \(self.endGameNode)")
+        
+        
+        self.endGameNode.displayBox(duration: 0.5)
+        
+       /* if playerState == .onFloor {
             playerState = .jumping
             player.run(jumpAction) {
                 self.playerState = .onFloor
@@ -354,7 +369,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             }
             self.run(jumpSfxArray[playerSoundArray[playerSound].rawValue])
             print("Player Sound: \(playerSound)")
-        }
+        }*/
     }
     
     func move(sprite: SKSpriteNode, velocity: CGPoint) {

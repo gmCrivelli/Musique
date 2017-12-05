@@ -10,8 +10,7 @@ import Foundation
 import SpriteKit
 import SpriteKitEasingSwift
 
-class EndGameScreen : SKNode {
-    
+class EndGameNode : SKNode {
     
     // MARK: Properties
     
@@ -27,23 +26,17 @@ class EndGameScreen : SKNode {
     private var drumrollSoundAction : SKAction!
     private var endSoundActions : [SKAction] = []
     
-    init(scene: SKScene) {
-        
-        super.init()
+    // Action for movement
+    private var moveBoxAction : SKAction!
+    
+    func setup(rectOf size: CGSize) {
         
         // Setup child nodes
         self.box = self.childNode(withName: "box") as! SKSpriteNode
-    
+        
         self.scoreLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
         self.obstacleLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
         self.rankLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
-        
-        // Darkener for the rest of the screen
-        self.darkenerRectangle = SKShapeNode(rectOf: scene.size)
-        self.darkenerRectangle.fillColor = .black
-        self.darkenerRectangle.alpha = 0
-        self.darkenerRectangle.zPosition = -1
-        self.addChild(darkenerRectangle)
         
         // Setup sound actions
         self.drumrollSoundAction = SKAction.playSoundFileNamed("drum_roll.wav", waitForCompletion: false)
@@ -52,21 +45,66 @@ class EndGameScreen : SKNode {
         let midSoundAction = SKAction.playSoundFileNamed("mid_end.wav", waitForCompletion: false)
         let badSoundAction = SKAction.playSoundFileNamed("bad_end.wav", waitForCompletion: false)
         self.endSoundActions = [badSoundAction, midSoundAction, goodSoundAction]
+        
+        // Darkener for the rest of the screen
+        self.darkenerRectangle = SKShapeNode(rectOf: size)
+        self.darkenerRectangle.fillColor = .black
+        self.darkenerRectangle.alpha = 0
+        self.darkenerRectangle.zPosition = -1
+        self.addChild(darkenerRectangle)
+        
+        self.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        self.zPosition = 100
+        self.box.position = CGPoint(x: 0, y: 4000)
+        
+        moveBoxAction = SKAction.move(to: CGPoint.zero, duration: 5)
     }
     
     // MARK: Show box on screen
-    func displayBox(center: CGPoint, duration: TimeInterval) {
+    func displayBox(duration: TimeInterval) {
+
         
+        //self.addChild(box)
+        
+       //self.box.position = CGPoint.zero
+        
+       /* moveBoxAction = SKEase.move(easeFunction: .curveTypeElastic, easeType: .easeTypeOut, time: duration, from: CGPoint(x:0, y:4000), to: CGPoint.zero)*/
+        
+       /* self.run(SKAction.customAction(withDuration: duration) {
+            (node, t) in
+            self.box.position = CGPoint(x: 0, y: 4000 * (1-t))
+        })*/
+        
+        
+        self.parent?.run(SKAction.customAction(withDuration: duration) {
+            (node, t) in
+            let adjustedTime = (t / CGFloat(duration)) * (t / CGFloat(duration))
+            
+            self.box.position = CGPoint(x: 0, y: -4000 * (1 - adjustedTime))
+            self.darkenerRectangle.alpha = 0.5 * adjustedTime
+        })
+        
+        /*
+        self.run(SKAction.run {
+            print("Runninf")
+        })
+        
+        self.box.run(moveBoxAction) {
+            print("A principio eu rodei sim!")
+        }*/
+        
+        /*
         self.box.alpha = 1
         
-        let boxMoveAction = SKEase.move(easeFunction: .curveTypeElastic, easeType: .easeTypeOut, time: duration, from: box.position, to: center)
+        let boxMoveAction = SKEase.move(easeFunction: .curveTypeElastic, easeType: .easeTypeOut, time: duration, from: CGPoint(x:0, y:4000), to: CGPoint.zero)
         
-        let rectangleDarkenAction = SKAction.fadeAlpha(to: 0.3, duration: duration / 2)
+        let rectangleDarkenAction = SKAction.fadeAlpha(to: 0.5, duration: duration / 2)
         
-        self.run(SKAction.group([boxMoveAction, rectangleDarkenAction]))
+        self.box.run(boxMoveAction)
+ */
+    //self.darkenerRectangle.run(rectangleDarkenAction)
     }
-    
-    
+
     // MARK: Value tweening Actions
     func animateScore(score: Int, duration : TimeInterval) {
         
@@ -109,11 +147,4 @@ class EndGameScreen : SKNode {
         animateObstacles(jumpedObstacles: jumpedObstacles, totalObstacles: totalObstacles, duration: duration)
         animateRank(finalRank: finalRank, duration: duration)
     }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    
 }
