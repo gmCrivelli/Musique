@@ -79,7 +79,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var tutorialCollider : SKNode!
     
     //Paralax elements
-    private var flyingScenarioObjects : SKNode?
     private var groundedScenarioObjects : SKNode?
     
     // Configure contact masks
@@ -98,12 +97,15 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var jumpSfxArray : [SKAction] = []
     
     //Paralax Components
-    private var paralaxScenarioNodeA1 : SKSpriteNode!
-    private var paralaxScenarioNodeA2 : SKSpriteNode!
-    private var paralaxScenarioNodeB1 : SKSpriteNode!
-    private var paralaxScenarioNodeB2 : SKSpriteNode!
+    private var cityFrontA : SKSpriteNode!
+    private var cityFrontB : SKSpriteNode!
+    private var cityBackA : SKSpriteNode!
+    private var cityBackB : SKSpriteNode!
     private var originalScenarioPosition : CGPoint!
-    private var tileMap : SKTileMapNode!
+    private var housesTileMapA : SKTileMapNode!
+    private var housesTileMapB : SKTileMapNode!
+    private var streetA : SKSpriteNode!
+    private var streetB : SKSpriteNode!
     
     private var screenEnd : CGFloat!
     
@@ -154,22 +156,27 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         bgMusic.obstacleSpawns = chosenMusicConfig.2
         
         //Configure background
-        self.flyingScenarioObjects = childNode(withName: "Flying Scenario Objects")
-        self.groundedScenarioObjects = childNode(withName: "Grounded Scenario Objects")
+        self.groundedScenarioObjects = childNode(withName: "groundScenarioObjects")
         
-        self.paralaxScenarioNodeA1 = childNode(withName: "ParalaxScenarioA1") as! SKSpriteNode
-        self.paralaxScenarioNodeA2 = childNode(withName: "ParalaxScenarioA2") as! SKSpriteNode
+        self.cityFrontA = childNode(withName: "cityFrontA") as! SKSpriteNode
+        self.cityFrontB = childNode(withName: "cityFrontB") as! SKSpriteNode
         
-        self.paralaxScenarioNodeB1 = childNode(withName: "ParalaxScenarioB1") as! SKSpriteNode
-        self.paralaxScenarioNodeB2 = childNode(withName: "ParalaxScenarioB2") as! SKSpriteNode
+        self.cityBackA = childNode(withName: "cityBackA") as! SKSpriteNode
+        self.cityBackB = childNode(withName: "cityBackB") as! SKSpriteNode
+        
+        self.housesTileMapA = childNode(withName: "housesTileMapA") as! SKTileMapNode
+        self.housesTileMapB = childNode(withName: "housesTileMapB") as! SKTileMapNode
+        
+        self.streetA = childNode(withName: "streetA") as! SKSpriteNode
+        self.streetB = childNode(withName: "streetB") as! SKSpriteNode
         
         self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
         
         screenEnd = CGFloat((scene?.size.width)!)
         unspawnPoint = -(scene?.size.width)! - ((scene?.size.width)! / 2)
         
-        obstacleTextures.append(SKTexture(imageNamed: "Hidrante"))
-        obstacleTextures.append(SKTexture(imageNamed: "Lixo"))
+        obstacleTextures.append(SKTexture(imageNamed: "hidrant"))
+        obstacleTextures.append(SKTexture(imageNamed: "trash"))
         
         self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
         self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 70)
@@ -215,18 +222,22 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         player.texture = playerWalkingFrames[0]
         
         // Setup ground
-        self.tileMap = self.childNode(withName: "Tile Map Node") as? SKTileMapNode
-        self.tileMap.physicsBody = SKPhysicsBody(
-            rectangleOf: CGSize(width: tileMap.mapSize.width * tileMap.xScale,
-                                height: tileMap.mapSize.height * tileMap.yScale))
-        self.tileMap.physicsBody?.affectedByGravity = false
-        self.tileMap.physicsBody?.isDynamic = false
-        self.tileMap.physicsBody?.categoryBitMask = floorCategory
-        self.tileMap.physicsBody?.fieldBitMask = 0
-        self.tileMap.physicsBody?.restitution = 0
+        self.streetA.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: streetA.size.width, height: streetA.size.height))
+        self.streetA.physicsBody?.affectedByGravity = false
+        self.streetA.physicsBody?.isDynamic = false
+        self.streetA.physicsBody?.categoryBitMask = floorCategory
+        self.streetA.physicsBody?.fieldBitMask = 0
+        self.streetA.physicsBody?.restitution = 0
+        
+        self.streetB.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: streetB.size.width, height: streetB.size.height))
+        self.streetB.physicsBody?.affectedByGravity = false
+        self.streetB.physicsBody?.isDynamic = false
+        self.streetB.physicsBody?.categoryBitMask = floorCategory
+        self.streetB.physicsBody?.fieldBitMask = 0
+        self.streetB.physicsBody?.restitution = 0
         
         self.physicsWorld.gravity = CGVector(dx: 0.0, dy: -22)
-        originalPosition = tileMap.position
+//        originalPosition = tileMap.position
         
         ///MARK: Setup actions
         
@@ -265,15 +276,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         let rotateAction = SKAction.rotate(byAngle: -2 * CGFloat(Double.pi), duration: 0.45)
         self.jumpAction = SKAction.group([jumpSequence, rotateAction])
         
-        let createFlyingObjectAction = SKAction.run {
-            self.spawnScenarioObject(isGroundObject: false)
-        }
-        
         let createGroundedObjectAction = SKAction.run {
             self.spawnScenarioObject(isGroundObject: true)
         }
         
-        let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 0.6)
+        let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 1.2)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
         self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
         
@@ -415,7 +422,13 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         var textures = [SKTexture]()
         
         if(isGroundObject){
-            textures.append(SKTexture(imageNamed: "Bricks"))
+            textures.append(SKTexture(imageNamed: "tree1"))
+            textures.append(SKTexture(imageNamed: "tree2"))
+            textures.append(SKTexture(imageNamed: "tree3"))
+            textures.append(SKTexture(imageNamed: "tree4"))
+            textures.append(SKTexture(imageNamed: "tree5"))
+            textures.append(SKTexture(imageNamed: "tree6"))
+            textures.append(SKTexture(imageNamed: "tree7"))
             
         }else{
             //TODO
@@ -430,7 +443,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         if(isGroundObject){
             groundedScenarioObjects!.addChild(ScenarioObjectNode(isGroundObject: true, layer: 0, texture: randomizeTexture(isGroundObject: true)))
         } else {
-            flyingScenarioObjects!.addChild(ScenarioObjectNode(isGroundObject: false, layer: 0, texture: randomizeTexture(isGroundObject: false)))
+//            flyingScenarioObjects!.addChild(ScenarioObjectNode(isGroundObject: false, layer: 0, texture: randomizeTexture(isGroundObject: false)))
         }
     }
     
@@ -451,30 +464,34 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         let actualOffset = CGFloat(moveSpeedPerSecond * dt)
         
         // Move the ground
-        tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
+//        tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
         // In case the ground has reached a limit distance, returns it to the initial position
-        if tileMap.position.x <= 0 {
-            tileMap.position = originalPosition!
-        }
+//        if tileMap.position.x <= 0 {
+//            tileMap.position = originalPosition!
+//        }
         
-        paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
-        paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
-        paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
-        paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
+//        paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
+////        paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
+//        paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
+////        paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
+//        
+//        if paralaxScenarioNodeA1.position.x <= 0{
+//            paralaxScenarioNodeA1.position.x = paralaxScenarioNodeB1.position.x + paralaxScenarioNodeA1.size.width
+////            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeB2.position.x + paralaxScenarioNodeA2.size.width
+//        }
+//        
+//        if paralaxScenarioNodeB1.position.x <= 0{
+//            paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
+////            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
+//        }
         
-        if paralaxScenarioNodeA1.position.x <= 0{
-            paralaxScenarioNodeA1.position.x = paralaxScenarioNodeB1.position.x + paralaxScenarioNodeA1.size.width
-            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeB2.position.x + paralaxScenarioNodeA2.size.width
-        }
-        
-        if paralaxScenarioNodeB1.position.x <= 0{
-            paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
-            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
-        }
+        moveBackgroundObjects(objectA: streetA, objectB: streetB, velocity: actualOffset)
+        moveBackgroundObjects(objectA: housesTileMapA, objectB: housesTileMapB, velocity: actualOffset)
+        moveBackgroundObjects(objectA: cityBackA, objectB: cityBackB, velocity: actualOffset / 8)
+        moveBackgroundObjects(objectA: cityFrontA, objectB: cityFrontB, velocity: actualOffset / 7)
         
         
-        moveScenarioObjects(flyingScenarioObjects!, atLayer: 8)
-        moveScenarioObjects(groundedScenarioObjects!, atLayer: 3)
+        moveScenarioObjects(groundedScenarioObjects!, atLayer: 1)
         
         // Move obstacles
         if let obstaculos = obstaclesParent?.children {
@@ -509,6 +526,19 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func moveBackgroundObjects(objectA: SKNode, objectB: SKNode, velocity: CGFloat){
+        objectA.position = CGPoint(x: (objectA.position.x) - velocity, y: objectA.position.y)
+        objectB.position = CGPoint(x: (objectB.position.x) - velocity, y: objectB.position.y)
+        
+        if objectA.position.x <= 0{
+            objectA.position.x = objectB.position.x + objectA.frame.width
+        }
+
+        if objectB.position.x <= 0{
+            objectB.position.x = objectA.position.x + objectB.frame.width
+        }
+    }
+    
     @objc func blinkMultiplier(){
         
         if multiplierBlinks[multiplierTiming] {
@@ -531,8 +561,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             // Adds a new obstacle to the parent node
             let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
             self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
-            print(obstaclesParent?.position.x, offset)
-            print(playerOrigin.x)
+//            print(obstaclesParent?.position.x, offset)
+//            print(playerOrigin.x)
             
             self.moveSpeedPerSecond *= 1.01
         }
