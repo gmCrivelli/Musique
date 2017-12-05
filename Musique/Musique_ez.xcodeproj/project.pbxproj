@@ -14,6 +14,7 @@
 		40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */; };
 		641E5ED91FC0D4F30097DD54 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
 		645F35551FC09C300084203F /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
+		64761F571FD6C3620062AEC8 /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */; };
 		64967B9E1FB5D738004F39BC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
 		64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* the_muffin_man.mp3 */; };
 		649956901FB5C4C700AD8369 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
@@ -57,6 +58,7 @@
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
 		641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObstacleNode.swift; sourceTree = "<group>"; };
 		645F35541FC09C300084203F /* Heroi.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Heroi.atlas; sourceTree = "<group>"; };
+		64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BackgroundTileSet.sks; sourceTree = "<group>"; };
 		64967B9D1FB5D738004F39BC /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		64967B9F1FB5D797004F39BC /* the_muffin_man.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = the_muffin_man.mp3; sourceTree = "<group>"; };
 		6499568F1FB5C4C600AD8369 /* Caipora.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Caipora.atlas; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
 				FE5B22101FD5659A0099D498 /* EndGameScreen.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
+				64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
 				FE5B220E1FD560AE0099D498 /* EndGameScreen.swift */,
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64761F571FD6C3620062AEC8 /* BackgroundTileSet.sks in Resources */,
 				FEF5F9501FCF3E5A0071FDC1 /* good_end.wav in Resources */,
 				FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */,
 				64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */,
