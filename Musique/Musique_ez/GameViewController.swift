@@ -25,6 +25,7 @@ class GameViewController: UIViewController, GameFinishedDelegate {
     }
     
     var gameScene : PulsoGameScene!
+    var chosenMusic : MusicPulse!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,7 @@ class GameViewController: UIViewController, GameFinishedDelegate {
                 
                 // Set the scale mode to scale to fit the window
                 gameScene.scaleMode = .aspectFill
+                gameScene.musicPulse = chosenMusic
                 
                 // Present the scene
                 view.presentScene(gameScene)
