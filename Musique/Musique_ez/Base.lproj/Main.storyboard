@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QNN-1E-92T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QNN-1E-92T">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -411,12 +411,12 @@
     <resources>
         <image name="BackButton" width="110" height="64"/>
         <image name="BestScore" width="234" height="149"/>
-        <image name="Breve_noBG" width="206" height="278"/>
+        <image name="Breve_noBG" width="205" height="280"/>
         <image name="LastTry" width="234" height="149"/>
         <image name="MusiqueLogoBlack" width="227" height="72"/>
-        <image name="Pulso" width="206" height="276"/>
+        <image name="Pulso" width="205" height="279"/>
         <image name="Pulso_detail" width="339" height="339"/>
-        <image name="Ritmo" width="206" height="278"/>
+        <image name="Ritmo" width="206" height="279"/>
         <image name="TopBarPattern" width="1024" height="118"/>
         <image name="buttonIniciar" width="188" height="57"/>
         <image name="info" width="54" height="54"/>
