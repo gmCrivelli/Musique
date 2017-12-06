@@ -13,14 +13,9 @@ class BasicViewController: UIViewController {
     
     // Image view for the overlay background image.
     fileprivate var background:UIImageView?
-    // Default background color
-    fileprivate let defaultColor = UIColor(red: 56/255, green: 146/255, blue: 105/255, alpha: 1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Sets the background color to the default color
-//        self.view.backgroundColor = defaultColor
         
         // Initializes the ImageView and sets it to the size of the screen.
         self.background = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
