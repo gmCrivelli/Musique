@@ -14,6 +14,7 @@
 		40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBD3101FD59C3A007260F3 /* JSONManager.swift */; };
 		40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BBD3121FD5AE7D007260F3 /* pulse.json */; };
 		40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
+		40DD81001FD81D9200F22F51 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD80FF1FD81D9200F22F51 /* AboutViewController.swift */; };
 		40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D771FCDC53900BE05E7 /* BasicViewController.swift */; };
 		40E96D7A1FCDCCA300BE05E7 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */; };
 		5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* MusicDAO.swift */; };
@@ -64,6 +65,7 @@
 		40BBD3101FD59C3A007260F3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		40BBD3121FD5AE7D007260F3 /* pulse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pulse.json; sourceTree = "<group>"; };
 		40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionViewController.swift; sourceTree = "<group>"; };
+		40DD80FF1FD81D9200F22F51 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		40E96D771FCDC53900BE05E7 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
 		40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		4E0F739ACFE06BCE1570D59B /* Pods-Musique_ez.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.release.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				40E96D771FCDC53900BE05E7 /* BasicViewController.swift */,
 				40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */,
 				40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */,
+				40DD80FF1FD81D9200F22F51 /* AboutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
+				40DD81001FD81D9200F22F51 /* AboutViewController.swift in Sources */,
 				FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
