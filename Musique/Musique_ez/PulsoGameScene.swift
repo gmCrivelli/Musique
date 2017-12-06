@@ -350,7 +350,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.obstaclesParent = childNode(withName: "Obstacles")
         
         // Setup physics
-        self.view?.showsPhysics = true
+        self.view?.showsPhysics = false
         self.physicsWorld.contactDelegate = self
         
         // Setup end game
