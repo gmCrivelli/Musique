@@ -369,6 +369,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                                                   finalRank: Int(obstaclesPercent),
                                                   duration: 2.7)
             }]))
+        print(self.score, self.totalObstaclesJumped, self.obstaclesTotal, obstaclesPercent)
     }
     
     func startWalking() {

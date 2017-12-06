@@ -39,7 +39,6 @@
 		FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */; };
 		FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */; };
 		FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */; };
-		FEB51CD91FCEEC1900F9AF88 /* space_adventure.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD61FCEEC1900F9AF88 /* space_adventure.mp3 */; };
 		FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FEDB56341FCF272300821A43 /* HeroiFerido.atlas */; };
 		FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */; };
 		FEF5F94F1FCF3E5A0071FDC1 /* drum_roll.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */; };
@@ -84,7 +83,6 @@
 		FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splashing_around.mp3; sourceTree = "<group>"; };
 		FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song.mp3; sourceTree = "<group>"; };
 		FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dancing_on_green_grass.mp3; sourceTree = "<group>"; };
-		FEB51CD61FCEEC1900F9AF88 /* space_adventure.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = space_adventure.mp3; sourceTree = "<group>"; };
 		FEDB56341FCF272300821A43 /* HeroiFerido.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HeroiFerido.atlas; sourceTree = "<group>"; };
 		FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bad_end.wav; sourceTree = "<group>"; };
 		FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drum_roll.wav; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */,
 				FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */,
 				FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */,
-				FEB51CD61FCEEC1900F9AF88 /* space_adventure.mp3 */,
 				64967B9F1FB5D797004F39BC /* the_muffin_man.mp3 */,
 			);
 			path = BGM;
@@ -278,7 +275,6 @@
 				FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */,
 				FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */,
 				FEF5F9511FCF3E5A0071FDC1 /* mid_end.wav in Resources */,
-				FEB51CD91FCEEC1900F9AF88 /* space_adventure.mp3 in Resources */,
 				FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
