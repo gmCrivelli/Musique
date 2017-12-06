@@ -255,6 +255,7 @@
                                                         <constraint firstItem="DsB-Kf-28k" firstAttribute="leading" secondItem="QTD-JO-294" secondAttribute="trailing" id="J7e-2d-vdE"/>
                                                         <constraint firstAttribute="trailing" secondItem="DsB-Kf-28k" secondAttribute="trailing" constant="50" id="TEA-ea-apM"/>
                                                         <constraint firstItem="fBx-e5-g64" firstAttribute="centerY" secondItem="kNX-3R-W0J" secondAttribute="centerY" id="URD-rT-Bxw"/>
+                                                        <constraint firstItem="QTD-JO-294" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kNX-3R-W0J" secondAttribute="leading" constant="20" symbolic="YES" id="hXw-Oi-hSc"/>
                                                         <constraint firstItem="x5N-rx-WcJ" firstAttribute="centerX" secondItem="fBx-e5-g64" secondAttribute="centerX" id="j21-Nh-dO6"/>
                                                         <constraint firstItem="DsB-Kf-28k" firstAttribute="centerY" secondItem="QTD-JO-294" secondAttribute="centerY" id="kdf-an-ZzX"/>
                                                     </constraints>
@@ -286,6 +287,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="S7B-Qj-692" firstAttribute="top" secondItem="9qn-VY-30Q" secondAttribute="top" constant="25" id="AnT-WV-Cx0"/>
+                                                        <constraint firstItem="h1m-w6-G4i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9qn-VY-30Q" secondAttribute="leading" constant="20" symbolic="YES" id="C1H-Rl-K2h"/>
                                                         <constraint firstItem="xLa-9r-vEH" firstAttribute="height" secondItem="9qn-VY-30Q" secondAttribute="height" id="Ezr-9M-Xl6"/>
                                                         <constraint firstAttribute="trailing" secondItem="5dj-E2-mu3" secondAttribute="trailing" constant="50" id="KOS-p8-kji"/>
                                                         <constraint firstItem="xLa-9r-vEH" firstAttribute="centerX" secondItem="9qn-VY-30Q" secondAttribute="centerX" id="Nva-X9-GGV"/>
