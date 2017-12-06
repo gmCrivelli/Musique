@@ -15,7 +15,7 @@ class EndGameNode : SKNode {
     // MARK: Properties
     
     // Child nodes
-    private var darkenerRectangle : SKShapeNode!
+    private var darkenerRectangle : SKShapeNode?
     private var box : SKSpriteNode!
     public var restartButton : SKSpriteNode!
     public var homeButton : SKSpriteNode!
@@ -32,7 +32,6 @@ class EndGameNode : SKNode {
     private var moveBoxAction : SKAction!
     
     func setup(rectOf size: CGSize) {
-        
         // Setup child nodes
         self.box = self.childNode(withName: "box") as! SKSpriteNode
         
@@ -52,12 +51,17 @@ class EndGameNode : SKNode {
         self.endSoundActions = [badSoundAction, midSoundAction, goodSoundAction]
         
         // Darkener for the rest of the screen
-        self.darkenerRectangle = SKShapeNode(rectOf: size)
-        self.darkenerRectangle.fillColor = .black
-        self.darkenerRectangle.alpha = 0
-        self.darkenerRectangle.zPosition = -1
-        self.addChild(darkenerRectangle)
-        
+        if let darkRect = self.darkenerRectangle {
+            darkRect.alpha = 0
+        }
+        else {
+            self.darkenerRectangle = SKShapeNode(rectOf: size)
+            self.darkenerRectangle!.fillColor = .black
+            self.darkenerRectangle!.alpha = 0
+            self.darkenerRectangle!.zPosition = -1
+            self.addChild(darkenerRectangle!)
+        }
+    
         self.position = CGPoint(x: size.width / 2, y: size.height / 2)
         self.zPosition = 100
         self.box.position = CGPoint(x: 0, y: 4000)
@@ -73,7 +77,7 @@ class EndGameNode : SKNode {
             let adjustedTime = (t / CGFloat(duration)) * (t / CGFloat(duration))
             
             self?.box.position = CGPoint(x: 0, y: -4000 * (1 - adjustedTime))
-            self?.darkenerRectangle.alpha = 0.5 * adjustedTime
+            self?.darkenerRectangle!.alpha = 0.5 * adjustedTime
         })
     }
 

@@ -10,8 +10,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-protocol GameFinishedDelegate {
-    func resetScene()
+protocol GameFinishedDelegate: NSObjectProtocol {
     func returnToSelection()
 }
 
@@ -19,20 +18,43 @@ class GameViewController: UIViewController {
     
     var finalScore : String?
     
-    var gameScene : PulsoGameScene!
+    var gameScene : PulsoGameScene?
     var chosenMusic : MusicPulse!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.resetScene()
-
         if let view = self.view as! SKView? {
-            view.ignoresSiblingOrder = true
             
-//            view.showsFPS = true
-//            view.showsNodeCount = true
+            if self.gameScene == nil {
+            
+                // Load the SKScene from 'PulsoGameScene.sks'
+                if let scene = SKScene(fileNamed: "PulsoGameScene") {
+                    
+                    self.gameScene = scene as? PulsoGameScene
+                    
+                    // Configure delegate
+                    self.gameScene!.viewControllerDelegate = self
+                    
+                    // Set the scale mode to scale to fit the window
+                    gameScene!.scaleMode = .aspectFill
+                    
+                    // Sets Music
+                    gameScene!.musicPulse = chosenMusic
+                    
+                    // Present the scene
+                    view.presentScene(gameScene!)
+                    
+                    view.ignoresSiblingOrder = true
+                    
+                    view.showsFPS = true
+                    view.showsNodeCount = true
+                }
+            }
+            else {
+                view.presentScene(gameScene!)
+            }
         }
     }
     
@@ -55,29 +77,6 @@ class GameViewController: UIViewController {
 }
 
 extension GameViewController: GameFinishedDelegate{
-    
-    func resetScene() {
-        
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'PulsoGameScene.sks'
-            if let scene = SKScene(fileNamed: "PulsoGameScene") {
-                
-                self.gameScene = scene as! PulsoGameScene
-                
-                // Configure delegate
-                self.gameScene.viewControllerDelegate = self
-                
-                // Set the scale mode to scale to fit the window
-                gameScene.scaleMode = .aspectFill
-                
-                // Sets Music
-                gameScene.musicPulse = chosenMusic
-                
-                // Present the scene
-                view.presentScene(gameScene)
-            }
-        }
-    }
     
     func returnToSelection() {
         self.navigationController?.popViewController(animated: true)
