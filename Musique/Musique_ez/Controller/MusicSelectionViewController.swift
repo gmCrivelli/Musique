@@ -125,6 +125,14 @@ extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionVi
         // Sets the button tag properties to next and previous indexes
         cell.nextButton.tag = indexPath.row+1
         cell.previousButton.tag = indexPath.row-1
+        
+        // Checks if the button should be displayed.
+        if(cell.previousButton.tag < 0){
+            cell.previousButton.isHidden = true
+        }else if(cell.nextButton.tag > self.musicArray!.count-1){
+            cell.nextButton.isHidden = true
+        }
+        
         // Sets the tag of the play button to identify the music being selected
         cell.playButton.tag = indexPath.row
         // Sets the cell scrollDelegate property to self
