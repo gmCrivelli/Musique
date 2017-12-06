@@ -128,6 +128,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="wgK-s3-trD"/>
                     <connections>
+                        <outletCollection property="menuButtons" destination="jTB-oP-ZCq" collectionClass="NSMutableArray" id="lix-Ot-Cps"/>
+                        <outletCollection property="menuButtons" destination="fLa-cB-bvU" collectionClass="NSMutableArray" id="hlD-kK-uqB"/>
+                        <outletCollection property="menuButtons" destination="3Ig-65-AfV" collectionClass="NSMutableArray" id="UmY-aY-XGR"/>
                         <segue destination="K3g-bR-XLH" kind="show" identifier="pulseSegue" id="NYl-J3-VME"/>
                     </connections>
                 </viewController>
