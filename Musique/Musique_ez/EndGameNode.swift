@@ -17,6 +17,8 @@ class EndGameNode : SKNode {
     // Child nodes
     private var darkenerRectangle : SKShapeNode!
     private var box : SKSpriteNode!
+    public var restartButton : SKSpriteNode!
+    public var homeButton : SKSpriteNode!
     
     private var scoreLabel : SKLabelNode!
     private var obstacleLabel : SKLabelNode!
@@ -35,8 +37,11 @@ class EndGameNode : SKNode {
         self.box = self.childNode(withName: "box") as! SKSpriteNode
         
         self.scoreLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
-        self.obstacleLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
-        self.rankLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
+        self.obstacleLabel = box?.childNode(withName: "obstacleLabel") as! SKLabelNode
+        self.rankLabel = box?.childNode(withName: "rankLabel") as! SKLabelNode
+        
+        self.restartButton = box?.childNode(withName: "restartButton") as! SKSpriteNode
+        self.homeButton = box?.childNode(withName: "homeButton") as! SKSpriteNode
         
         // Setup sound actions
         self.drumrollSoundAction = SKAction.playSoundFileNamed("drum_roll.wav", waitForCompletion: false)
@@ -62,86 +67,56 @@ class EndGameNode : SKNode {
     
     // MARK: Show box on screen
     func displayBox(duration: TimeInterval) {
-
-        
-        //self.addChild(box)
-        
-       //self.box.position = CGPoint.zero
-        
-       /* moveBoxAction = SKEase.move(easeFunction: .curveTypeElastic, easeType: .easeTypeOut, time: duration, from: CGPoint(x:0, y:4000), to: CGPoint.zero)*/
-        
-       /* self.run(SKAction.customAction(withDuration: duration) {
-            (node, t) in
-            self.box.position = CGPoint(x: 0, y: 4000 * (1-t))
-        })*/
-        
         
         self.parent?.run(SKAction.customAction(withDuration: duration) {
-            (node, t) in
+            [weak self] (node, t) in
             let adjustedTime = (t / CGFloat(duration)) * (t / CGFloat(duration))
             
-            self.box.position = CGPoint(x: 0, y: -4000 * (1 - adjustedTime))
-            self.darkenerRectangle.alpha = 0.5 * adjustedTime
+            self?.box.position = CGPoint(x: 0, y: -4000 * (1 - adjustedTime))
+            self?.darkenerRectangle.alpha = 0.5 * adjustedTime
         })
-        
-        /*
-        self.run(SKAction.run {
-            print("Runninf")
-        })
-        
-        self.box.run(moveBoxAction) {
-            print("A principio eu rodei sim!")
-        }*/
-        
-        /*
-        self.box.alpha = 1
-        
-        let boxMoveAction = SKEase.move(easeFunction: .curveTypeElastic, easeType: .easeTypeOut, time: duration, from: CGPoint(x:0, y:4000), to: CGPoint.zero)
-        
-        let rectangleDarkenAction = SKAction.fadeAlpha(to: 0.5, duration: duration / 2)
-        
-        self.box.run(boxMoveAction)
- */
-    //self.darkenerRectangle.run(rectangleDarkenAction)
     }
 
     // MARK: Value tweening Actions
     func animateScore(score: Int, duration : TimeInterval) {
         
-        let scoreTweenAction = SKAction.customAction(withDuration: duration){ (node, t) in
-            let tweenedScore = Int(CGFloat(score) * t * t)
-            self.scoreLabel.text = String(format: "%06d",tweenedScore)
+        let scoreTweenAction = SKAction.customAction(withDuration: duration){ [weak self] (node, t) in
+            
+            let adjustedTime = t / CGFloat(duration)
+            let tweenedScore = Int(CGFloat(score) * adjustedTime * adjustedTime)
+            self?.scoreLabel.text = String(format: "%06d",tweenedScore)
         }
         
-        self.run(scoreTweenAction)
+        self.parent?.run(scoreTweenAction)
     }
     
     func animateObstacles(jumpedObstacles : Int, totalObstacles : Int, duration : TimeInterval) {
         
-        let obstacleTweenAction = SKAction.customAction(withDuration: duration){ (node, t) in
-            let tweenedObstacles = Int(CGFloat(jumpedObstacles) * t * t)
-            self.obstacleLabel.text =  String(format: "%03d",tweenedObstacles) + "/\(totalObstacles)"
+        let obstacleTweenAction = SKAction.customAction(withDuration: duration){ [weak self] (node, t) in
+            let adjustedTime = t / CGFloat(duration)
+            let tweenedObstacles = Int(CGFloat(jumpedObstacles) * adjustedTime * adjustedTime)
+            self?.obstacleLabel.text =  String(format: "%03d",tweenedObstacles) + "/\(totalObstacles)"
         }
         
-        self.run(obstacleTweenAction)
+        self.parent?.run(obstacleTweenAction)
         
     }
     
     func animateRank(finalRank : Int, duration : TimeInterval) {
         
-        let rankTweenAction = SKAction.customAction(withDuration: duration){ (node, t) in
-            let tweenedRank = Int(CGFloat(finalRank) * t * t)
-            self.obstacleLabel.text = "\(tweenedRank)%"
+        let rankTweenAction = SKAction.customAction(withDuration: duration){ [weak self] (node, t) in
+            let adjustedTime = t / CGFloat(duration)
+            let tweenedRank = Int(CGFloat(finalRank) * adjustedTime)
+            self?.rankLabel.text = "\(tweenedRank)%"
         }
-        self.run(rankTweenAction)
+        self.parent?.run(rankTweenAction)
     }
     
     func animateAllWithSound(score : Int, jumpedObstacles : Int, totalObstacles : Int, finalRank : Int, duration : TimeInterval){
         
-        
         let soundActionSequence = SKAction.sequence([drumrollSoundAction, SKAction.wait(forDuration: duration), endSoundActions[finalRank / 34]])
         
-        self.run(soundActionSequence)
+        self.parent?.run(soundActionSequence)
         
         animateScore(score: score, duration: duration)
         animateObstacles(jumpedObstacles: jumpedObstacles, totalObstacles: totalObstacles, duration: duration)
