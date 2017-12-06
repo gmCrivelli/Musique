@@ -10,7 +10,6 @@
 		0BE50369812DC73370C700D5 /* Pods_Musique_ez.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22A01BA488D0C4229ED6AA10 /* Pods_Musique_ez.framework */; };
 		4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		4043BEE61FD171AE0075F8F0 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
-		40A7543C1FD8577D00185FF8 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A7543B1FD8577D00185FF8 /* MusicCollectionViewCell.swift */; };
 		40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBD3101FD59C3A007260F3 /* JSONManager.swift */; };
 		40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BBD3121FD5AE7D007260F3 /* pulse.json */; };
 		40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
@@ -52,6 +51,7 @@
 		FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */; };
 		FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */; };
 		FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */; };
+		FED2A66F1FD862820012CA79 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */; };
 		FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FEDB56341FCF272300821A43 /* HeroiFerido.atlas */; };
 		FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */; };
 		FEF5F94F1FCF3E5A0071FDC1 /* drum_roll.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */; };
@@ -64,7 +64,6 @@
 		2A4E4413CBC6AFF1E1612AC4 /* Pods-Musique_ez.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Musique_ez.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez.debug.xcconfig"; sourceTree = "<group>"; };
 		4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioObjectNode.swift; sourceTree = "<group>"; };
 		4043BEE51FD171AE0075F8F0 /* MusicServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServices.swift; sourceTree = "<group>"; };
-		40A7543B1FD8577D00185FF8 /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		40BBD3101FD59C3A007260F3 /* JSONManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		40BBD3121FD5AE7D007260F3 /* pulse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pulse.json; sourceTree = "<group>"; };
 		40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicSelectionViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +108,7 @@
 		FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splashing_around.mp3; sourceTree = "<group>"; };
 		FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song.mp3; sourceTree = "<group>"; };
 		FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dancing_on_green_grass.mp3; sourceTree = "<group>"; };
+		FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		FEDB56341FCF272300821A43 /* HeroiFerido.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HeroiFerido.atlas; sourceTree = "<group>"; };
 		FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bad_end.wav; sourceTree = "<group>"; };
 		FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drum_roll.wav; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		40A7543A1FD8577D00185FF8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				40A7543B1FD8577D00185FF8 /* MusicCollectionViewCell.swift */,
+				FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C192225DAB4B7FCD9B2FD11B /* [CP] Copy Pods Resources */ = {
@@ -469,7 +469,7 @@
 				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
 				40E96D781FCDC53900BE05E7 /* BasicViewController.swift in Sources */,
 				40CF86591FCDD94700ABE903 /* MusicSelectionViewController.swift in Sources */,
-				40A7543C1FD8577D00185FF8 /* MusicCollectionViewCell.swift in Sources */,
+				FED2A66F1FD862820012CA79 /* MusicCollectionViewCell.swift in Sources */,
 				FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */,
 				5A2E629A1FCF6B61000EFDD3 /* CoreDataManager.swift in Sources */,
 				40DD81001FD81D9200F22F51 /* AboutViewController.swift in Sources */,
