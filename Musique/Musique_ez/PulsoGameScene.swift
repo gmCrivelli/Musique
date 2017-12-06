@@ -176,7 +176,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         self.totalObstaclesJumped = 0
         self.obstaclesJumpedInaRow = 0
-        self.obstaclesTotal = 1
+        self.obstaclesTotal = 0
         self.timedActions = []
         self.multiplier = 1
         self.moveSpeedPerSecond = 1500.0
@@ -421,6 +421,14 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                                                   finalRank: Int(obstaclesPercent),
                                                   duration: 2.7)
             }]))
+        
+        musicPulse.lastScore = Int16(obstaclesPercent)
+        if musicPulse.lastScore > musicPulse.highScore{
+            musicPulse.highScore = Int16(obstaclesPercent)
+        }
+        
+        MusicServices.updateMusic(music: musicPulse, nil)
+        
         print(self.score, self.totalObstaclesJumped, self.obstaclesTotal, obstaclesPercent)
     }
     
@@ -439,8 +447,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
-        
-        self.endGame()
         
         if playerState == .onFloor {
             playerState = .jumping
