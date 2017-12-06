@@ -65,7 +65,7 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     // MARK: - Sound Instance Parameters
     
     /// Object audio player
-    private var player:AVAudioPlayer = AVAudioPlayer()
+    private var player:AVAudioPlayer?
     
     /// Completion block to be executed after sound is finished playing
     private var completion : () -> Void = {}
@@ -79,23 +79,22 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     init(url: URL){
         // NSObject init
         super.init()
-        
         do {
             // Instantiates the player with the contents of the URL
             self.player = try AVAudioPlayer(contentsOf: url)
             // Sets the player delegate property to self
-            self.player.delegate = self
+            self.player!.delegate = self
         } catch let error {
             print("Initialization error: \(error)")
         }
         
-        self.player.volume = 1
+        self.player!.volume = 1
     }
     
     /// Plays the corresponding sound
     func play(){
-        self.player.prepareToPlay()
-        self.player.play()
+        self.player!.prepareToPlay()
+        self.player!.play()
     }
     
     
@@ -105,19 +104,19 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     func play(_ completion: @escaping () -> Void){
         self.completion = completion
         
-        self.player.prepareToPlay()
-        self.player.play()
+        self.player!.prepareToPlay()
+        self.player!.play()
     }
     
     /// Stops playing the sound
     func stop(){
-        self.player.stop()
-        self.player.currentTime = 0.0
+        self.player!.stop()
+        self.player!.currentTime = 0.0
     }
     
     /// Pauses the song
     func pause(){
-        self.player.pause()
+        self.player!.pause()
     }
     
     // MARK: - Audioplayer Delegate methods
@@ -128,6 +127,7 @@ class Sound: NSObject, AVAudioPlayerDelegate{
     ///   - player: player object that finished playing
     ///   - flag: indicates whether it ended successfuly
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        self.player = nil
         self.completion()
     }
 }
