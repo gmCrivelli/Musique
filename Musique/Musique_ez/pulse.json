@@ -1,0 +1,30 @@
+[
+	{
+		"name": "Funny Song",
+		"fileName": "funny_song",
+		"fileExtension": "mp3",
+		"id": 0,
+		"bpm": 90,
+		"highScore": 0,
+		"lastScore": 0
+ 
+    },
+	{
+		"name": "Dancing on Green Grass",
+		"fileName": "dancing_on_green_grass",
+		"fileExtension": "mp3",
+		"id": 1,
+		"bpm": 96,
+		"highScore": 0,
+		"lastScore": 0
+	},
+	{
+		"name": "Splashing Around",
+		"fileName": "splashing_around",
+		"fileExtension": "mp3",
+		"id": 2,
+		"bpm": 102.5,
+		"highScore": 0,
+		"lastScore": 0
+	}
+]

@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
     var finalScore : String?
     
     var gameScene : PulsoGameScene!
+    var chosenMusic : MusicPulse!
     
     override func viewDidLoad() {
         

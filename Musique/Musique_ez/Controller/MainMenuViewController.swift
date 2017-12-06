@@ -11,8 +11,13 @@ import UIKit
 /// Controls the Main Menu functions
 class MainMenuViewController: BasicViewController {
 
+    /// Array referencing all buttons from the menu
+    @IBOutlet var menuButtons: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Setup button shadows
+        setupShadows()
     }
     
     
@@ -32,6 +37,23 @@ class MainMenuViewController: BasicViewController {
             print("Testing")
         default:
             performSegue(withIdentifier: "aboutSegue", sender: self)
+        }
+    }
+    
+    /// Setups shadows for the buttons
+    fileprivate func setupShadows(){
+        // Sets the parameters
+        let opacity = Float(0.3)
+        let offset = CGSize(width: -7, height: 7)
+        let color = UIColor.black.cgColor
+        let radius = CGFloat(3)
+        
+        // Applies parameters for each button
+        for button in self.menuButtons{
+            button.layer.shadowOpacity = opacity
+            button.layer.shadowRadius = radius
+            button.layer.shadowOffset = offset
+            button.layer.shadowColor = color
         }
     }
     
