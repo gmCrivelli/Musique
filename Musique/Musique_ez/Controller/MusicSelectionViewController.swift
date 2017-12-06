@@ -64,6 +64,14 @@ class MusicSelectionViewController: BasicViewController {
             gameViewController.chosenMusic = musicArray![buttonSender.tag]
         }
     }
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscapeLeft, .landscapeRight]
+    }
+    
 }
 
 

@@ -33,7 +33,7 @@ class ObstacleNode: SKSpriteNode {
     }
     
     init(speedPerSec: Double, offset: CGFloat, texture : SKTexture) {
-        super.init(texture: texture, color: .gray, size: CGSize(width: texture.size().width / 2, height: texture.size().height / 2))
+        super.init(texture: texture, color: .gray, size: CGSize(width: texture.size().width, height: texture.size().height))
         self.obstacleSpeedPerSec = speedPerSec
         setupPhysics()
         self.position = CGPoint(x: offset, y: 0)
@@ -47,6 +47,7 @@ class ObstacleNode: SKSpriteNode {
         self.physicsBody?.collisionBitMask = 0
         self.physicsBody?.contactTestBitMask = 0b1001
         self.physicsBody?.fieldBitMask = 0
+        self.zPosition = 2
         
         // Particle Physics Body
         

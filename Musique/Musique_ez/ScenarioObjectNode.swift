@@ -15,12 +15,12 @@ class ScenarioObjectNode: SKSpriteNode {
     private var layer : Int!
     
     init(isGroundObject: Bool, layer: Int, texture: SKTexture){
-        super.init(texture: nil, color: .red, size: CGSize(width: texture.size().width / 2, height: texture.size().height / 2))
+        super.init(texture: nil, color: .red, size: CGSize(width: texture.size().width, height: texture.size().height))
         self.isGroundObject = isGroundObject
         self.layer = layer
         self.physicsBody?.affectedByGravity = false
         self.texture = texture
-        self.zPosition = -6
+        self.zPosition = -2
 
         if(!isGroundObject){
             self.position.y = self.position.y + CGFloat(arc4random_uniform(80)) - 40

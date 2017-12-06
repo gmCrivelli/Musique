@@ -10,8 +10,20 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+protocol GameFinishedDelegate {
+    func performEndGameFunctions(score: Int)
+}
 
+class GameViewController: UIViewController, GameFinishedDelegate {
+    
+    var finalScore : String?
+    
+    func performEndGameFunctions(score: Int) {
+        finalScore = String(score)
+        
+        performSegue(withIdentifier: "endGameSegue", sender: self)
+    }
+    
     var gameScene : PulsoGameScene!
     var chosenMusic : MusicPulse!
     
@@ -23,6 +35,9 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "PulsoGameScene") {
                 
                 self.gameScene = scene as! PulsoGameScene
+                
+                // Configure delegate
+                self.gameScene.viewControllerDelegate = self
                 
                 // Set the scale mode to scale to fit the window
                 gameScene.scaleMode = .aspectFill
@@ -52,11 +67,7 @@ class GameViewController: UIViewController {
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
+        return [.landscapeLeft, .landscapeRight]
     }
 
     override func didReceiveMemoryWarning() {

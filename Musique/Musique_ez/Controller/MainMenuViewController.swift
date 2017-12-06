@@ -36,7 +36,7 @@ class MainMenuViewController: BasicViewController {
         case 4:
             print("Testing")
         default:
-            print("ERROR: Button doesn't exist")
+            performSegue(withIdentifier: "aboutSegue", sender: self)
         }
     }
     
@@ -55,5 +55,13 @@ class MainMenuViewController: BasicViewController {
             button.layer.shadowOffset = offset
             button.layer.shadowColor = color
         }
+    }
+    
+    override var shouldAutorotate: Bool {
+        return true
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return [.landscapeLeft, .landscapeRight]
     }
 }
