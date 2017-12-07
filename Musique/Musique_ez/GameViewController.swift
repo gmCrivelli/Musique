@@ -27,34 +27,30 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             
-            if self.gameScene == nil {
-            
-                // Load the SKScene from 'PulsoGameScene.sks'
-                if let scene = SKScene(fileNamed: "PulsoGameScene") {
-                    
-                    self.gameScene = scene as? PulsoGameScene
-                    
-                    // Configure delegate
-                    self.gameScene!.viewControllerDelegate = self
-                    
-                    // Set the scale mode to scale to fit the window
-                    gameScene!.scaleMode = .aspectFill
-                    
-                    // Sets Music
-                    gameScene!.musicPulse = chosenMusic
-                    
-                    // Present the scene
-                    view.presentScene(gameScene!)
-                    
-                    view.ignoresSiblingOrder = true
-                    
-                    view.showsFPS = true
-                    view.showsNodeCount = true
-                }
-            }
-            else {
+            // Load the SKScene from 'PulsoGameScene.sks'
+            if let scene = SKScene(fileNamed: "PulsoGameScene") {
+                
+                self.gameScene = scene as? PulsoGameScene
+                
+                // Configure delegate
+                self.gameScene!.viewControllerDelegate = self
+                
+                // Set the scale mode to scale to fit the window
+                gameScene!.scaleMode = .aspectFill
+                
+                // Sets Music
+                gameScene!.musicPulse = chosenMusic
+                
+                // Present the scene
+                view.presentScene(nil)
                 view.presentScene(gameScene!)
+                
+                view.ignoresSiblingOrder = true
+                
+                view.showsFPS = true
+                view.showsNodeCount = true
             }
+            
         }
     }
     
@@ -73,6 +69,10 @@ class GameViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    deinit{
+        print("Deinit GameVC")
     }
 }
 
