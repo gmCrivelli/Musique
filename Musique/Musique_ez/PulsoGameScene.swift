@@ -644,7 +644,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
             self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
             
-            self.moveSpeedPerSecond *= 1.01
+            self.moveSpeedPerSecond = min(self.moveSpeedPerSecond * 1.01, 2 * self.baseMoveSpeedPerSecond)
         }
         obstacleTiming = (obstacleTiming + 1) % bgMusic.obstacleSpawns.count
     }
