@@ -454,7 +454,7 @@ Dancing on Green Grass - The Green Orbs</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpo-bD-KhF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Equipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpo-bD-KhF">
                                 <rect key="frame" x="469" y="148.5" width="86.5" height="42.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="aaB-OF-b6P"/>
@@ -463,170 +463,20 @@ Dancing on Green Grass - The Green Orbs</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="DUZ-XN-hGX">
-                                <rect key="frame" x="25.5" y="222" width="973" height="246"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cK-ON-fNB">
-                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="246"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bárbara Gomes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsD-u2-7xX">
-                                                <rect key="frame" x="21.5" y="197" width="136.5" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Foto_Barbara" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-A5-0ps">
-                                                <rect key="frame" x="9" y="10" width="160.5" height="172"/>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.52733457090000002" green="0.40067672729999998" blue="0.66571789979999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="Ctp-A5-0ps" firstAttribute="width" secondItem="2cK-ON-fNB" secondAttribute="width" multiplier="0.9" id="C1u-Hq-V3F"/>
-                                            <constraint firstItem="Ctp-A5-0ps" firstAttribute="centerX" secondItem="2cK-ON-fNB" secondAttribute="centerX" id="U7y-hn-nMb"/>
-                                            <constraint firstItem="LsD-u2-7xX" firstAttribute="centerX" secondItem="Ctp-A5-0ps" secondAttribute="centerX" id="UzT-w2-Ih1"/>
-                                            <constraint firstItem="Ctp-A5-0ps" firstAttribute="height" secondItem="2cK-ON-fNB" secondAttribute="height" multiplier="0.7" id="gRv-Ka-xqg"/>
-                                            <constraint firstItem="LsD-u2-7xX" firstAttribute="top" secondItem="Ctp-A5-0ps" secondAttribute="bottom" constant="15" id="p8d-bH-uYG"/>
-                                            <constraint firstItem="Ctp-A5-0ps" firstAttribute="top" secondItem="2cK-ON-fNB" secondAttribute="top" constant="10" id="r1l-qk-zDl"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tX9-mj-C9U">
-                                        <rect key="frame" x="198.5" y="0.0" width="178.5" height="246"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Foto_Carlos" translatesAutoresizingMaskIntoConstraints="NO" id="rAw-2B-gp1">
-                                                <rect key="frame" x="8.5" y="10" width="161" height="172"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carlos Tonisso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isC-GZ-uYo">
-                                                <rect key="frame" x="27.5" y="197" width="123" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.93539601564407349" green="0.26718363165855408" blue="0.26634463667869568" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="isC-GZ-uYo" firstAttribute="centerX" secondItem="rAw-2B-gp1" secondAttribute="centerX" id="Bin-bQ-ito"/>
-                                            <constraint firstItem="rAw-2B-gp1" firstAttribute="top" secondItem="tX9-mj-C9U" secondAttribute="top" constant="10" id="Bv0-ya-P55"/>
-                                            <constraint firstItem="isC-GZ-uYo" firstAttribute="top" secondItem="rAw-2B-gp1" secondAttribute="bottom" constant="15" id="HQW-JX-2Kp"/>
-                                            <constraint firstItem="rAw-2B-gp1" firstAttribute="width" secondItem="tX9-mj-C9U" secondAttribute="width" multiplier="0.9" id="c4C-cJ-2dF"/>
-                                            <constraint firstItem="rAw-2B-gp1" firstAttribute="centerX" secondItem="tX9-mj-C9U" secondAttribute="centerX" id="e0H-p8-L0m"/>
-                                            <constraint firstItem="rAw-2B-gp1" firstAttribute="height" secondItem="tX9-mj-C9U" secondAttribute="height" multiplier="0.7" id="ylZ-bL-UcV"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdh-Ha-NVT">
-                                        <rect key="frame" x="397" y="0.0" width="179" height="246"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Foto_Ederaldo" translatesAutoresizingMaskIntoConstraints="NO" id="fN8-rv-GaA">
-                                                <rect key="frame" x="9" y="10" width="161" height="172"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ederaldo Ratz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8q-Wd-IP4">
-                                                <rect key="frame" x="26.5" y="197" width="126" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.40090394020080566" green="0.73414057493209839" blue="0.93412131071090698" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="fN8-rv-GaA" firstAttribute="width" secondItem="Vdh-Ha-NVT" secondAttribute="width" multiplier="0.9" id="7U6-W6-enL"/>
-                                            <constraint firstItem="z8q-Wd-IP4" firstAttribute="top" secondItem="fN8-rv-GaA" secondAttribute="bottom" constant="15" id="ONb-h8-sNu"/>
-                                            <constraint firstItem="fN8-rv-GaA" firstAttribute="height" secondItem="Vdh-Ha-NVT" secondAttribute="height" multiplier="0.7" id="ade-fn-WGs"/>
-                                            <constraint firstItem="z8q-Wd-IP4" firstAttribute="centerX" secondItem="fN8-rv-GaA" secondAttribute="centerX" id="nC7-nL-1s5"/>
-                                            <constraint firstItem="fN8-rv-GaA" firstAttribute="top" secondItem="Vdh-Ha-NVT" secondAttribute="top" constant="10" id="vCb-G9-e4k"/>
-                                            <constraint firstItem="fN8-rv-GaA" firstAttribute="centerX" secondItem="Vdh-Ha-NVT" secondAttribute="centerX" id="w7I-HO-QKe"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8Q-Aq-Syh">
-                                        <rect key="frame" x="596" y="0.0" width="178.5" height="246"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Foto_Crivelli" translatesAutoresizingMaskIntoConstraints="NO" id="QkZ-0N-IDM">
-                                                <rect key="frame" x="9.5" y="10" width="160" height="172"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gustavo Crivelli" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5x-hV-yus">
-                                                <rect key="frame" x="20" y="197" width="139" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="1" green="0.73333333333333328" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="i5x-hV-yus" firstAttribute="top" secondItem="QkZ-0N-IDM" secondAttribute="bottom" constant="15" id="JnT-YC-g6C"/>
-                                            <constraint firstItem="QkZ-0N-IDM" firstAttribute="height" secondItem="L8Q-Aq-Syh" secondAttribute="height" multiplier="0.7" id="Vuj-p2-Fry"/>
-                                            <constraint firstItem="QkZ-0N-IDM" firstAttribute="top" secondItem="L8Q-Aq-Syh" secondAttribute="top" constant="10" id="gRW-Ub-nHf"/>
-                                            <constraint firstItem="QkZ-0N-IDM" firstAttribute="width" secondItem="L8Q-Aq-Syh" secondAttribute="width" multiplier="0.9" id="kRn-3i-P2o"/>
-                                            <constraint firstItem="QkZ-0N-IDM" firstAttribute="centerX" secondItem="L8Q-Aq-Syh" secondAttribute="centerX" id="nfW-Fb-OC0"/>
-                                            <constraint firstItem="i5x-hV-yus" firstAttribute="centerX" secondItem="QkZ-0N-IDM" secondAttribute="centerX" id="qZR-U9-Fdi"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tLl-jd-yFc">
-                                        <rect key="frame" x="794.5" y="0.0" width="178.5" height="246"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Foto_Picanha" translatesAutoresizingMaskIntoConstraints="NO" id="VUC-O9-xpC">
-                                                <rect key="frame" x="9" y="10" width="160" height="172"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rafael Prado" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yw-2d-H3u">
-                                                <rect key="frame" x="31" y="197" width="115.5" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="1yw-2d-H3u" firstAttribute="centerX" secondItem="VUC-O9-xpC" secondAttribute="centerX" id="17H-yS-5wk"/>
-                                            <constraint firstItem="VUC-O9-xpC" firstAttribute="top" secondItem="tLl-jd-yFc" secondAttribute="top" constant="10" id="Cel-Rz-1PR"/>
-                                            <constraint firstItem="1yw-2d-H3u" firstAttribute="top" secondItem="VUC-O9-xpC" secondAttribute="bottom" constant="15" id="Sxt-eg-Oqq"/>
-                                            <constraint firstItem="VUC-O9-xpC" firstAttribute="centerX" secondItem="tLl-jd-yFc" secondAttribute="centerX" id="VS2-sM-771"/>
-                                            <constraint firstItem="VUC-O9-xpC" firstAttribute="width" secondItem="tLl-jd-yFc" secondAttribute="width" multiplier="0.9" id="eJM-cJ-ptt"/>
-                                            <constraint firstItem="VUC-O9-xpC" firstAttribute="height" secondItem="tLl-jd-yFc" secondAttribute="height" multiplier="0.7" id="rcj-8q-EGM"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CHG-99-MXf" firstAttribute="top" secondItem="DlZ-kD-oAQ" secondAttribute="bottom" constant="31" id="0WN-ff-aXR"/>
-                            <constraint firstItem="DUZ-XN-hGX" firstAttribute="width" secondItem="TTX-Hy-ecW" secondAttribute="width" multiplier="0.95" id="1Al-pS-HaE"/>
-                            <constraint firstItem="DUZ-XN-hGX" firstAttribute="top" secondItem="atb-wl-pd1" secondAttribute="bottom" constant="20" id="7rX-1B-0rb"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="width" secondItem="qyK-P5-V8f" secondAttribute="width" id="EHu-BX-0F9"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="top" secondItem="TTX-Hy-ecW" secondAttribute="top" id="SU7-gy-bkZ"/>
-                            <constraint firstItem="DUZ-XN-hGX" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="YdK-jL-fmg"/>
                             <constraint firstItem="CHG-99-MXf" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="YjE-vk-4SZ"/>
                             <constraint firstItem="atb-wl-pd1" firstAttribute="top" secondItem="yCA-nP-sXO" secondAttribute="bottom" constant="20" id="aj5-uM-7tT"/>
                             <constraint firstItem="DlZ-kD-oAQ" firstAttribute="centerX" secondItem="CHG-99-MXf" secondAttribute="centerX" id="asv-gP-Xd8"/>
                             <constraint firstItem="kpo-bD-KhF" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="fG4-Z4-6eh"/>
-                            <constraint firstItem="DUZ-XN-hGX" firstAttribute="top" secondItem="kpo-bD-KhF" secondAttribute="bottom" constant="31" id="fsO-jE-wMa"/>
                             <constraint firstItem="qyK-P5-V8f" firstAttribute="bottom" secondItem="CHG-99-MXf" secondAttribute="bottom" constant="30" id="h5x-gV-DTU"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="hXt-c3-54z"/>
                             <constraint firstItem="atb-wl-pd1" firstAttribute="leading" secondItem="qyK-P5-V8f" secondAttribute="leading" constant="20" id="lCE-lP-Ovx"/>
                             <constraint firstItem="CHG-99-MXf" firstAttribute="width" secondItem="TTX-Hy-ecW" secondAttribute="width" multiplier="0.9" id="mzg-gE-OUE"/>
-                            <constraint firstItem="DUZ-XN-hGX" firstAttribute="height" secondItem="TTX-Hy-ecW" secondAttribute="height" multiplier="0.32" id="zOI-sc-KDc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qyK-P5-V8f"/>
                     </view>
@@ -656,11 +506,6 @@ Dancing on Green Grass - The Green Orbs</string>
         <image name="BackButton" width="110" height="64"/>
         <image name="BestScore" width="234" height="149"/>
         <image name="Breve_noBG" width="205" height="280"/>
-        <image name="Foto_Barbara" width="720" height="720"/>
-        <image name="Foto_Carlos" width="1536" height="1536"/>
-        <image name="Foto_Crivelli" width="1022" height="1022"/>
-        <image name="Foto_Ederaldo" width="329" height="416"/>
-        <image name="Foto_Picanha" width="720" height="720"/>
         <image name="LastTry" width="234" height="149"/>
         <image name="MusiqueLogoBlack" width="227" height="72"/>
         <image name="Pulso" width="205" height="279"/>
