@@ -73,6 +73,7 @@
                                     <constraint firstAttribute="trailing" secondItem="KmL-QW-D8m" secondAttribute="trailing" constant="50" id="Yp1-4s-w9l"/>
                                     <constraint firstItem="BBx-gI-QQH" firstAttribute="centerY" secondItem="P2d-CK-OoN" secondAttribute="centerY" constant="10" id="bqd-CE-klz"/>
                                     <constraint firstItem="hUy-K0-RY8" firstAttribute="centerX" secondItem="P2d-CK-OoN" secondAttribute="centerX" id="soO-0G-tW9"/>
+                                    <constraint firstItem="hUy-K0-RY8" firstAttribute="width" secondItem="P2d-CK-OoN" secondAttribute="width" id="xYh-qo-IwC"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="68" translatesAutoresizingMaskIntoConstraints="NO" id="Aw9-Fg-QTr">
@@ -180,6 +181,7 @@
                                     <constraint firstItem="4L9-o8-OyU" firstAttribute="centerX" secondItem="QhW-GL-lAP" secondAttribute="centerX" id="Dcc-hq-rhl"/>
                                     <constraint firstAttribute="trailing" secondItem="yDV-a6-Yg2" secondAttribute="trailing" constant="50" id="Jpo-lC-zTP"/>
                                     <constraint firstItem="C7b-ep-Clr" firstAttribute="leading" secondItem="QhW-GL-lAP" secondAttribute="leading" constant="30" id="Qot-xz-GZh"/>
+                                    <constraint firstItem="4L9-o8-OyU" firstAttribute="width" secondItem="QhW-GL-lAP" secondAttribute="width" id="a9b-hL-cj9"/>
                                     <constraint firstItem="4L9-o8-OyU" firstAttribute="height" secondItem="QhW-GL-lAP" secondAttribute="height" id="nzI-Bi-F7X"/>
                                     <constraint firstItem="yDV-a6-Yg2" firstAttribute="centerY" secondItem="C7b-ep-Clr" secondAttribute="centerY" id="po5-gb-9Rh"/>
                                 </constraints>
@@ -427,6 +429,7 @@
                                     <constraint firstItem="4Zg-xE-mJw" firstAttribute="centerX" secondItem="yCA-nP-sXO" secondAttribute="centerX" id="20f-Yq-LNL"/>
                                     <constraint firstItem="4Zg-xE-mJw" firstAttribute="height" secondItem="yCA-nP-sXO" secondAttribute="height" id="F88-Gx-xlk"/>
                                     <constraint firstItem="GpD-6W-w0n" firstAttribute="leading" secondItem="yCA-nP-sXO" secondAttribute="leading" constant="30" id="Jcz-In-wld"/>
+                                    <constraint firstItem="4Zg-xE-mJw" firstAttribute="width" secondItem="yCA-nP-sXO" secondAttribute="width" id="LJb-SN-g80"/>
                                     <constraint firstItem="4Zg-xE-mJw" firstAttribute="centerY" secondItem="yCA-nP-sXO" secondAttribute="centerY" id="VJ0-33-qBI"/>
                                     <constraint firstItem="GpD-6W-w0n" firstAttribute="centerY" secondItem="yCA-nP-sXO" secondAttribute="centerY" constant="10" id="xfd-FH-MBa"/>
                                 </constraints>
