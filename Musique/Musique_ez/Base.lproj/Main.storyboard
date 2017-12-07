@@ -135,27 +135,11 @@
                         <outletCollection property="menuButtons" destination="fLa-cB-bvU" collectionClass="NSMutableArray" id="hlD-kK-uqB"/>
                         <outletCollection property="menuButtons" destination="3Ig-65-AfV" collectionClass="NSMutableArray" id="UmY-aY-XGR"/>
                         <segue destination="K3g-bR-XLH" kind="show" identifier="pulseSegue" id="NYl-J3-VME"/>
-                        <segue destination="rmJ-43-t4K" kind="presentation" identifier="aboutSegue" id="jtI-Hl-Jwv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TwJ-UC-da5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-643" y="113"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="bmp-UG-ZkG">
-            <objects>
-                <viewController id="rmJ-43-t4K" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cKa-ig-M2H">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="rlf-3j-I8l"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F0O-rq-DBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-643" y="939"/>
         </scene>
         <!--Music Selection View Controller-->
         <scene sceneID="MJF-0y-uUh">
@@ -680,13 +664,13 @@ Dancing on Green Grass - The Green Orbs</string>
         <image name="LastTry" width="234" height="149"/>
         <image name="MusiqueLogoBlack" width="227" height="72"/>
         <image name="Pulso" width="205" height="279"/>
-        <image name="Pulso_detail" width="1500" height="1500"/>
+        <image name="Pulso_detail" width="348" height="348"/>
         <image name="Ritmo" width="206" height="279"/>
         <image name="TopBarPattern" width="1024" height="118"/>
         <image name="buttonIniciar" width="188" height="57"/>
         <image name="info" width="54" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Tap-jN-AJm"/>
+        <segue reference="F6i-v9-Lmw"/>
     </inferredMetricsTieBreakers>
 </document>
