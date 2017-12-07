@@ -126,7 +126,7 @@ extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionVi
         cell.nextButton.tag = indexPath.row+1
         cell.previousButton.tag = indexPath.row-1
         
-        print(cell.nameLabel.text, cell.previousButton.tag, cell.nextButton.tag, self.musicArray!.count)
+        //print(cell.nameLabel.text, cell.previousButton.tag, cell.nextButton.tag, self.musicArray!.count)
         
         // Checks if the button should be displayed.
         cell.previousButton.isHidden = (cell.previousButton.tag < 0)

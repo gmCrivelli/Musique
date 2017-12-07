@@ -439,44 +439,92 @@
                                     <action selector="goBack:" destination="pl0-HN-RTe" eventType="touchUpInside" id="ZjZ-uk-tZU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHG-99-MXf">
-                                <rect key="frame" x="51.5" y="653" width="922.5" height="85"/>
-                                <string key="text">Funny Song - The Green Orbs
-Splashing Around - The Green Orbs
-Dancing on Green Grass - The Green Orbs</string>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-If-Tu2">
+                                <rect key="frame" x="200" y="283" width="222" height="227"/>
+                                <string key="text">Bárbara Gomes
+Carlos Tonisso
+Ederaldo Ratz
+Gustavo Crivelli Rafael Prado</string>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Créditos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlZ-kD-oAQ">
-                                <rect key="frame" x="458.5" y="579.5" width="107" height="42.5"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Músicas" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlZ-kD-oAQ">
+                                <rect key="frame" x="664" y="149" width="159" height="64"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="45"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Equipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpo-bD-KhF">
-                                <rect key="frame" x="469" y="148.5" width="86.5" height="42.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Green Orbs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdl-o5-AI0">
+                                <rect key="frame" x="599.5" y="283" width="288.5" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="aaB-OF-b6P"/>
+                                    <constraint firstAttribute="height" constant="64" id="wZy-aY-RjC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpo-bD-KhF">
+                                <rect key="frame" x="246" y="149" width="130" height="64"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="45"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contato" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIe-lE-gkh">
+                                <rect key="frame" x="437" y="522" width="150" height="64"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="45"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obrigado por jogar!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5So-RE-iWJ">
+                                <rect key="frame" x="261" y="634" width="503" height="80"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="56"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="musique@ratz.com.br" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qj-ET-Hdx">
+                                <rect key="frame" x="362" y="576" width="301" height="46"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHG-99-MXf">
+                                <rect key="frame" x="483" y="355" width="521" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="521" id="jnG-ZS-xgp"/>
+                                    <constraint firstAttribute="height" constant="142" id="mU0-b4-WU5"/>
+                                </constraints>
+                                <string key="text">"Funny Song"
+"Splashing Around"
+"Dancing on Green Grass"</string>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="CHG-99-MXf" firstAttribute="top" secondItem="DlZ-kD-oAQ" secondAttribute="bottom" constant="31" id="0WN-ff-aXR"/>
+                            <constraint firstItem="kpo-bD-KhF" firstAttribute="top" secondItem="4Zg-xE-mJw" secondAttribute="bottom" constant="31" id="2zu-x1-OMo"/>
+                            <constraint firstItem="kpo-bD-KhF" firstAttribute="centerX" secondItem="kKN-If-Tu2" secondAttribute="centerX" id="3SE-wf-kpN"/>
+                            <constraint firstItem="5So-RE-iWJ" firstAttribute="top" secondItem="0qj-ET-Hdx" secondAttribute="bottom" constant="12" id="6MK-YU-lBM"/>
+                            <constraint firstItem="0qj-ET-Hdx" firstAttribute="top" secondItem="CIe-lE-gkh" secondAttribute="bottom" constant="-10" id="8SM-ra-4ei"/>
+                            <constraint firstItem="qyK-P5-V8f" firstAttribute="trailing" secondItem="CHG-99-MXf" secondAttribute="trailing" constant="20" id="CHI-zx-J5r"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="width" secondItem="qyK-P5-V8f" secondAttribute="width" id="EHu-BX-0F9"/>
+                            <constraint firstItem="CIe-lE-gkh" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="N3i-x4-CsW"/>
+                            <constraint firstItem="5So-RE-iWJ" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="NuT-MD-6UW"/>
+                            <constraint firstItem="CHG-99-MXf" firstAttribute="centerX" secondItem="rdl-o5-AI0" secondAttribute="centerX" id="RgA-HX-a2P"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="top" secondItem="TTX-Hy-ecW" secondAttribute="top" id="SU7-gy-bkZ"/>
-                            <constraint firstItem="CHG-99-MXf" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="YjE-vk-4SZ"/>
+                            <constraint firstItem="0qj-ET-Hdx" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="SXP-Oc-ZtL"/>
+                            <constraint firstItem="DlZ-kD-oAQ" firstAttribute="top" secondItem="kpo-bD-KhF" secondAttribute="top" id="XSl-rv-lRX"/>
                             <constraint firstItem="atb-wl-pd1" firstAttribute="top" secondItem="yCA-nP-sXO" secondAttribute="bottom" constant="20" id="aj5-uM-7tT"/>
-                            <constraint firstItem="DlZ-kD-oAQ" firstAttribute="centerX" secondItem="CHG-99-MXf" secondAttribute="centerX" id="asv-gP-Xd8"/>
-                            <constraint firstItem="kpo-bD-KhF" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="fG4-Z4-6eh"/>
-                            <constraint firstItem="qyK-P5-V8f" firstAttribute="bottom" secondItem="CHG-99-MXf" secondAttribute="bottom" constant="30" id="h5x-gV-DTU"/>
+                            <constraint firstItem="qyK-P5-V8f" firstAttribute="bottom" secondItem="5So-RE-iWJ" secondAttribute="bottom" constant="54" id="bPk-iz-Xb4"/>
+                            <constraint firstItem="CHG-99-MXf" firstAttribute="top" secondItem="rdl-o5-AI0" secondAttribute="bottom" constant="8" id="dDH-AT-DGg"/>
+                            <constraint firstItem="rdl-o5-AI0" firstAttribute="top" secondItem="kKN-If-Tu2" secondAttribute="top" id="dRM-NI-tty"/>
                             <constraint firstItem="yCA-nP-sXO" firstAttribute="centerX" secondItem="qyK-P5-V8f" secondAttribute="centerX" id="hXt-c3-54z"/>
                             <constraint firstItem="atb-wl-pd1" firstAttribute="leading" secondItem="qyK-P5-V8f" secondAttribute="leading" constant="20" id="lCE-lP-Ovx"/>
-                            <constraint firstItem="CHG-99-MXf" firstAttribute="width" secondItem="TTX-Hy-ecW" secondAttribute="width" multiplier="0.9" id="mzg-gE-OUE"/>
+                            <constraint firstItem="rdl-o5-AI0" firstAttribute="centerX" secondItem="DlZ-kD-oAQ" secondAttribute="centerX" id="xCN-Os-6GN"/>
+                            <constraint firstItem="CIe-lE-gkh" firstAttribute="top" secondItem="kKN-If-Tu2" secondAttribute="bottom" constant="12" id="xhm-aT-D0F"/>
+                            <constraint firstItem="kKN-If-Tu2" firstAttribute="leading" secondItem="qyK-P5-V8f" secondAttribute="leading" constant="200" id="xka-IL-DX7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qyK-P5-V8f"/>
                     </view>
@@ -516,6 +564,6 @@ Dancing on Green Grass - The Green Orbs</string>
         <image name="info" width="54" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F6i-v9-Lmw"/>
+        <segue reference="Tap-jN-AJm"/>
     </inferredMetricsTieBreakers>
 </document>
