@@ -104,15 +104,15 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var jumpSfxArray : [SKAction] = []
     
     //Paralax Components
-    private var cityFrontA : SKSpriteNode!
-    private var cityFrontB : SKSpriteNode!
-    private var cityBackA : SKSpriteNode!
-    private var cityBackB : SKSpriteNode!
+    private weak var cityFrontA : SKSpriteNode!
+    private weak var cityFrontB : SKSpriteNode!
+    private weak var cityBackA : SKSpriteNode!
+    private weak var cityBackB : SKSpriteNode!
     private var originalScenarioPosition : CGPoint!
-    private var housesTileMapA : SKTileMapNode!
-    private var housesTileMapB : SKTileMapNode!
-    private var streetA : SKSpriteNode!
-    private var streetB : SKSpriteNode!
+    private weak var housesTileMapA : SKTileMapNode!
+    private weak var housesTileMapB : SKTileMapNode!
+    private weak var streetA : SKSpriteNode!
+    private weak var streetB : SKSpriteNode!
     
     private var screenEnd : CGFloat!
     
@@ -650,6 +650,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     deinit {
+        self.removeAllActions()
+        self.removeAllChildren()
         print("called deinit")
     }
 }
