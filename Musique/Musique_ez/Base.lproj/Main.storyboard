@@ -202,13 +202,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-xI-w09" userLabel="backButton">
-                                <rect key="frame" x="20" y="184" width="110" height="64"/>
-                                <state key="normal" image="BackButton"/>
-                                <connections>
-                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iPZ-WV-TEU"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vQL-QW-CZF">
                                 <rect key="frame" x="0.0" y="164" width="1366" height="860"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -468,6 +461,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EK-xI-w09" userLabel="backButton">
+                                <rect key="frame" x="20" y="184" width="110" height="64"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="iPZ-WV-TEU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.53134143352508545" green="0.40065449476242065" blue="0.6656835675239563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
