@@ -525,14 +525,6 @@
                                     <constraint firstItem="GpD-6W-w0n" firstAttribute="centerY" secondItem="yCA-nP-sXO" secondAttribute="centerY" constant="10" id="xfd-FH-MBa"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atb-wl-pd1" userLabel="backButton">
-                                <rect key="frame" x="20" y="184" width="110" height="64"/>
-                                <state key="normal" image="BackButton"/>
-                                <connections>
-                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="Lbc-pm-9lp"/>
-                                    <action selector="goBack:" destination="pl0-HN-RTe" eventType="touchUpInside" id="ZjZ-uk-tZU"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kKN-If-Tu2">
                                 <rect key="frame" x="208.5" y="408.5" width="372" height="227"/>
                                 <string key="text">Bárbara Gomes
@@ -601,6 +593,14 @@ Gustavo Crivelli Rafael Prado</string>
                                     <constraint firstAttribute="height" constant="128" id="4Gp-8u-Xb7"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atb-wl-pd1" userLabel="backButton">
+                                <rect key="frame" x="20" y="184" width="110" height="64"/>
+                                <state key="normal" image="BackButton"/>
+                                <connections>
+                                    <action selector="goBack:" destination="K3g-bR-XLH" eventType="touchUpInside" id="Lbc-pm-9lp"/>
+                                    <action selector="goBack:" destination="pl0-HN-RTe" eventType="touchUpInside" id="ZjZ-uk-tZU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.21960784310000001" green="0.57254901960000004" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
