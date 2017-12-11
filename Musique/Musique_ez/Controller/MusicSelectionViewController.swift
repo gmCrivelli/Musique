@@ -93,7 +93,7 @@ extension MusicSelectionViewController: HorizontalScrollDelegate{
 }
 
 // MARK: - UICollectionView DataSource and Delegate
-extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     /// Returns the number of items to be placed on the CollectionView
     ///
@@ -140,6 +140,18 @@ extension MusicSelectionViewController: UICollectionViewDelegate, UICollectionVi
         cell.scrollDelegate = self
         
         return cell
+    }
+    
+    /// Defines the size for cell at index upon loading the CollectionView
+    ///
+    /// - Parameters:
+    ///   - collectionView: collection view to which the cell belongs
+    ///   - collectionViewLayout: collectionView layout property
+    ///   - indexPath: indexPath of cell
+    /// - Returns: size of the cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        // Returns the size of the cell based on the collection view size (screen size)
+        return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
     }
 }
 
