@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -367,7 +368,7 @@
                                                                 <constraint firstItem="n7r-4O-Xte" firstAttribute="centerY" secondItem="Fki-h2-XYt" secondAttribute="centerY" id="x4M-qj-06l"/>
                                                             </constraints>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;MUSIC NAME&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdQ-i8-E11">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;MUSIC NAME&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdQ-i8-E11">
                                                             <rect key="frame" x="0.0" y="55.5" width="545" height="194"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" name="ChalkboardSE-Light" family="Chalkboard SE" pointSize="50"/>
@@ -668,6 +669,6 @@ Gustavo Crivelli Rafael Prado</string>
         <image name="info" width="54" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="F6i-v9-Lmw"/>
+        <segue reference="Tap-jN-AJm"/>
     </inferredMetricsTieBreakers>
 </document>
