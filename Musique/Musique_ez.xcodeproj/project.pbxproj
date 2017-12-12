@@ -38,6 +38,55 @@
 		FE5B220F1FD560AE0099D498 /* EndGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameNode.swift */; };
 		FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScene.sks */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
+		FE778B221FE0038200AFDCD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE778B211FE0038200AFDCD1 /* AppDelegate.swift */; };
+		FE778B241FE0038200AFDCD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE778B231FE0038200AFDCD1 /* ViewController.swift */; };
+		FE778B271FE0038200AFDCD1 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */; };
+		FE778B2A1FE0038200AFDCD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE778B281FE0038200AFDCD1 /* Main.storyboard */; };
+		FE778B2C1FE0038200AFDCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */; };
+		FE778B311FE003AE00AFDCD1 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */; };
+		FE778B321FE003B600AFDCD1 /* pulse.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BBD3121FD5AE7D007260F3 /* pulse.json */; };
+		FE778B331FE003C400AFDCD1 /* MusicServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4043BEE51FD171AE0075F8F0 /* MusicServices.swift */; };
+		FE778B341FE003CA00AFDCD1 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A55BB241FD1732000C8593E /* QueueManager.swift */; };
+		FE778B351FE003CE00AFDCD1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */; };
+		FE778B361FE003D100AFDCD1 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */; };
+		FE778B371FE0071100AFDCD1 /* MusicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A141CDB1FCF741B00864C70 /* MusicDAO.swift */; };
+		FE778B381FE0071700AFDCD1 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E62A31FCF6F91000EFDD3 /* Errors.swift */; };
+		FE778B391FE0071F00AFDCD1 /* MusicPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6B46711FD02A8100E8C7D9 /* MusicPulse.swift */; };
+		FE778B3A1FE0072100AFDCD1 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BBD3101FD59C3A007260F3 /* JSONManager.swift */; };
+		FE778B3B1FE0072B00AFDCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */; };
+		FE778B3C1FE0072E00AFDCD1 /* HeroiFerido.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FEDB56341FCF272300821A43 /* HeroiFerido.atlas */; };
+		FE778B3D1FE0073100AFDCD1 /* Caipora.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6499568F1FB5C4C600AD8369 /* Caipora.atlas */; };
+		FE778B3E1FE0073400AFDCD1 /* Heroi.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 645F35541FC09C300084203F /* Heroi.atlas */; };
+		FE778B3F1FE0073800AFDCD1 /* splashing_around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */; };
+		FE778B401FE0073A00AFDCD1 /* funny_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */; };
+		FE778B411FE0073C00AFDCD1 /* dancing_on_green_grass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */; };
+		FE778B421FE0073E00AFDCD1 /* the_muffin_man.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 64967B9F1FB5D797004F39BC /* the_muffin_man.mp3 */; };
+		FE778B431FE0074300AFDCD1 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
+		FE778B441FE0074400AFDCD1 /* bad_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */; };
+		FE778B451FE0074600AFDCD1 /* drum_roll.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */; };
+		FE778B461FE0074800AFDCD1 /* good_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94C1FCF3E590071FDC1 /* good_end.wav */; };
+		FE778B471FE0074A00AFDCD1 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
+		FE778B481FE0074C00AFDCD1 /* mid_end.wav in Resources */ = {isa = PBXBuildFile; fileRef = FEF5F94D1FCF3E5A0071FDC1 /* mid_end.wav */; };
+		FE778B491FE0075E00AFDCD1 /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
+		FE778B4A1FE0076200AFDCD1 /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
+		FE778B4B1FE0076300AFDCD1 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
+		FE778B4C1FE0076B00AFDCD1 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D771FCDC53900BE05E7 /* BasicViewController.swift */; };
+		FE778B4D1FE0076D00AFDCD1 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E96D791FCDCCA300BE05E7 /* MainMenuViewController.swift */; };
+		FE778B4E1FE0077900AFDCD1 /* MusicSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CF86581FCDD94700ABE903 /* MusicSelectionViewController.swift */; };
+		FE778B4F1FE0077B00AFDCD1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD80FF1FD81D9200F22F51 /* AboutViewController.swift */; };
+		FE778B501FE0077C00AFDCD1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA23501FD192F700A7FAD1 /* NavigationController.swift */; };
+		FE778B511FE0078200AFDCD1 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64967B9D1FB5D738004F39BC /* Sound.swift */; };
+		FE778B521FE0078500AFDCD1 /* PulsoGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */; };
+		FE778B531FE0078D00AFDCD1 /* EndGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScene.sks */; };
+		FE778B541FE0078E00AFDCD1 /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99E11FB4CB39006E7CCD /* Tiles.sks */; };
+		FE778B551FE0079100AFDCD1 /* BackgroundTileSet.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */; };
+		FE778B561FE0079200AFDCD1 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */; };
+		FE778B571FE0079500AFDCD1 /* PulsoGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */; };
+		FE778B581FE0079800AFDCD1 /* EndGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameNode.swift */; };
+		FE778B5A1FE0079B00AFDCD1 /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
+		FE778B5B1FE0079E00AFDCD1 /* ObstacleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */; };
+		FE778B5D1FE007AC00AFDCD1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */; };
+		FE778B5E1FE007AF00AFDCD1 /* ScenarioObjectNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */; };
 		FE7C99C81FB4BBC5006E7CCD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */; };
 		FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */; };
 		FE7C99CC1FB4BBC5006E7CCD /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */; };
@@ -93,6 +142,13 @@
 		FE5B220E1FD560AE0099D498 /* EndGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameNode.swift; sourceTree = "<group>"; };
 		FE5B22101FD5659A0099D498 /* EndGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScene.sks; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
+		FE778B1F1FE0038200AFDCD1 /* Musique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE778B211FE0038200AFDCD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FE778B231FE0038200AFDCD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
+		FE778B291FE0038200AFDCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FE778B2D1FE0038200AFDCD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique_ez.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PulsoGameScene.sks; sourceTree = "<group>"; };
@@ -117,6 +173,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FE778B1C1FE0038200AFDCD1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FE7C99C11FB4BBC5006E7CCD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -129,12 +192,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4043BEE41FD171900075F8F0 /* Service */ = {
+		4043BEE41FD171900075F8F0 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				4043BEE51FD171AE0075F8F0 /* MusicServices.swift */,
 			);
-			path = Service;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		40A7543A1FD8577D00185FF8 /* View */ = {
@@ -178,6 +241,10 @@
 		5A2E62981FCF6AAD000EFDD3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				40BBD3121FD5AE7D007260F3 /* pulse.json */,
+				5A55BB231FD172D900C8593E /* Mechanism */,
+				4043BEE41FD171900075F8F0 /* Services */,
+				5A2E62971FCF6A89000EFDD3 /* Model */,
 				5A141CDA1FCF73E900864C70 /* DAO */,
 				5A2E62991FCF6B61000EFDD3 /* CoreDataManager.swift */,
 				5A2E629B1FCF6BF4000EFDD3 /* Musique.xcdatamodeld */,
@@ -246,10 +313,83 @@
 			path = BGM;
 			sourceTree = "<group>";
 		};
+		FE778B201FE0038200AFDCD1 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				FE778B211FE0038200AFDCD1 /* AppDelegate.swift */,
+				FE778B231FE0038200AFDCD1 /* ViewController.swift */,
+				FE778B281FE0038200AFDCD1 /* Main.storyboard */,
+				FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */,
+				FE778B2D1FE0038200AFDCD1 /* Info.plist */,
+				FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */,
+			);
+			path = tvOS;
+			sourceTree = "<group>";
+		};
+		FE778B5F1FE007F400AFDCD1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
+				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
+				FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */,
+				FE7C99D61FB4BBC5006E7CCD /* LaunchScreen.storyboard */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		FE778B681FE00DF200AFDCD1 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
+				FE5B22101FD5659A0099D498 /* EndGameScene.sks */,
+				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
+				64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */,
+				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FE778B691FE00E0D00AFDCD1 /* SceneControllers */ = {
+			isa = PBXGroup;
+			children = (
+				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
+				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
+				FE5B220E1FD560AE0099D498 /* EndGameNode.swift */,
+			);
+			path = SceneControllers;
+			sourceTree = "<group>";
+		};
+		FE778B6A1FE00E3000AFDCD1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64967B9D1FB5D738004F39BC /* Sound.swift */,
+				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
+				FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */,
+				4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */,
+			);
+			name = Model;
+			path = SceneControllers/Model;
+			sourceTree = "<group>";
+		};
+		FE778B6B1FE00EA200AFDCD1 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FE1D05CF1FC83C7B00350EF9 /* BGM */,
+				FE1D05CE1FC83C7700350EF9 /* SFX */,
+				FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */,
+				FEDB56341FCF272300821A43 /* HeroiFerido.atlas */,
+				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
+				645F35541FC09C300084203F /* Heroi.atlas */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		FE7C99BB1FB4BBC5006E7CCD = {
 			isa = PBXGroup;
 			children = (
 				FE7C99C61FB4BBC5006E7CCD /* Musique_ez */,
+				FE778B201FE0038200AFDCD1 /* tvOS */,
+				FE778B5F1FE007F400AFDCD1 /* iOS */,
 				FE7C99C51FB4BBC5006E7CCD /* Products */,
 				708888538848872AA8C64CF0 /* Pods */,
 				8496201C9BE7F8369A496543 /* Frameworks */,
@@ -260,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				FE7C99C41FB4BBC5006E7CCD /* Musique_ez.app */,
+				FE778B1F1FE0038200AFDCD1 /* Musique.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -267,36 +408,14 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
-				40A7543A1FD8577D00185FF8 /* View */,
-				40BBD3121FD5AE7D007260F3 /* pulse.json */,
-				4043BEE41FD171900075F8F0 /* Service */,
-				5A55BB231FD172D900C8593E /* Mechanism */,
-				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
-				5A2E62971FCF6A89000EFDD3 /* Model */,
-				FE7C99D41FB4BBC5006E7CCD /* Assets.xcassets */,
-				FEDB56341FCF272300821A43 /* HeroiFerido.atlas */,
-				6499568F1FB5C4C600AD8369 /* Caipora.atlas */,
-				645F35541FC09C300084203F /* Heroi.atlas */,
-				FE1D05CF1FC83C7B00350EF9 /* BGM */,
-				FE1D05CE1FC83C7700350EF9 /* SFX */,
-				40E96D761FCDC50600BE05E7 /* Controller */,
-				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
-				64967B9D1FB5D738004F39BC /* Sound.swift */,
-				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
-				FE5B22101FD5659A0099D498 /* EndGameScene.sks */,
-				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
-				64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */,
-				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
-				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
-				FE5B220E1FD560AE0099D498 /* EndGameNode.swift */,
-				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
-				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
-				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
-				FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */,
-				FE7C99D61FB4BBC5006E7CCD /* LaunchScreen.storyboard */,
 				FE7C99D91FB4BBC5006E7CCD /* Info.plist */,
-				FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */,
-				4035F37E1FBB25B400DD0193 /* ScenarioObjectNode.swift */,
+				40A7543A1FD8577D00185FF8 /* View */,
+				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
+				FE778B6B1FE00EA200AFDCD1 /* Assets */,
+				40E96D761FCDC50600BE05E7 /* Controller */,
+				FE778B681FE00DF200AFDCD1 /* Scenes */,
+				FE778B691FE00E0D00AFDCD1 /* SceneControllers */,
+				FE778B6A1FE00E3000AFDCD1 /* Model */,
 			);
 			path = Musique_ez;
 			sourceTree = "<group>";
@@ -304,6 +423,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FE778B1E1FE0038200AFDCD1 /* Musique */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE778B301FE0038200AFDCD1 /* Build configuration list for PBXNativeTarget "Musique" */;
+			buildPhases = (
+				FE778B1B1FE0038200AFDCD1 /* Sources */,
+				FE778B1C1FE0038200AFDCD1 /* Frameworks */,
+				FE778B1D1FE0038200AFDCD1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Musique;
+			productName = Musique;
+			productReference = FE778B1F1FE0038200AFDCD1 /* Musique.app */;
+			productType = "com.apple.product-type.application";
+		};
 		FE7C99C31FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_ez" */;
@@ -330,10 +466,14 @@
 		FE7C99BC1FB4BBC5006E7CCD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = DoM7;
 				TargetAttributes = {
+					FE778B1E1FE0038200AFDCD1 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					FE7C99C31FB4BBC5006E7CCD = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
@@ -354,11 +494,45 @@
 			projectRoot = "";
 			targets = (
 				FE7C99C31FB4BBC5006E7CCD /* Musique_ez */,
+				FE778B1E1FE0038200AFDCD1 /* Musique */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FE778B1D1FE0038200AFDCD1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE778B541FE0078E00AFDCD1 /* Tiles.sks in Resources */,
+				FE778B321FE003B600AFDCD1 /* pulse.json in Resources */,
+				FE778B411FE0073C00AFDCD1 /* dancing_on_green_grass.mp3 in Resources */,
+				FE778B491FE0075E00AFDCD1 /* bumbo.wav in Resources */,
+				FE778B401FE0073A00AFDCD1 /* funny_song.mp3 in Resources */,
+				FE778B2C1FE0038200AFDCD1 /* Assets.xcassets in Resources */,
+				FE778B551FE0079100AFDCD1 /* BackgroundTileSet.sks in Resources */,
+				FE778B3B1FE0072B00AFDCD1 /* Assets.xcassets in Resources */,
+				FE778B461FE0074800AFDCD1 /* good_end.wav in Resources */,
+				FE778B521FE0078500AFDCD1 /* PulsoGameScene.sks in Resources */,
+				FE778B481FE0074C00AFDCD1 /* mid_end.wav in Resources */,
+				FE778B451FE0074600AFDCD1 /* drum_roll.wav in Resources */,
+				FE778B441FE0074400AFDCD1 /* bad_end.wav in Resources */,
+				FE778B3F1FE0073800AFDCD1 /* splashing_around.mp3 in Resources */,
+				FE778B4A1FE0076200AFDCD1 /* grunt2.wav in Resources */,
+				FE778B3D1FE0073100AFDCD1 /* Caipora.atlas in Resources */,
+				FE778B431FE0074300AFDCD1 /* caixa.wav in Resources */,
+				FE778B471FE0074A00AFDCD1 /* prato.wav in Resources */,
+				FE778B421FE0073E00AFDCD1 /* the_muffin_man.mp3 in Resources */,
+				FE778B561FE0079200AFDCD1 /* Actions.sks in Resources */,
+				FE778B3E1FE0073400AFDCD1 /* Heroi.atlas in Resources */,
+				FE778B2A1FE0038200AFDCD1 /* Main.storyboard in Resources */,
+				FE778B3C1FE0072E00AFDCD1 /* HeroiFerido.atlas in Resources */,
+				FE778B5A1FE0079B00AFDCD1 /* SparkParticle.sks in Resources */,
+				FE778B531FE0078D00AFDCD1 /* EndGameScene.sks in Resources */,
+				FE778B4B1FE0076300AFDCD1 /* grunt1.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FE7C99C21FB4BBC5006E7CCD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,6 +623,36 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FE778B1B1FE0038200AFDCD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE778B331FE003C400AFDCD1 /* MusicServices.swift in Sources */,
+				FE778B3A1FE0072100AFDCD1 /* JSONManager.swift in Sources */,
+				FE778B311FE003AE00AFDCD1 /* MusicCollectionViewCell.swift in Sources */,
+				FE778B391FE0071F00AFDCD1 /* MusicPulse.swift in Sources */,
+				FE778B5E1FE007AF00AFDCD1 /* ScenarioObjectNode.swift in Sources */,
+				FE778B4D1FE0076D00AFDCD1 /* MainMenuViewController.swift in Sources */,
+				FE778B501FE0077C00AFDCD1 /* NavigationController.swift in Sources */,
+				FE778B271FE0038200AFDCD1 /* Musique.xcdatamodeld in Sources */,
+				FE778B511FE0078200AFDCD1 /* Sound.swift in Sources */,
+				FE778B341FE003CA00AFDCD1 /* QueueManager.swift in Sources */,
+				FE778B4E1FE0077900AFDCD1 /* MusicSelectionViewController.swift in Sources */,
+				FE778B371FE0071100AFDCD1 /* MusicDAO.swift in Sources */,
+				FE778B5D1FE007AC00AFDCD1 /* Utilities.swift in Sources */,
+				FE778B581FE0079800AFDCD1 /* EndGameNode.swift in Sources */,
+				FE778B241FE0038200AFDCD1 /* ViewController.swift in Sources */,
+				FE778B381FE0071700AFDCD1 /* Errors.swift in Sources */,
+				FE778B571FE0079500AFDCD1 /* PulsoGameScene.swift in Sources */,
+				FE778B4C1FE0076B00AFDCD1 /* BasicViewController.swift in Sources */,
+				FE778B361FE003D100AFDCD1 /* Musique.xcdatamodeld in Sources */,
+				FE778B351FE003CE00AFDCD1 /* CoreDataManager.swift in Sources */,
+				FE778B4F1FE0077B00AFDCD1 /* AboutViewController.swift in Sources */,
+				FE778B5B1FE0079E00AFDCD1 /* ObstacleNode.swift in Sources */,
+				FE778B221FE0038200AFDCD1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FE7C99C01FB4BBC5006E7CCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -481,6 +685,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		FE778B281FE0038200AFDCD1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FE778B291FE0038200AFDCD1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -500,6 +712,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FE778B2E1FE0038200AFDCD1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
+				INFOPLIST_FILE = Musique/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.org.eldorado.bepid.Musique;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Debug;
+		};
+		FE778B2F1FE0038200AFDCD1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
+				INFOPLIST_FILE = Musique/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = br.org.eldorado.bepid.Musique;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 11.1;
+			};
+			name = Release;
+		};
 		FE7C99DA1FB4BBC5006E7CCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -613,7 +861,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -630,7 +878,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -644,6 +892,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FE778B301FE0038200AFDCD1 /* Build configuration list for PBXNativeTarget "Musique" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE778B2E1FE0038200AFDCD1 /* Debug */,
+				FE778B2F1FE0038200AFDCD1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FE7C99BF1FB4BBC5006E7CCD /* Build configuration list for PBXProject "Musique_ez" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -671,6 +928,16 @@
 				5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */,
 			);
 			currentVersion = 5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */;
+			path = Musique.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */,
+			);
+			currentVersion = FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */;
 			path = Musique.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
