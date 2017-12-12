@@ -40,7 +40,6 @@
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
 		FE778B221FE0038200AFDCD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE778B211FE0038200AFDCD1 /* AppDelegate.swift */; };
 		FE778B241FE0038200AFDCD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE778B231FE0038200AFDCD1 /* ViewController.swift */; };
-		FE778B271FE0038200AFDCD1 /* Musique.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */; };
 		FE778B2A1FE0038200AFDCD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE778B281FE0038200AFDCD1 /* Main.storyboard */; };
 		FE778B2C1FE0038200AFDCD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */; };
 		FE778B311FE003AE00AFDCD1 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */; };
@@ -145,7 +144,6 @@
 		FE778B1F1FE0038200AFDCD1 /* Musique.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musique.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE778B211FE0038200AFDCD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE778B231FE0038200AFDCD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Musique.xcdatamodel; sourceTree = "<group>"; };
 		FE778B291FE0038200AFDCD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE778B2D1FE0038200AFDCD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 				FE778B281FE0038200AFDCD1 /* Main.storyboard */,
 				FE778B2B1FE0038200AFDCD1 /* Assets.xcassets */,
 				FE778B2D1FE0038200AFDCD1 /* Info.plist */,
-				FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */,
 			);
 			path = tvOS;
 			sourceTree = "<group>";
@@ -333,6 +330,7 @@
 				FE7C99C71FB4BBC5006E7CCD /* AppDelegate.swift */,
 				FE7C99D11FB4BBC5006E7CCD /* Main.storyboard */,
 				FE7C99D61FB4BBC5006E7CCD /* LaunchScreen.storyboard */,
+				FE7C99D91FB4BBC5006E7CCD /* Info.plist */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -408,7 +406,6 @@
 		FE7C99C61FB4BBC5006E7CCD /* Musique_ez */ = {
 			isa = PBXGroup;
 			children = (
-				FE7C99D91FB4BBC5006E7CCD /* Info.plist */,
 				40A7543A1FD8577D00185FF8 /* View */,
 				5A2E62981FCF6AAD000EFDD3 /* Persistence */,
 				FE778B6B1FE00EA200AFDCD1 /* Assets */,
@@ -634,7 +631,6 @@
 				FE778B5E1FE007AF00AFDCD1 /* ScenarioObjectNode.swift in Sources */,
 				FE778B4D1FE0076D00AFDCD1 /* MainMenuViewController.swift in Sources */,
 				FE778B501FE0077C00AFDCD1 /* NavigationController.swift in Sources */,
-				FE778B271FE0038200AFDCD1 /* Musique.xcdatamodeld in Sources */,
 				FE778B511FE0078200AFDCD1 /* Sound.swift in Sources */,
 				FE778B341FE003CA00AFDCD1 /* QueueManager.swift in Sources */,
 				FE778B4E1FE0077900AFDCD1 /* MusicSelectionViewController.swift in Sources */,
@@ -928,16 +924,6 @@
 				5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */,
 			);
 			currentVersion = 5A2E629C1FCF6BF4000EFDD3 /* Musique.xcdatamodel */;
-			path = Musique.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		FE778B251FE0038200AFDCD1 /* Musique.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */,
-			);
-			currentVersion = FE778B261FE0038200AFDCD1 /* Musique.xcdatamodel */;
 			path = Musique.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
