@@ -32,6 +32,8 @@
 		64D7D65C1FCC411D00F6ABBB /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
 		64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
 		64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA23501FD192F700A7FAD1 /* NavigationController.swift */; };
+		64FF4CA91FE1961800F3AA5C /* PausedGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */; };
+		64FF4CAB1FE1A3EC00F3AA5C /* PauseGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
@@ -87,6 +89,8 @@
 		64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
 		64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumbo.wav; sourceTree = "<group>"; };
 		64DA23501FD192F700A7FAD1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PausedGameScene.sks; sourceTree = "<group>"; };
+		64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameNode.swift; sourceTree = "<group>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
@@ -284,11 +288,13 @@
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
 				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
 				FE5B22101FD5659A0099D498 /* EndGameScene.sks */,
+				64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
 				64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
 				FE5B220E1FD560AE0099D498 /* EndGameNode.swift */,
+				64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
 				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
 				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
@@ -369,6 +375,7 @@
 				64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */,
 				40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */,
 				FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */,
+				64FF4CA91FE1961800F3AA5C /* PausedGameScene.sks in Resources */,
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */,
 				FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */,
@@ -464,6 +471,7 @@
 				40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */,
 				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
+				64FF4CAB1FE1A3EC00F3AA5C /* PauseGameNode.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
@@ -613,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = P4UELCPGZV;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -630,7 +638,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = P4UELCPGZV;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

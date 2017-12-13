@@ -48,7 +48,7 @@ struct Music {
 
 class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
-    var whatever: SKNode!
+    var worldNode: SKNode!
     
     weak public var viewControllerDelegate : GameFinishedDelegate!
     
@@ -122,8 +122,10 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     // Labels and Interface
     private var endGameNode : EndGameNode?
+    private var pauseGameNode : PauseGameNode?
     private var scoreLabel : SKLabelNode!
     private var multiplierLabel : SKLabelNode!
+    private var pauseButton : SKSpriteNode!
     
     private var floorHeight: CGFloat!
     
@@ -147,6 +149,10 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private let neededForMultiplier : Int = 5
     private var obstaclesTotal : Float = 0
     
+    //Pause nodes
+    private var pauseScreenNode : SKNode!
+    private var pauseOffset : Double = 0
+    private var startCountdownNode : SKLabelNode!
     
     //Point where objects and obstacles unspawn from the scene
     var unspawnPoint : CGFloat!
@@ -182,6 +188,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.moveSpeedPerSecond = 1500.0
         self.gameState = .playing
         self.obstacleTextures = [SKTexture]()
+        self.isGamePaused = false
     }
     
     func setupMusic() {
@@ -194,21 +201,23 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupNodes() {
         //Configure background
-        self.groundedScenarioObjects = childNode(withName: "groundScenarioObjects")
+        self.worldNode = childNode(withName: "world")
         
-        self.cityFrontA = childNode(withName: "cityFrontA") as! SKSpriteNode
-        self.cityFrontB = childNode(withName: "cityFrontB") as! SKSpriteNode
+        self.groundedScenarioObjects = worldNode.childNode(withName: "groundScenarioObjects")
         
-        self.cityBackA = childNode(withName: "cityBackA") as! SKSpriteNode
-        self.cityBackB = childNode(withName: "cityBackB") as! SKSpriteNode
+        self.cityFrontA = worldNode.childNode(withName: "cityFrontA") as! SKSpriteNode
+        self.cityFrontB = worldNode.childNode(withName: "cityFrontB") as! SKSpriteNode
         
-        self.housesTileMapA = childNode(withName: "housesTileMapA") as! SKTileMapNode
-        self.housesTileMapB = childNode(withName: "housesTileMapB") as! SKTileMapNode
+        self.cityBackA = worldNode.childNode(withName: "cityBackA") as! SKSpriteNode
+        self.cityBackB = worldNode.childNode(withName: "cityBackB") as! SKSpriteNode
         
-        self.streetA = childNode(withName: "streetA") as! SKSpriteNode
-        self.streetB = childNode(withName: "streetB") as! SKSpriteNode
+        self.housesTileMapA = worldNode.childNode(withName: "housesTileMapA") as! SKTileMapNode
+        self.housesTileMapB = worldNode.childNode(withName: "housesTileMapB") as! SKTileMapNode
         
-        self.tutorialPointingFinger = childNode(withName: "tutorialFinger") as! SKSpriteNode
+        self.streetA = worldNode.childNode(withName: "streetA") as! SKSpriteNode
+        self.streetB = worldNode.childNode(withName: "streetB") as! SKSpriteNode
+        
+        self.tutorialPointingFinger = worldNode.childNode(withName: "tutorialFinger") as! SKSpriteNode
         
         screenEnd = CGFloat((scene?.size.width)!)
         unspawnPoint = -(scene?.size.width)! - ((scene?.size.width)! / 2)
@@ -216,7 +225,14 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         obstacleTextures.append(SKTexture(imageNamed: "hidrant"))
         obstacleTextures.append(SKTexture(imageNamed: "trash"))
         
-        self.scoreCollider = childNode(withName: "scoreCollider") as! SKSpriteNode
+        self.pauseButton = worldNode.childNode(withName: "pauseButton") as! SKSpriteNode
+        
+        self.pauseScreenNode = childNode(withName: "pauseScreen")
+        self.pauseScreenNode.isHidden = true
+        
+        self.startCountdownNode = pauseScreenNode.childNode(withName: "countdown") as! SKLabelNode
+        
+        self.scoreCollider = worldNode.childNode(withName: "scoreCollider") as! SKSpriteNode
         self.scoreCollider.physicsBody = SKPhysicsBody(circleOfRadius: 70)
         self.scoreCollider.physicsBody?.categoryBitMask = scoreCategory
         self.scoreCollider.physicsBody?.collisionBitMask = 0
@@ -224,11 +240,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.scoreCollider.physicsBody?.affectedByGravity = false
         
         // Configure HUD
-        self.scoreLabel = childNode(withName: "score") as! SKLabelNode
-        self.multiplierLabel = childNode(withName: "multiplier") as! SKLabelNode
+        self.scoreLabel = worldNode.childNode(withName: "score") as! SKLabelNode
+        self.multiplierLabel = worldNode.childNode(withName: "multiplier") as! SKLabelNode
         
         // Get player node from scene and store it for use later
-        self.player = self.childNode(withName: "Player") as? SKSpriteNode
+        self.player = worldNode.childNode(withName: "Player") as? SKSpriteNode
         let ppb = SKPhysicsBody(circleOfRadius: player.size.height * 0.35)
         ppb.categoryBitMask = playerCategory
         ppb.collisionBitMask = 0 //floorCategory
@@ -319,7 +335,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         let waitForNextGroundedScenarioObject = SKAction.wait(forDuration: 1.2)
         let groundedObjectsSequence = SKAction.sequence([createGroundedObjectAction, waitForNextGroundedScenarioObject])
-        self.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
+        self.worldNode.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
         
         // Sound actions
         
@@ -347,18 +363,32 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupWhatever() {
         // Setup obstacles
-        self.obstaclesParent = childNode(withName: "Obstacles")
+        self.obstaclesParent = worldNode.childNode(withName: "Obstacles")
         
         // Setup physics
         self.view?.showsPhysics = false
         self.physicsWorld.contactDelegate = self
+        
+        // Setup pause node
+        if let pNode = self.pauseGameNode {
+            pNode.setup(rectOf: self.size)
+        }
+        else {
+            
+            let pauseGameScene = SKScene(fileNamed: "PausedGameScene")
+            
+            self.pauseGameNode = pauseGameScene?.childNode(withName: "root") as? PauseGameNode
+            self.pauseGameNode!.removeFromParent()
+            self.addChild(self.pauseGameNode!)
+            self.pauseGameNode!.setup(rectOf: self.size)
+        }
         
         // Setup end game
         if let egNode = self.endGameNode {
             egNode.setup(rectOf: self.size)
         }
         else {
-    
+            
             let endGameScene = SKScene(fileNamed: "EndGameScene")
             
             self.endGameNode = endGameScene?.childNode(withName: "root") as? EndGameNode
@@ -373,7 +403,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         // Start the game
         self.score = 0
         self.tutorialPointingFinger.run(tutorialAction)
-        self.run(SKAction.repeatForever(timerAction), withKey: "synchronizerAction")
+        self.worldNode.run(SKAction.repeatForever(timerAction), withKey: "synchronizerAction")
         startWalking()
         
         bgMusic?.play{ [weak self] in
@@ -387,9 +417,32 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     // Process touches
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if gameState == .playing {
-            self.jump()
+        if isGamePaused {
+            if pauseGameNode!.menuButton.contains((touches.first?.location(in: pauseGameNode!))!) {
+                self.viewControllerDelegate.returnToSelection()
+            }
+            else if pauseGameNode!.restartButton.contains((touches.first?.location(in: pauseGameNode!))!) {
+                removeAllActions()
+                self.worldNode.removeAllActions()
+                
+                setupAll()
+                startGame()
+            }
+            else if pauseGameNode!.continueButton.contains((touches.first?.location(in: pauseGameNode!))!) {
+                resumeGame()
+            }
         }
+            
+        else if gameState == .playing {
+            
+            if pauseButton.contains((touches.first?.location(in: worldNode!))!) {
+                pauseGame()
+            }
+            else {
+                self.jump()
+            }
+        }
+            
         else if gameState == .gameOver {
             if endGameNode!.homeButton.contains((touches.first?.location(in: endGameNode!))!) {
                 self.viewControllerDelegate.returnToSelection()
@@ -397,10 +450,50 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             else if endGameNode!.restartButton.contains((touches.first?.location(in: endGameNode!))!) {
                 
                 removeAllActions()
-                
+                self.worldNode.removeAllActions()
+            
                 setupAll()
                 startGame()
             }
+        }
+    }
+    
+    //Pause the game and display the pause menu
+    func pauseGame() {
+        self.pauseGameNode!.isHidden = false
+        self.pauseGameNode!.displayBox(duration: 0.5)
+        self.worldNode.isPaused = true
+        //obstaclesParent?.isPaused = true
+        isGamePaused = true
+        bgMusic.music.pause()
+    }
+    
+    func resumeGame() {
+        
+        pauseScreenNode.isHidden = false
+        pauseGameNode?.isHidden = true
+        
+        var currentNumber = 3
+        
+        let changeValueAction = SKAction.run {
+            [weak self] in
+            self?.startCountdownNode.text = "\(currentNumber)"
+            let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / (self?.bgMusic?.bpm)!, from: 1.3, to: 1.0)
+            self?.startCountdownNode.run(scaleAction)
+            currentNumber -= 1
+        }
+        
+        let waitAction = SKAction.wait(forDuration: 60.0 / (self.bgMusic?.bpm)!)
+        
+        let sequence = SKAction.sequence([changeValueAction, waitAction])
+        
+        let loopAction = SKAction.repeat(sequence, count: 3)
+        
+        self.run(loopAction) { [weak self] in
+            self?.worldNode.isPaused = false
+            self?.bgMusic.music.play()
+            self?.isGamePaused = false
+            self?.pauseScreenNode.isHidden = true
         }
     }
     
@@ -408,13 +501,13 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     func endGame() {
         let obstaclesPercent = (self.totalObstaclesJumped / self.obstaclesTotal) * 100
         
-        self.removeAction(forKey: "synchronizerAction")
+        self.worldNode.removeAction(forKey: "synchronizerAction")
         self.obstaclesParent?.removeAllChildren()
         
         self.gameState = .gameOver
         
         self.endGameNode!.displayBox(duration: 0.5)
-        self.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run { [weak self] in
+        self.worldNode.run(SKAction.sequence([SKAction.wait(forDuration: 1), SKAction.run { [weak self] in
             self?.endGameNode!.animateAllWithSound(score: (self?.score)!,
                                                   jumpedObstacles: Int((self?.totalObstaclesJumped)!),
                                                   totalObstacles: Int((self?.obstaclesTotal)!),
@@ -447,14 +540,13 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func jump() {
-        
         if playerState == .onFloor {
             playerState = .jumping
             player.run(jumpAction) {
                 self.playerState = .onFloor
                 self.startWalking()
             }
-            self.run(jumpSfxArray[playerSoundArray[playerSound].rawValue])
+            self.worldNode.run(jumpSfxArray[playerSoundArray[playerSound].rawValue])
             print("Player Sound: \(playerSound)")
         }
     }
@@ -539,54 +631,34 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         }
         lastUpdateTime = currentTime
         
-        // Reset player horizontal position, to be safe
-        player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
+        if !self.isGamePaused {
         
-        // Calculate actual distance elapsed since last update
-        let actualOffset = CGFloat(moveSpeedPerSecond * dt)
-        
-        // Move the ground
-//        tileMap.position = CGPoint(x: (tileMap.position.x) - actualOffset, y: (tileMap.position.y))
-        // In case the ground has reached a limit distance, returns it to the initial position
-//        if tileMap.position.x <= 0 {
-//            tileMap.position = originalPosition!
-//        }
-        
-//        paralaxScenarioNodeA1.position = CGPoint(x: paralaxScenarioNodeA1.position.x - (actualOffset / 7), y: paralaxScenarioNodeA1.position.y)
-////        paralaxScenarioNodeA2.position.x = paralaxScenarioNodeA1.position.x
-//        paralaxScenarioNodeB1.position = CGPoint(x: paralaxScenarioNodeB1.position.x - (actualOffset / 7), y: paralaxScenarioNodeB1.position.y)
-////        paralaxScenarioNodeB2.position.x = paralaxScenarioNodeB1.position.x
-//        
-//        if paralaxScenarioNodeA1.position.x <= 0{
-//            paralaxScenarioNodeA1.position.x = paralaxScenarioNodeB1.position.x + paralaxScenarioNodeA1.size.width
-////            paralaxScenarioNodeA2.position.x = paralaxScenarioNodeB2.position.x + paralaxScenarioNodeA2.size.width
-//        }
-//        
-//        if paralaxScenarioNodeB1.position.x <= 0{
-//            paralaxScenarioNodeB1.position.x = paralaxScenarioNodeA1.position.x + paralaxScenarioNodeB1.size.width
-////            paralaxScenarioNodeB2.position.x = paralaxScenarioNodeA2.position.x + paralaxScenarioNodeB2.size.width
-//        }
-        
-        moveBackgroundObjects(objectA: streetA, objectB: streetB, velocity: actualOffset)
-        moveBackgroundObjects(objectA: housesTileMapA, objectB: housesTileMapB, velocity: actualOffset)
-        moveBackgroundObjects(objectA: cityBackA, objectB: cityBackB, velocity: actualOffset / 8)
-        moveBackgroundObjects(objectA: cityFrontA, objectB: cityFrontB, velocity: actualOffset / 7)
-        
-        
-        moveScenarioObjects(groundedScenarioObjects!, atLayer: 1)
-        
-        // Move obstacles
-        if let obstaculos = obstaclesParent?.children {
-            // For each obstacle
-            for obs in obstaculos{
-                let obs = obs as! ObstacleNode
-                // Updates the obstacle position at the same rate as the ground
-                obs.update(dt)
-                //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
-                // In case the obstacle has reached the outside of the screen
-                if(obs.position.x < unspawnPoint){
-                    // Removes the object from the parent node to avoid excessive memory use
-                    obs.removeFromParent()
+            // Reset player horizontal position, to be safe
+            player.position = CGPoint(x: playerOrigin.x, y: player.position.y)
+            
+            // Calculate actual distance elapsed since last update
+            let actualOffset = CGFloat(moveSpeedPerSecond * dt)
+            
+            moveBackgroundObjects(objectA: streetA, objectB: streetB, velocity: actualOffset)
+            moveBackgroundObjects(objectA: housesTileMapA, objectB: housesTileMapB, velocity: actualOffset)
+            moveBackgroundObjects(objectA: cityBackA, objectB: cityBackB, velocity: actualOffset / 8)
+            moveBackgroundObjects(objectA: cityFrontA, objectB: cityFrontB, velocity: actualOffset / 7)
+            
+            moveScenarioObjects(groundedScenarioObjects!, atLayer: 1)
+            
+            // Move obstacles
+            if let obstaculos = obstaclesParent?.children {
+                // For each obstacle
+                for obs in obstaculos{
+                    let obs = obs as! ObstacleNode
+                    // Updates the obstacle position at the same rate as the ground
+                    obs.update(dt)
+                    //obs.position = CGPoint(x: obs.position.x - actualOffset, y: obs.position.y)
+                    // In case the obstacle has reached the outside of the screen
+                    if(obs.position.x < unspawnPoint){
+                        // Removes the object from the parent node to avoid excessive memory use
+                        obs.removeFromParent()
+                    }
                 }
             }
         }
@@ -605,7 +677,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 obj.removeFromParent()
             }
         }
-        
     }
     
     func moveBackgroundObjects(objectA: SKNode, objectB: SKNode, velocity: CGFloat){
