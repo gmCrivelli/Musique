@@ -39,6 +39,7 @@
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
 		FE41E4F41FE3E78C001A701F /* metronome_high.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F21FE3E78C001A701F /* metronome_high.wav */; };
 		FE41E4F51FE3E78C001A701F /* metronome_low.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F31FE3E78C001A701F /* metronome_low.wav */; };
+		FE41E4F71FE416D8001A701F /* funny_song2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F61FE416D8001A701F /* funny_song2.mp3 */; };
 		FE5B220F1FD560AE0099D498 /* EndGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameNode.swift */; };
 		FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScene.sks */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
@@ -98,6 +99,7 @@
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
 		FE41E4F21FE3E78C001A701F /* metronome_high.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_high.wav; sourceTree = "<group>"; };
 		FE41E4F31FE3E78C001A701F /* metronome_low.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_low.wav; sourceTree = "<group>"; };
+		FE41E4F61FE416D8001A701F /* funny_song2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song2.mp3; sourceTree = "<group>"; };
 		FE5B220E1FD560AE0099D498 /* EndGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameNode.swift; sourceTree = "<group>"; };
 		FE5B22101FD5659A0099D498 /* EndGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScene.sks; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 		FE1D05CF1FC83C7B00350EF9 /* BGM */ = {
 			isa = PBXGroup;
 			children = (
+				FE41E4F61FE416D8001A701F /* funny_song2.mp3 */,
 				FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */,
 				FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */,
 				FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */,
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				64761F571FD6C3620062AEC8 /* BackgroundTileSet.sks in Resources */,
+				FE41E4F71FE416D8001A701F /* funny_song2.mp3 in Resources */,
 				FEF5F9501FCF3E5A0071FDC1 /* good_end.wav in Resources */,
 				FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */,
 				64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */,

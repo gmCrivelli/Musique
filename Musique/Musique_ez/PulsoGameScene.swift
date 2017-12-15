@@ -44,6 +44,10 @@ struct Music {
     func play(completion: @escaping () -> Void) {
         self.music.play(completion)
     }
+    
+    func getDuration() -> TimeInterval {
+        return self.music.getDuration()
+    }
 }
 
 class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
@@ -101,6 +105,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var crashAction : SKAction!
     private var timerAction : SKAction!
     private var tutorialAction : SKAction!
+    private var moveTimelineAction : SKAction!
     private var timedActions : [SKAction] = []
     private var jumpSfxArray : [SKAction] = []
     
@@ -127,6 +132,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private var scoreLabel : SKLabelNode!
     private var multiplierLabel : SKLabelNode!
     private var pauseButton : SKSpriteNode!
+    private var timeBody : SKSpriteNode!
     
     private var floorHeight: CGFloat!
     
@@ -243,9 +249,11 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         // Configure HUD
         self.scoreLabel = worldNode.childNode(withName: "score") as! SKLabelNode
         self.multiplierLabel = worldNode.childNode(withName: "multiplier") as! SKLabelNode
+        self.timeBody = worldNode.childNode(withName: "timebody") as! SKSpriteNode
         
         // Get player node from scene and store it for use later
         self.player = worldNode.childNode(withName: "Player") as? SKSpriteNode
+        self.player.position = CGPoint(x: 336, y: 500)
         let ppb = SKPhysicsBody(circleOfRadius: player.size.height * 0.35)
         ppb.categoryBitMask = playerCategory
         ppb.collisionBitMask = 0 //floorCategory
@@ -348,7 +356,6 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.jumpSfxArray = [bumboAction, caixaAction, pratoAction]
         
         // Visual effects actions
-        
         let blinkAction = SKAction.fadeAlpha(to: 0.0, duration: playerInvincibilityTime / 4.0)
         let unblinkAction = SKAction.fadeAlpha(to: 1.0, duration: playerInvincibilityTime / 4.0)
         let hurtAnimationAction = SKAction.run({
@@ -360,6 +367,9 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         let blinkSequence = SKAction.sequence([blinkAction, unblinkAction, blinkAction, unblinkAction, unhurtAnimationAction])
         self.crashAction = SKAction.group([hurtAnimationAction, gruntAction, blinkSequence])
+        
+        // Timeline action
+        self.moveTimelineAction = SKAction.moveTo(x: 2258, duration: self.bgMusic.getDuration())
     }
     
     func setupWhatever() {
@@ -401,10 +411,15 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     
     func startGame() {
         
+        print(Thread.isMainThread)
+        
         // Start the game
+        self.timeBody.run(SKAction.move(to: CGPoint(x: 480, y: 1961), duration: 0.0))
         self.score = 0
+        self.isGamePaused = false
         self.tutorialPointingFinger.run(tutorialAction)
         self.worldNode.run(SKAction.repeatForever(timerAction), withKey: "synchronizerAction")
+        self.timeBody.run(moveTimelineAction)
         startWalking()
         
         bgMusic?.play{ [weak self] in
@@ -423,14 +438,21 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 self.viewControllerDelegate.returnToSelection()
             }
             else if pauseGameNode!.restartButton.contains((touches.first?.location(in: pauseGameNode!))!) {
+                
+                self.worldNode.isPaused = false
+                
+                self.bgMusic.music.stop()
+                self.worldNode.removeAction(forKey: "synchronizerAction")
+                self.obstaclesParent?.removeAllChildren()
+                
                 removeAllActions()
                 self.worldNode.removeAllActions()
                 
                 setupAll()
-                startGame()
+                resumeGame(type: 2)
             }
             else if pauseGameNode!.continueButton.contains((touches.first?.location(in: pauseGameNode!))!) {
-                resumeGame()
+                resumeGame(type: 1)
             }
         }
             
@@ -449,6 +471,8 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
                 self.viewControllerDelegate.returnToSelection()
             }
             else if endGameNode!.restartButton.contains((touches.first?.location(in: endGameNode!))!) {
+                
+                print(Thread.isMainThread)
                 
                 removeAllActions()
                 self.worldNode.removeAllActions()
@@ -469,7 +493,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         bgMusic.music.pause()
     }
     
-    func resumeGame() {
+    func resumeGame(type: Int) {
         
         pauseScreenNode.isHidden = false
         pauseGameNode?.isHidden = true
@@ -491,17 +515,28 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         
         let loopAction = SKAction.repeat(sequence, count: 3)
         
-        self.run(loopAction) { [weak self] in
-            self?.worldNode.isPaused = false
-            self?.bgMusic.music.play()
-            self?.isGamePaused = false
-            self?.pauseScreenNode.isHidden = true
+        if(type == 1) {
+            self.run(loopAction) { [weak self] in
+                self?.worldNode.isPaused = false
+                self?.bgMusic.music.play()
+                self?.isGamePaused = false
+                self?.pauseScreenNode.isHidden = true
+            }
+        }
+        else {
+            self.run(loopAction) { [weak self] in
+                self?.startGame()
+                self?.worldNode.isPaused = false
+                self?.bgMusic.music.play()
+                self?.isGamePaused = false
+                self?.pauseScreenNode.isHidden = true
+            }
         }
     }
     
     //End the game and perform the segue to the end screen
     func endGame() {
-        let obstaclesPercent = (self.totalObstaclesJumped / self.obstaclesTotal) * 100
+        let obstaclesPercent = (self.totalObstaclesJumped / max(1, self.obstaclesTotal)) * 100
         
         self.worldNode.removeAction(forKey: "synchronizerAction")
         self.obstaclesParent?.removeAllChildren()
@@ -717,7 +752,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             let random = Int(arc4random_uniform(UInt32(obstacleTextures.count)))
             self.obstaclesParent?.addChild(ObstacleNode(speedPerSec: self.moveSpeedPerSecond, offset: offset, texture: obstacleTextures[random]))
             
-            self.moveSpeedPerSecond = min(self.moveSpeedPerSecond * 1.01, 1.6 * self.baseMoveSpeedPerSecond)
+            //self.moveSpeedPerSecond = min(self.moveSpeedPerSecond * 1.01, 1.6 * self.baseMoveSpeedPerSecond)
         }
         obstacleTiming = (obstacleTiming + 1) % bgMusic.obstacleSpawns.count
     }
