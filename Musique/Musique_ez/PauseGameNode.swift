@@ -21,10 +21,6 @@ class PauseGameNode : SKNode {
     public var continueButton : SKSpriteNode!
     public var menuButton : SKSpriteNode!
     
-    // Sound actions
-    private var drumrollSoundAction : SKAction!
-    private var endSoundActions : [SKAction] = []
-    
     // Action for movement
     private var moveBoxAction : SKAction!
     
@@ -35,14 +31,6 @@ class PauseGameNode : SKNode {
         self.restartButton = box?.childNode(withName: "restartButton") as! SKSpriteNode
         self.continueButton = box?.childNode(withName: "continueButton") as! SKSpriteNode
         self.menuButton = box?.childNode(withName: "menuButton") as! SKSpriteNode
-        
-        // Setup sound actions
-        self.drumrollSoundAction = SKAction.playSoundFileNamed("drum_roll.wav", waitForCompletion: false)
-        
-        let goodSoundAction = SKAction.playSoundFileNamed("good_end.wav", waitForCompletion: false)
-        let midSoundAction = SKAction.playSoundFileNamed("mid_end.wav", waitForCompletion: false)
-        let badSoundAction = SKAction.playSoundFileNamed("bad_end.wav", waitForCompletion: false)
-        self.endSoundActions = [badSoundAction, midSoundAction, goodSoundAction]
         
         // Darkener for the rest of the screen
         if let darkRect = self.darkenerRectangle {

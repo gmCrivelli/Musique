@@ -95,6 +95,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
     private let particleCategory : UInt32 = 0b10000
     
     // Preloaded actions
+    private var metronomeSoundAction : SKAction!
     private var jumpAction : SKAction!
     private var spawnObstacleAction : SKAction!
     private var crashAction : SKAction!
@@ -338,7 +339,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
         self.worldNode.run(SKAction.sequence([SKAction.wait(forDuration: 0),SKAction.repeatForever(groundedObjectsSequence)]))
         
         // Sound actions
-        
+        self.metronomeSoundAction = SKAction.playSoundFileNamed("metronome_low.wav", waitForCompletion: false)
         let gruntAction = SKAction.playSoundFileNamed("grunt1.wav", waitForCompletion: false)
         
         let bumboAction = SKAction.playSoundFileNamed("bumbo.wav", waitForCompletion: false)
@@ -480,6 +481,7 @@ class PulsoGameScene: SKScene, SKPhysicsContactDelegate {
             self?.startCountdownNode.text = "\(currentNumber)"
             let scaleAction = SKEase.scale(easeFunction: .curveTypeQuadratic , easeType: .easeTypeOut, time: 60.0 / (self?.bgMusic?.bpm)!, from: 1.3, to: 1.0)
             self?.startCountdownNode.run(scaleAction)
+            self?.run((self?.metronomeSoundAction)!)
             currentNumber -= 1
         }
         
