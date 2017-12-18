@@ -308,12 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE7C99DC1FB4BBC5006E7CCD /* Build configuration list for PBXNativeTarget "Musique_ez" */;
 			buildPhases = (
-				565B486EB77459E8F2567A15 /* [CP] Check Pods Manifest.lock */,
+				BE60B60F6AA9FBFC2C31A16A /* [CP] Check Pods Manifest.lock */,
 				FE7C99C01FB4BBC5006E7CCD /* Sources */,
 				FE7C99C11FB4BBC5006E7CCD /* Frameworks */,
 				FE7C99C21FB4BBC5006E7CCD /* Resources */,
-				C856047A7BC3627EA8E7E1CA /* [CP] Embed Pods Frameworks */,
-				C192225DAB4B7FCD9B2FD11B /* [CP] Copy Pods Resources */,
+				8E64BBA44A7BC6C21FF0668B /* [CP] Embed Pods Frameworks */,
+				EBFC5BAC3ED8A87CD1843213 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -395,7 +395,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		565B486EB77459E8F2567A15 /* [CP] Check Pods Manifest.lock */ = {
+		8E64BBA44A7BC6C21FF0668B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SpriteKitEasingSwift/SpriteKitEasingSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpriteKitEasingSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE60B60F6AA9FBFC2C31A16A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,7 +431,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C192225DAB4B7FCD9B2FD11B /* [CP] Copy Pods Resources */ = {
+		EBFC5BAC3ED8A87CD1843213 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -426,24 +444,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C856047A7BC3627EA8E7E1CA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SpriteKitEasingSwift/SpriteKitEasingSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SpriteKitEasingSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

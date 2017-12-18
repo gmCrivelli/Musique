@@ -25,9 +25,6 @@ class MusicCollectionViewCell: UICollectionViewCell {
     
     var scrollDelegate:HorizontalScrollDelegate?
     
-    @IBAction func playGame(_ sender: UIButton) {
-    }
-    
     @IBAction func nextMusic(_ sender: UIButton) {
         scrollDelegate?.scroll(to: sender.tag)
     }
