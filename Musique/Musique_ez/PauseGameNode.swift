@@ -16,7 +16,7 @@ class PauseGameNode : SKNode {
     
     // Child nodes
     private var darkenerRectangle : SKShapeNode?
-    private var box : SKSpriteNode!
+    private var box : SKNode!
     public var restartButton : SKSpriteNode!
     public var continueButton : SKSpriteNode!
     public var menuButton : SKSpriteNode!
@@ -26,7 +26,7 @@ class PauseGameNode : SKNode {
     
     func setup(rectOf size: CGSize) {
         // Setup child nodes
-        self.box = self.childNode(withName: "box") as! SKSpriteNode
+        self.box = self.childNode(withName: "box")
         
         self.restartButton = box?.childNode(withName: "restartButton") as! SKSpriteNode
         self.continueButton = box?.childNode(withName: "continueButton") as! SKSpriteNode
@@ -59,7 +59,7 @@ class PauseGameNode : SKNode {
             let adjustedTime = (t / CGFloat(duration)) * (t / CGFloat(duration))
             
             self?.box.position = CGPoint(x: 0, y: -4000 * (1 - adjustedTime))
-            self?.darkenerRectangle!.alpha = 0.5 * adjustedTime
+            self?.darkenerRectangle!.alpha = 0.7 * adjustedTime
         })
     }
     
