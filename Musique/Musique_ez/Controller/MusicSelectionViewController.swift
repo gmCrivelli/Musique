@@ -15,6 +15,9 @@ class MusicSelectionViewController: BasicViewController {
     // Collection View Outlet property
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // Top bar view
+    @IBOutlet weak var topBar: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Sets the collection view delegate and dataSource properties to self
@@ -30,6 +33,8 @@ class MusicSelectionViewController: BasicViewController {
                 self.collectionView.reloadData()
             }
         }
+        
+        setupShadows()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +77,19 @@ class MusicSelectionViewController: BasicViewController {
         return [.landscapeLeft, .landscapeRight]
     }
     
+    /// Setups shadows for the top bar
+    fileprivate func setupShadows(){
+        // Sets the parameters
+        let opacity = Float(0.3)
+        let color = UIColor.black.cgColor
+        let radius = CGFloat(3)
+        
+        // Apply parameters
+        topBar.layer.shadowOpacity = opacity
+        topBar.layer.shadowRadius = radius
+        topBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+        topBar.layer.shadowColor = color
+    }
 }
 
 

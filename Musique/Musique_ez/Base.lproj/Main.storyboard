@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QNN-1E-92T">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QNN-1E-92T">
     <device id="ipad12_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -143,6 +143,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wgK-s3-trD"/>
                     <connections>
+                        <outlet property="topBar" destination="P2d-CK-OoN" id="ttP-CJ-Coe"/>
                         <outletCollection property="menuButtons" destination="jTB-oP-ZCq" collectionClass="NSMutableArray" id="lix-Ot-Cps"/>
                         <outletCollection property="menuButtons" destination="fLa-cB-bvU" collectionClass="NSMutableArray" id="hlD-kK-uqB"/>
                         <outletCollection property="menuButtons" destination="3Ig-65-AfV" collectionClass="NSMutableArray" id="UmY-aY-XGR"/>
@@ -307,6 +308,8 @@
                                                                     <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
+                                                                    <color key="shadowColor" red="0.56729733090185674" green="0.56729733090185674" blue="0.56729733090185674" alpha="0.62412528757668717" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <size key="shadowOffset" width="0.0" height="0.0"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4b-6f-89P">
                                                                     <rect key="frame" x="145.5" y="-9.5" width="41" height="71"/>
@@ -437,6 +440,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="vQL-QW-CZF" id="3bj-qM-Juk"/>
+                        <outlet property="topBar" destination="QhW-GL-lAP" id="Df3-y7-pI6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rwr-h8-ZvP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -631,6 +635,9 @@ Green Grass"</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qyK-P5-V8f"/>
                     </view>
+                    <connections>
+                        <outlet property="topBar" destination="yCA-nP-sXO" id="CLA-z9-RTu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="keM-9e-CSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

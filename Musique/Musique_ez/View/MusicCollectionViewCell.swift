@@ -14,6 +14,7 @@ protocol HorizontalScrollDelegate{
 
 class MusicCollectionViewCell: UICollectionViewCell {
     
+    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bestScore: UILabel!
     @IBOutlet weak var lastScore: UILabel!

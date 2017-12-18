@@ -119,6 +119,11 @@ class Sound: NSObject, AVAudioPlayerDelegate{
         self.player!.pause()
     }
     
+    /// Returns the duration of the song
+    func getDuration() -> TimeInterval {
+        return self.player!.duration
+    }
+    
     // MARK: - Audioplayer Delegate methods
     
     ///  This Audioplayer delegate method is called when the player finishes playing

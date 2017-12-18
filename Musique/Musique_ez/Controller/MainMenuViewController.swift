@@ -13,6 +13,7 @@ class MainMenuViewController: BasicViewController {
 
     /// Array referencing all buttons from the menu
     @IBOutlet var menuButtons: [UIButton]!
+    @IBOutlet weak var topBar: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,12 @@ class MainMenuViewController: BasicViewController {
             button.layer.shadowOffset = offset
             button.layer.shadowColor = color
         }
+        
+        // Setups shadows for top bar
+        topBar.layer.shadowOpacity = opacity
+        topBar.layer.shadowRadius = radius
+        topBar.layer.shadowOffset = CGSize(width: 0, height: 7)
+        topBar.layer.shadowColor = color
     }
     
     override var shouldAutorotate: Bool {

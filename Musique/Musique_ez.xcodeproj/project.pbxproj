@@ -32,9 +32,14 @@
 		64D7D65C1FCC411D00F6ABBB /* SparkParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */; };
 		64D7D65E1FCC4E5900F6ABBB /* bumbo.wav in Resources */ = {isa = PBXBuildFile; fileRef = 64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */; };
 		64DA23511FD192F700A7FAD1 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DA23501FD192F700A7FAD1 /* NavigationController.swift */; };
+		64FF4CA91FE1961800F3AA5C /* PausedGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */; };
+		64FF4CAB1FE1A3EC00F3AA5C /* PauseGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */; };
 		FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE00ED381FBB17B900C54F1D /* grunt2.wav */; };
 		FE1D05D31FC83C8E00350EF9 /* prato.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D01FC83C8E00350EF9 /* prato.wav */; };
 		FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE1D05D21FC83C8E00350EF9 /* caixa.wav */; };
+		FE41E4F41FE3E78C001A701F /* metronome_high.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F21FE3E78C001A701F /* metronome_high.wav */; };
+		FE41E4F51FE3E78C001A701F /* metronome_low.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F31FE3E78C001A701F /* metronome_low.wav */; };
+		FE41E4F71FE416D8001A701F /* funny_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE41E4F61FE416D8001A701F /* funny_song.mp3 */; };
 		FE5B220F1FD560AE0099D498 /* EndGameNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5B220E1FD560AE0099D498 /* EndGameNode.swift */; };
 		FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE5B22101FD5659A0099D498 /* EndGameScene.sks */; };
 		FE75FEB81FBAFFFF001B4116 /* grunt1.wav in Resources */ = {isa = PBXBuildFile; fileRef = FE75FEB71FBAFFFE001B4116 /* grunt1.wav */; };
@@ -49,7 +54,7 @@
 		FE7C99E01FB4C1BC006E7CCD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */; };
 		FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE7C99E11FB4CB39006E7CCD /* Tiles.sks */; };
 		FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */; };
-		FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */; };
+		FEB51CD71FCEEC1900F9AF88 /* funny_song3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD41FCEEC1800F9AF88 /* funny_song3.mp3 */; };
 		FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */; };
 		FED2A66F1FD862820012CA79 /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */; };
 		FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */ = {isa = PBXBuildFile; fileRef = FEDB56341FCF272300821A43 /* HeroiFerido.atlas */; };
@@ -87,9 +92,14 @@
 		64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SparkParticle.sks; sourceTree = "<group>"; };
 		64D7D65D1FCC4E5900F6ABBB /* bumbo.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bumbo.wav; sourceTree = "<group>"; };
 		64DA23501FD192F700A7FAD1 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PausedGameScene.sks; sourceTree = "<group>"; };
+		64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseGameNode.swift; sourceTree = "<group>"; };
 		FE00ED381FBB17B900C54F1D /* grunt2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt2.wav; sourceTree = "<group>"; };
 		FE1D05D01FC83C8E00350EF9 /* prato.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = prato.wav; sourceTree = "<group>"; };
 		FE1D05D21FC83C8E00350EF9 /* caixa.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = caixa.wav; sourceTree = "<group>"; };
+		FE41E4F21FE3E78C001A701F /* metronome_high.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_high.wav; sourceTree = "<group>"; };
+		FE41E4F31FE3E78C001A701F /* metronome_low.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = metronome_low.wav; sourceTree = "<group>"; };
+		FE41E4F61FE416D8001A701F /* funny_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song.mp3; sourceTree = "<group>"; };
 		FE5B220E1FD560AE0099D498 /* EndGameNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameNode.swift; sourceTree = "<group>"; };
 		FE5B22101FD5659A0099D498 /* EndGameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndGameScene.sks; sourceTree = "<group>"; };
 		FE75FEB71FBAFFFE001B4116 /* grunt1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = grunt1.wav; sourceTree = "<group>"; };
@@ -106,7 +116,7 @@
 		FE7C99DF1FB4C1BC006E7CCD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FE7C99E11FB4CB39006E7CCD /* Tiles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Tiles.sks; sourceTree = "<group>"; };
 		FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = splashing_around.mp3; sourceTree = "<group>"; };
-		FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song.mp3; sourceTree = "<group>"; };
+		FEB51CD41FCEEC1800F9AF88 /* funny_song3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = funny_song3.mp3; sourceTree = "<group>"; };
 		FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dancing_on_green_grass.mp3; sourceTree = "<group>"; };
 		FED2A66E1FD862810012CA79 /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
 		FEDB56341FCF272300821A43 /* HeroiFerido.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = HeroiFerido.atlas; sourceTree = "<group>"; };
@@ -222,6 +232,8 @@
 		FE1D05CE1FC83C7700350EF9 /* SFX */ = {
 			isa = PBXGroup;
 			children = (
+				FE41E4F21FE3E78C001A701F /* metronome_high.wav */,
+				FE41E4F31FE3E78C001A701F /* metronome_low.wav */,
 				FE1D05D21FC83C8E00350EF9 /* caixa.wav */,
 				FEF5F94A1FCF3E590071FDC1 /* bad_end.wav */,
 				FEF5F94B1FCF3E590071FDC1 /* drum_roll.wav */,
@@ -238,8 +250,9 @@
 		FE1D05CF1FC83C7B00350EF9 /* BGM */ = {
 			isa = PBXGroup;
 			children = (
+				FE41E4F61FE416D8001A701F /* funny_song.mp3 */,
 				FEB51CD21FCEEBFA00F9AF88 /* splashing_around.mp3 */,
-				FEB51CD41FCEEC1800F9AF88 /* funny_song.mp3 */,
+				FEB51CD41FCEEC1800F9AF88 /* funny_song3.mp3 */,
 				FEB51CD51FCEEC1800F9AF88 /* dancing_on_green_grass.mp3 */,
 				64967B9F1FB5D797004F39BC /* the_muffin_man.mp3 */,
 			);
@@ -284,11 +297,13 @@
 				64967B9D1FB5D738004F39BC /* Sound.swift */,
 				FE7C99C91FB4BBC5006E7CCD /* PulsoGameScene.sks */,
 				FE5B22101FD5659A0099D498 /* EndGameScene.sks */,
+				64FF4CA81FE1961800F3AA5C /* PausedGameScene.sks */,
 				FE7C99E11FB4CB39006E7CCD /* Tiles.sks */,
 				64761F561FD6C3620062AEC8 /* BackgroundTileSet.sks */,
 				FE7C99CB1FB4BBC5006E7CCD /* Actions.sks */,
 				FE7C99CD1FB4BBC5006E7CCD /* PulsoGameScene.swift */,
 				FE5B220E1FD560AE0099D498 /* EndGameNode.swift */,
+				64FF4CAA1FE1A3EC00F3AA5C /* PauseGameNode.swift */,
 				FE7C99CF1FB4BBC5006E7CCD /* GameViewController.swift */,
 				64D7D65B1FCC411D00F6ABBB /* SparkParticle.sks */,
 				641E5ED81FC0D4F30097DD54 /* ObstacleNode.swift */,
@@ -364,19 +379,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				64761F571FD6C3620062AEC8 /* BackgroundTileSet.sks in Resources */,
+				FE41E4F71FE416D8001A701F /* funny_song.mp3 in Resources */,
 				FEF5F9501FCF3E5A0071FDC1 /* good_end.wav in Resources */,
 				FEF5F94E1FCF3E5A0071FDC1 /* bad_end.wav in Resources */,
 				64967BA01FB5D797004F39BC /* the_muffin_man.mp3 in Resources */,
 				40BBD3131FD5AE7E007260F3 /* pulse.json in Resources */,
-				FEB51CD71FCEEC1900F9AF88 /* funny_song.mp3 in Resources */,
+				FEB51CD71FCEEC1900F9AF88 /* funny_song3.mp3 in Resources */,
+				64FF4CA91FE1961800F3AA5C /* PausedGameScene.sks in Resources */,
 				FE7C99D31FB4BBC5006E7CCD /* Main.storyboard in Resources */,
 				FE1D05D51FC83C8E00350EF9 /* caixa.wav in Resources */,
 				FEDB56351FCF272300821A43 /* HeroiFerido.atlas in Resources */,
 				FEF5F9511FCF3E5A0071FDC1 /* mid_end.wav in Resources */,
+				FE41E4F51FE3E78C001A701F /* metronome_low.wav in Resources */,
 				FEB51CD31FCEEBFA00F9AF88 /* splashing_around.mp3 in Resources */,
 				FE7C99CA1FB4BBC5006E7CCD /* PulsoGameScene.sks in Resources */,
 				FE7C99D51FB4BBC5006E7CCD /* Assets.xcassets in Resources */,
 				FE5B22111FD5659A0099D498 /* EndGameScene.sks in Resources */,
+				FE41E4F41FE3E78C001A701F /* metronome_high.wav in Resources */,
 				FEB51CD81FCEEC1900F9AF88 /* dancing_on_green_grass.mp3 in Resources */,
 				FE00ED391FBB17BA00C54F1D /* grunt2.wav in Resources */,
 				FE7C99E21FB4CB39006E7CCD /* Tiles.sks in Resources */,
@@ -410,7 +429,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Musique_ez/Pods-Musique_ez-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BE60B60F6AA9FBFC2C31A16A /* [CP] Check Pods Manifest.lock */ = {
@@ -464,6 +483,7 @@
 				40BBD3111FD59C3A007260F3 /* JSONManager.swift in Sources */,
 				5A2E62A41FCF6F91000EFDD3 /* Errors.swift in Sources */,
 				64967B9E1FB5D738004F39BC /* Sound.swift in Sources */,
+				64FF4CAB1FE1A3EC00F3AA5C /* PauseGameNode.swift in Sources */,
 				4035F37F1FBB25B400DD0193 /* ScenarioObjectNode.swift in Sources */,
 				FE7C99D01FB4BBC5006E7CCD /* GameViewController.swift in Sources */,
 				5A141CDC1FCF741B00864C70 /* MusicDAO.swift in Sources */,
@@ -613,7 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -630,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X6FRCZP2YP;
+				DEVELOPMENT_TEAM = UMGS9WR96D;
 				INFOPLIST_FILE = Musique_ez/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

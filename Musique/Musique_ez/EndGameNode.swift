@@ -16,7 +16,7 @@ class EndGameNode : SKNode {
     
     // Child nodes
     private var darkenerRectangle : SKShapeNode?
-    private var box : SKSpriteNode!
+    private var box : SKNode!
     public var restartButton : SKSpriteNode!
     public var homeButton : SKSpriteNode!
     
@@ -33,9 +33,9 @@ class EndGameNode : SKNode {
     
     func setup(rectOf size: CGSize) {
         // Setup child nodes
-        self.box = self.childNode(withName: "box") as! SKSpriteNode
+        self.box = self.childNode(withName: "box")
         
-        self.scoreLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
+        //self.scoreLabel = box?.childNode(withName: "scoreLabel") as! SKLabelNode
         self.obstacleLabel = box?.childNode(withName: "obstacleLabel") as! SKLabelNode
         self.rankLabel = box?.childNode(withName: "rankLabel") as! SKLabelNode
         
@@ -122,7 +122,7 @@ class EndGameNode : SKNode {
         
         self.parent?.run(soundActionSequence)
         
-        animateScore(score: score, duration: duration)
+        //animateScore(score: score, duration: duration)
         animateObstacles(jumpedObstacles: jumpedObstacles, totalObstacles: totalObstacles, duration: duration)
         animateRank(finalRank: finalRank, duration: duration)
     }
